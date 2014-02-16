@@ -12,6 +12,7 @@
 	# 	App.execute "footer:show"
 
 	App.addInitializer ->
+		App.module("HeaderApp").start()
 		App.module("FooterApp").start()
 
 
