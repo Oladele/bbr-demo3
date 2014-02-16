@@ -1,12 +1,12 @@
-<div class="center hero-unit">
-	<h1>Welcome to the Sample App</h1>
-	<h2>
-		This is the home page for the
-		<a href="http://railstutorial.org/">
-			Ruby on Rails Tutorial
-		</a>
-		sample application.
-	</h2>
-
-	<%= link_to "Sign up now!", class: "btn btn-large btn-primary" %>
+<div id="wrap">
+	<div id="header-region"></div>
+	<div id="main-region" class="container"></div>
+	<div id="push"></div>
 </div>
+<div id="footer-region"></div>
+
+<%= javascript_tag do %>
+	$(function(){
+		Demo.start()
+	});
+<% end %>
