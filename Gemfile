@@ -23,6 +23,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'eco'
 gem 'compass-rails'
+gem 'rabl'
+gem 'oj'
+gem 'gon'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

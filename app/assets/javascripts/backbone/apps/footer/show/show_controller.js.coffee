@@ -3,6 +3,7 @@
 	Show.Controller =
 
 			showFooter: ->
+				console.log gon
 				footerView = @getFooterView()
 				App.footerRegion.show footerView
 
