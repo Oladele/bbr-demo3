@@ -1,6 +1,6 @@
 <% console.log gon %>
 <div id="footer">
 	<div class="container">
-		<p class="muted">BackboneRails.com - Episode 05 - Demo2</p>
+		<p class="muted">BackboneRails.com - Episode 05 - Demo2 - <%= @full_name %></p>
 	</div>
 </div>

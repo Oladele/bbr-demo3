@@ -1,10 +1,13 @@
 collection @users
 
-attributes :id, :first_name, :last_name, :full_name, :created_at, :updated_at
+extends "users/_base"
 
-node do |user|
-	{
-		created_at_formatted: user.created_at.strftime("%m/%d/%Y"),
-		updated_at_formatted: time_ago_in_words(user.updated_at)
-	}
-end
+# moved to _base for re-usability
+# attributes :id, :first_name, :last_name, :full_name, :created_at, :updated_at
+
+# node do |user|
+# 	{
+# 		created_at_formatted: user.created_at.strftime("%m/%d/%Y"),
+# 		updated_at_formatted: time_ago_in_words(user.updated_at)
+# 	}
+# end
