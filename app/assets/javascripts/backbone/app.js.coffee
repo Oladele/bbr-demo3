@@ -30,10 +30,4 @@
 			#Backbone.history.navigate "users" if Backbone.history.fragment is ""
 			@navigate(@rootRoute, trigger: true) if @getCurrentRoute() is ""
 
-	App.navigate = (route, options ={}) ->
-		Backbone.history.navigate route, options
-
-	App.getCurrentRoute = ->
-		Backbone.history.fragment
-
 	App
