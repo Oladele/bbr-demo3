@@ -2,7 +2,7 @@
 
 	App = new Marionette.Application
 
-	App.rootRoute = "users"
+	App.rootRoute = Routes.users_path()
 
 	App.on "initialize:before", (options) ->
 		@currentUser = App.request "set:current:user", options.currentUser
