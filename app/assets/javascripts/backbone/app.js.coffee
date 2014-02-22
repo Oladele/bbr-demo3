@@ -12,7 +12,7 @@
 
 	App.addRegions
 		headerRegion: "#header-region"
-		mainregion: "#main-region"
+		mainRegion: "#main-region"
 		footerRegion: "#footer-region"
 
 	#Second - of invoking Footer_app.Show.Controller.showFooter.See Footer_app

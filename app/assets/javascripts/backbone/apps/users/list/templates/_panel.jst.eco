@@ -1,0 +1,2 @@
+<% console.log @ %>
+Total Users: <%= @items.length %>
