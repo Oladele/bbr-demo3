@@ -8,9 +8,11 @@
 	API =
 		getHeaders: ->
 			new Backbone.Collection [
-				{ name: "Users" }
-				{ name: "Leads" }
-				{ name: "Appointments" }
+				{ name: "Users", url: Routes.users_path() }
+				{ name: "Leads", url: Routes.leads_path() }
+				{ name: "Appointments", url: "appointments" } 
+				#used string for appointments since we don't have time to set up route paths
+				#remember that js_routes gem creates JS Routes based on RoR routes.rb
 			]
 
 	App.reqres.setHandler "header:entities", ->
