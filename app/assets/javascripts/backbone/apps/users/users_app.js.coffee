@@ -4,10 +4,10 @@
 		appRoutes:
 			"users" : "listUsers"
 
-	API =
-		listUsers: ->
-			UsersApp.List.Controller.listUsers()
+		API =
+			listUsers: ->
+				UsersApp.List.Controller.listUsers()
 
-	App.addInitializer ->
-		new UsersApp.Router
-			controller: API
+		App.addInitializer ->
+			new UsersApp.Router
+				controller: API
