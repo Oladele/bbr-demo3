@@ -12,18 +12,37 @@
 class Wod < ActiveRecord::Base
 	belongs_to :user
 	validates :user_id, presence: true
-	include UsersHelper
-	include SessionsHelper
+	has_many :groups
+	before_create :update_position
+	extend Positionable
+	
 
-	def Wod.create_from(wod_proto) #can be created from wod_prototype
-		# user_id = wod_proto.user_id 
-		user_id = current_user.id
+	def self.create_from_wod_prototype(user, wod_proto)
+		user_id = user.id
 		wod_prototype_id = wod_proto.id
 		name = wod_proto.name
 		time = Time.now
 
-		wod = Wod.create!(user_id: user_id, wod_prototype_id: wod_prototype_id, name: name, time: time)
-		return wod
+		new_wod = self.create!(user_id: user_id, wod_prototype_id: wod_prototype_id, name: name, time: time)
+
+		wod_proto.groups.each do |group|
+			position = next_position(new_wod.groups)
+			new_group = group.dup
+			new_group.wod_prototype_id = nil
+			new_group.wod_id = new_wod.id
+			new_group.position = position
+			new_group.save!
+		end
+
+		return new_wod
 
 	end
+
+
+	private
+		def update_position
+			# self.position = self.user_id
+		end
+
+		
 end

@@ -12,7 +12,7 @@
 #
 
 class Group < ActiveRecord::Base
+	belongs_to :wod
 	belongs_to :wod_prototype
-	validates :wod_prototype_id, presence: true
 	has_many :setts
 end
