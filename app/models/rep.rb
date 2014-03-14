@@ -14,4 +14,11 @@
 class Rep < ActiveRecord::Base
 	belongs_to :sett
 	validates :sett_id, presence: true
+
+	def self.create_from_rep(rep, to_sett)
+		new_rep = rep.dup
+		new_rep.sett_id = to_sett.id
+		new_rep.save!
+		return new_rep
+	end
 end

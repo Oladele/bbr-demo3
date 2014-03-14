@@ -70,6 +70,10 @@ namespace :db do
       round3set2.reps.create!(exercise_id: pullup.id, resistance: 0, position: position )
     end
 
+    # X2 Instances
+    Wod.create_from_wod_prototype(user, fran)
+    Wod.create_from_wod_prototype(user, fran)
+
     # ******************ANGIE************************
     # ******************ANGIE************************
 
@@ -93,6 +97,11 @@ namespace :db do
     (1..100).each do |position|
       round1set4.reps.create!(exercise_id: squatair.id, resistance: 0, position: position )
     end
+
+    # X3 Instances
+    Wod.create_from_wod_prototype(user, angie)
+    Wod.create_from_wod_prototype(user, angie)
+    Wod.create_from_wod_prototype(user, angie)
   end
 
 end

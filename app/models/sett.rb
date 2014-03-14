@@ -13,4 +13,17 @@ class Sett < ActiveRecord::Base
 	belongs_to :group
 	validates :group_id, presence: true
 	has_many :reps
+
+	def self.create_from_sett(sett, to_group)
+
+		new_sett = sett.dup
+		new_sett.group_id = to_group.id
+		new_sett.save!
+
+		sett.reps.each do |rep|
+			new_rep = Rep.create_from_rep(rep, new_sett)
+		end
+
+		return new_sett
+	end
 end
