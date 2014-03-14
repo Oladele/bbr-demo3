@@ -1,5 +1,7 @@
 BackbonerailsDemo3::Application.routes.draw do
   resources :users
+  resources :workouts
+  resources :wod_prototypes
   resources :leads, :only => [:index]
 
   root to: "application#index"

@@ -10,6 +10,7 @@
 			new Backbone.Collection [
 				{ name: "Users", url: Routes.users_path() }
 				{ name: "Leads", url: Routes.leads_path() }
+				{ name: "Workouts", url: Routes.workouts_path() }
 				{ name: "Appointments", url: "appointments" } 
 				#used string for appointments since we don't have time to set up route paths
 				#remember that js_routes gem creates JS Routes based on RoR routes.rb

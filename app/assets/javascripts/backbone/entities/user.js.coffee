@@ -4,7 +4,7 @@
 
 	class	Entities.UsersCollection extends Entities.Collection
 		model: Entities.User
-		url: "users"
+		url: -> Routes.users_path()
 
 	API =
 		setCurrentUser: (currentUser) ->
