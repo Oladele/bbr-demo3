@@ -1,7 +1,5 @@
-<% if @currentUser.is_admin: %>
-	<div id="footer">
-		<div class="container">
-			<p class="muted">BackboneRails.com - Episode 05 - Demo2 - <%= @full_name %></p>
-		</div>
+<div id="footer">
+	<div class="container">
+		<p class="muted">BackboneRails.com - Episode 05 - Demo2 - <%= @full_name %></p>
 	</div>
-<% end %>
+</div>
