@@ -1,5 +1,13 @@
 <div id="panel-region"></div>
+
 <div class="row wod-row-panel">
-	<div id="workouts-region"></div>
-	<div id="details-region"></div>
+	<div class="col-sm-6 col-md-6 col-lg-6 wod-sub-panel">
+		<div id="new-region"></div>
+		<div id="workouts-region"></div>
+	</div>
+
+	<div class="col-sm-6 col-md-6 col-lg-6 wod-sub-panel">
+		<div id="details-region"></div>
+	</div>
+
 </div>

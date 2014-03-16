@@ -5,6 +5,7 @@
 
 		regions:
 			panelRegion: "#panel-region"
+			newRegion: "#new-region"
 			workoutsRegion: "#workouts-region"
 			detailsRegion: "#details-region"
 

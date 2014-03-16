@@ -1,0 +1,11 @@
+<div class="wod-tab">
+	<form data-type="new">
+		<div id="new-workout-input">
+			<input type="text" name="name" placeholder="New workout name" />
+		</div>
+		<footer>
+			<button data-form-button="primary" class="btn btn-default btn-xs">Save</button>
+			<button data-form-button="cancel" class="btn btn-default btn-xs">Cancel</button>
+		</footer>
+	</form>
+</div>

@@ -4,10 +4,16 @@
 		appRoutes:
 			"workouts" : "listWorkouts"
 
-		API =
-			listWorkouts: ->
-				WorkoutsApp.List.Controller.listWorkouts()
+	API =
+		listWorkouts: ->
+			WorkoutsApp.List.Controller.listWorkouts()
 
-		App.addInitializer ->
-			new WorkoutsApp.Router
-				controller: API
+		newWorkout: ->
+			WorkoutsApp.New.Controller.newWorkout()
+
+	App.reqres.setHandler "new:workout:view", ->
+		API.newWorkout()
+
+	App.addInitializer ->
+		new WorkoutsApp.Router
+			controller: API

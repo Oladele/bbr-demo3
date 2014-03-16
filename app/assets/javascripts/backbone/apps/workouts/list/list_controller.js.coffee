@@ -9,6 +9,7 @@
 
 				@layout.on "show", =>
 					@showPanel workouts
+					@newRegion()
 					@showWorkouts workouts
 					@showDetails workouts
 
@@ -21,6 +22,10 @@
 		getPanelView: (workouts) ->
 			new List.Panel
 				collection: workouts
+
+		newRegion: ->
+			newView = App.request "new:workout:view"
+			@layout.newRegion.show newView
 
 		showWorkouts: (workouts) ->
 			workoutsView = @getWorkoutsView workouts

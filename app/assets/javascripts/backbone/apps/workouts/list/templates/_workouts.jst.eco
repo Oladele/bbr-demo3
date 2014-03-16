@@ -1,5 +1,2 @@
-<!-- <div class="row wod-row-panel"> -->
-	<div class="col-sm-6 col-md-6 col-lg-6 wod-sub-panel">
-		<ul class="wod-tab-group"></ul>
-	</div>
-<!-- </div> -->
+<div id="new-region"></div>
+<ul class="wod-tab-group"></ul>
