@@ -1,4 +1,3 @@
-<% console.log @items %>
 <div class="row wod-row-panel">
 	<div class="col-md-1">
 		<div>Workout Prototypes: <%= @items.length %></div>	

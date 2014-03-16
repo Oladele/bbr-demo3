@@ -19,7 +19,6 @@
 			@layout.panelRegion.show panelView
 
 		getPanelView: (workouts) ->
-			console.log workouts
 			new List.Panel
 				collection: workouts
 
