@@ -1,4 +1,4 @@
-<!-- <div id="panel-region"></div> -->
+<div id="panel-region"></div>
 <div class="row wod-row-panel">
 	<div id="workouts-region"></div>
 	<div id="details-region"></div>

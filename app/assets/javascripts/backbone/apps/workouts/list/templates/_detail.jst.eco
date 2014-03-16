@@ -1,6 +1,5 @@
 <% if @name == "Angie": %>
 
-<% console.log(@) %>
 <div>
 	<%= @name %>	
 </div>

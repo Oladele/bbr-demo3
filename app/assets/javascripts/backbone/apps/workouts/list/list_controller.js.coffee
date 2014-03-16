@@ -3,27 +3,25 @@
 	List.Controller =
 
 		listWorkouts: ->
-			workouts = App.request "workout:entities"
-			arr = workouts.where({name: "Angie"})
-			workout_angie = arr[0]
-			workout_angie = workouts.first
+			App.request "workout:entities", (workouts) =>
 
-			@layout = @getLayoutView()
+				@layout = @getLayoutView()
 
-			@layout.on "show", =>
-				# @showPanel workouts
-				@showWorkouts workouts
-				@showDetails workouts
+				@layout.on "show", =>
+					@showPanel workouts
+					@showWorkouts workouts
+					@showDetails workouts
 
-			App.mainRegion.show @layout
+				App.mainRegion.show @layout
 
-		# showPanel: (workouts) ->
-		# 	panelView = @getPanelView workouts
-		# 	@layout.panelRegion.show panelView
+		showPanel: (workouts) ->
+			panelView = @getPanelView workouts
+			@layout.panelRegion.show panelView
 
-		# getPanelView: (workouts) ->
-		# 	new List.Panel
-		# 		collection: workouts
+		getPanelView: (workouts) ->
+			console.log workouts
+			new List.Panel
+				collection: workouts
 
 		showWorkouts: (workouts) ->
 			workoutsView = @getWorkoutsView workouts

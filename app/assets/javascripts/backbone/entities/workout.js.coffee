@@ -8,11 +8,12 @@
 
 	API =
 
-		getWorkoutEntities: ->
+		getWorkoutEntities: (cb) ->
 			workouts = new Entities.WorkoutsCollection
-			workouts.fetch()
-			workouts
+			workouts.fetch
+				success: ->
+					cb workouts
 
-	App.reqres.setHandler "workout:entities", ->
-		API.getWorkoutEntities()
+	App.reqres.setHandler "workout:entities", (cb) ->
+		API.getWorkoutEntities cb
 
