@@ -13,6 +13,10 @@
 	<div>
 		Set# <%=	sett.position %>, <%=	sett.reps.length %>	reps
 	</div>
+	<div>
+	</div>
+	<% _.each sett.reps, (rep) -> : %>
+		<%=	rep.exercise_name %> <%= rep.resistance %>	lbs;
 	<% end %>
 <% end %>
 

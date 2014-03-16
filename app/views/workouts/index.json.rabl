@@ -17,7 +17,7 @@ child :groups do
 		child :reps do
 			attributes :id, :resistance, :position
 			node(:exercise_name)do |rep|
-				@exercises.find(rep.exercise_id)
+				@exercises.find(rep.exercise_id).name
 			end
 		end
 	end
