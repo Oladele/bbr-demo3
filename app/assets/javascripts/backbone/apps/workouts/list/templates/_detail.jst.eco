@@ -1,0 +1,20 @@
+<% if @name == "Angie": %>
+
+<% console.log(@) %>
+<div>
+	<%= @name %>	
+</div>
+
+<% _.each @groups, (group) -> : %>
+<div>
+	<%=	group.name %>	
+</div>
+	<% _.each group.setts, (sett) -> : %>
+	<div>
+		Set# <%=	sett.position %>, <%=	sett.reps.length %>	reps
+	</div>
+	<% end %>
+<% end %>
+
+
+<% end %>

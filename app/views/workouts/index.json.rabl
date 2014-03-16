@@ -9,3 +9,16 @@ node do |wod_prototype|
 		# is_admin:						 	true
 	}
 end
+
+child :groups do
+	attributes :id, :name, :position
+	child :setts do
+		attributes :id, :position
+		child :reps do
+			attributes :id, :resistance, :position
+			node(:exercise_name)do |rep|
+				@exercises.find(rep.exercise_id)
+			end
+		end
+	end
+end

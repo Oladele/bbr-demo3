@@ -4,6 +4,7 @@ class WorkoutsController < ApplicationController
 	def index
 		#sleep 3
 		@workouts = WodPrototype.all
+		@exercises = Exercise.all
 		#@users = nil
 	end
 end

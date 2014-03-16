@@ -1,1 +1,5 @@
-Panel View
+<div class="row wod-row-panel">
+	<div class="col-md-1">
+		<div class="center">Panel View</div>	
+	</div>
+</div>
