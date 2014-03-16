@@ -1,11 +1,14 @@
 @Demo.module "Views", (Views, App, Backbone, Marionette, $, _) ->
 
+	_.remove = Marionette.View::remove
+
 	_.extend Marionette.View::,
 
-		templateHelpers: ->
+		remove: (args...) ->
+			console.log "removing", @
+			_remove.appy @, args
 
-			currentUser:
-				App.request("get:current:user").toJSON()
+		templateHelpers: ->
 
 			linkTo: (name, url, options = {}) ->
 				_.defaults options,
