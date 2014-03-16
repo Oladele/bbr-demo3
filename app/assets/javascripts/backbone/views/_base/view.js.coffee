@@ -1,12 +1,12 @@
 @Demo.module "Views", (Views, App, Backbone, Marionette, $, _) ->
 
-	_.remove = Marionette.View::remove
+	_remove = Marionette.View::remove
 
 	_.extend Marionette.View::,
 
 		remove: (args...) ->
 			console.log "removing", @
-			_remove.appy @, args
+			_remove.apply @, args
 
 		templateHelpers: ->
 
