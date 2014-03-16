@@ -1,5 +1,5 @@
 <% if @name == "Angie": %>
-	<div class="wod-tab selected"><%= @name %></div>
+	<div class="wod-tab-selected"><%= @name %></div>
 <% else: %>
 	<div class="wod-tab"><%= @name %></div>
 <% end %>

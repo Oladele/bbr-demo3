@@ -1,7 +1,7 @@
-<div class="wod-tab">
+<div class="wod-tab-new">
 	<form data-type="new">
 		<div id="new-workout-input">
-			<input type="text" name="name" placeholder="New workout name" />
+			<input type="text" name="name" placeholder="New workout name" class="wod-input"/>
 		</div>
 		<footer>
 			<button data-form-button="primary" class="btn btn-default btn-xs">Save</button>

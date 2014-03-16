@@ -1,3 +1,4 @@
-#header 				{
-	.container 		{ width: 940px; }
-}
+@import "base";
+
+.navbar 						{	border: none;
+	.container-fluid 	{ background-color: $bgDark;}}
