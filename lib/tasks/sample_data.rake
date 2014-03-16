@@ -104,4 +104,17 @@ namespace :db do
     Wod.create_from_wod_prototype(user, angie)
   end
 
+  task populate_wods_more: :environment do
+
+    user = User.first
+
+    # ******************PLACEHOLDERS*****************
+    # ******************PLACEHOLDERS*****************
+
+    Legs = user.wod_prototypes.create!(name: 'Legs Heavy (M&F Mag April)')
+    Chest = user.wod_prototypes.create!(name: 'Chest Blaster (M&F Mag April)')
+    Circuit1 = user.wod_prototypes.create!(name: 'High Intensity Circuit I')
+    Circuit2 = user.wod_prototypes.create!(name: 'High Intensity Circuit II')
+  end
+
 end
