@@ -4,8 +4,8 @@
 			<input type="text" name="name" placeholder="New workout name" class="wod-input"/>
 		</div>
 		<footer>
-			<button data-form-button="primary" class="btn btn-default btn-xs">Save</button>
-			<button data-form-button="cancel" class="btn btn-default btn-xs">Cancel</button>
+			<button data-form-button="primary" class="btn btn-default btn-sm">Save</button>
+			<button data-form-button="cancel" class="btn btn-default btn-sm">Cancel</button>
 		</footer>
 	</form>
 </div>

@@ -1,8 +1,8 @@
-<div class="row wod-row-panel">
-	<div class="col-md-12 col-lg-12">
+<!-- <div class="row wod-row-panel">
+	<div class="col-md-12 col-lg-12"> -->
 		<div>
 			Workout Prototypes: <%= @items.length %>
-			<button type="button" class="btn btn-default btn-xs">Add</button>
+			<button type="button" class="btn btn-default btn-sm">Add</button>
 		</div>	
-	</div>
-</div>
+	<!-- </div>
+</div> -->
