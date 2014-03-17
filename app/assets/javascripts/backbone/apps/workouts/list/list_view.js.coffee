@@ -6,15 +6,24 @@
 		regions:
 			panelRegion: "#panel-region"
 			newRegion: "#new-region"
+			editRegion: "#edit-region"
 			workoutsRegion: "#workouts-region"
 			detailsRegion: "#details-region"
 
 	class List.Panel extends App.Views.ItemView
 		template: "workouts/list/_panel"
 
+		triggers:
+			"click #new-workout" : "new:workout:button:clicked"
+
 	class List.Workout extends App.Views.ItemView
 		template: "workouts/list/_workout"
 		tagName: "li"
+
+		events:
+			"click" : -> @trigger "edit:workout:button:clicked", @model
+		# triggers:
+		# 	"click #edit-workout" : "new:workout:button:clicked"
 
 	class List.Workouts extends App.Views.CompositeView
 		template: "workouts/list/_workouts"

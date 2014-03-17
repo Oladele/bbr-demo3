@@ -2,7 +2,9 @@
 	<div class="col-md-12 col-lg-12"> -->
 		<div>
 			Workout Prototypes: <%= @items.length %>
-			<button type="button" class="btn btn-default btn-sm">Add</button>
+			<button type="button" id="new-workout" class="btn btn-default btn-sm">Add 
+				<span class="glyphicon glyphicon-flash"></span>
+			</button>
 		</div>	
 	<!-- </div>
 </div> -->

@@ -16,7 +16,7 @@ html, body 			{ height: 100%;
 #main-region   	{ padding: 15px; color: $fontMedium;}
 .center 				{ text-align: center; }
 .btn-default		{ color: $fontMedium; background-color: $bgDark; border: none;}
-
+.btn-glyph			{ background: transparent; border: none;}
 
 .slick-scroll-y{
 	overflow-y: scroll;
