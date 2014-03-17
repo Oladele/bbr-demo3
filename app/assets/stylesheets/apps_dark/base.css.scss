@@ -10,7 +10,7 @@ $fontLight: #F0F0F0;
 
 
 html, body 			{ height: 100%; 
-									@include background-image(linear-gradient(left, $bgMedium, $bgDark, $bgMedium));
+									@include background-image(linear-gradient(left, $bgDark, $bgMedium, $bgDark));
 								}
 #wrap 					{ height: auto !important; margin: 0 auto -60px; min-height: 100%; }
 #main-region   	{ padding: 15px; color: $fontMedium;}

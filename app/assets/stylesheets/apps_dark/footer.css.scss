@@ -1,6 +1,6 @@
 @import "base";
 
 #push, #footer 			{ height: 60px; }
-#footer 						{ background-color: $bgDark; 
+#footer 						{ background-color: $bgDark; color: $fontMedium ;
 	p 								{ margin: 20px 0; text-align: center; }
 }

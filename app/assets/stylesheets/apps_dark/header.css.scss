@@ -1,4 +1,9 @@
 @import "base";
 
-.navbar 						{	border: none;
-	.container-fluid 	{ background-color: $bgDark;}}
+.navbar 							{	border: none;
+	.container-fluid 		{ background-color: $bgDark; color: $fontMedium ;}}
+
+.navbar-default 
+	.navbar-nav > li > a { color: $fontMedium;}
+
+.navbar-default .navbar-brand {color: $fontMedium;}

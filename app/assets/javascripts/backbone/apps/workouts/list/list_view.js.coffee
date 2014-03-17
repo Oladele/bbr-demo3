@@ -21,7 +21,7 @@
 		tagName: "li"
 
 		events:
-			"click" : -> @trigger "edit:workout:button:clicked", @model
+			"click #edit-workout" : -> @trigger "edit:workout:button:clicked", @model
 		# triggers:
 		# 	"click #edit-workout" : "new:workout:button:clicked"
 
