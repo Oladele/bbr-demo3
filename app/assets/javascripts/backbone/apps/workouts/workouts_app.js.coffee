@@ -3,12 +3,15 @@
 	class WorkoutsApp.Router extends Marionette.AppRouter
 		appRoutes:
 			# "workouts/:id/edit" : "editWorkout"
-			"workouts/:id/edit" : "listWorkouts"
+			"workouts/:id/edit" : "listWorkoutsAndEdit"
 			"workouts" : "listWorkouts"
 
 	API =
-		listWorkouts: (id) ->
-			WorkoutsApp.List.Controller.listWorkouts(id)
+		listWorkouts: ->
+			WorkoutsApp.List.Controller.listWorkouts()
+
+		listWorkoutsAndEdit: (id) ->
+			WorkoutsApp.List.Controller.listWorkoutsAndEdit(id)
 
 		newWorkout: ->
 			WorkoutsApp.New.Controller.newWorkout()
