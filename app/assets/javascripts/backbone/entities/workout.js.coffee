@@ -1,6 +1,7 @@
 @Demo.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
 	class Entities.Workout extends Entities.Model
+		urlRoot: ->Routes.workouts_path()
 
 	class Entities.WorkoutsCollection extends Entities.Collection
 		model: Entities.Workout
@@ -8,12 +9,21 @@
 
 	API =
 
-		getWorkoutEntities: (cb) ->
+		getWorkoutEntities: ->
 			workouts = new Entities.WorkoutsCollection
 			workouts.fetch
-				success: ->
-					cb workouts
+				reset: true
+			workouts
 
-	App.reqres.setHandler "workout:entities", (cb) ->
-		API.getWorkoutEntities cb
+		getWorkoutEntity: (id) ->
+			workout = new Entities.Workout
+				id: id
+			workout.fetch
+				reset:true
+			workout
 
+	App.reqres.setHandler "workout:entities", ->
+		API.getWorkoutEntities()
+
+	App.reqres.setHandler "workout:entity", (id) ->
+		API.getWorkoutEntity id

@@ -6,7 +6,7 @@
 		regions:
 			panelRegion: "#panel-region"
 			newRegion: "#new-region"
-			editRegion: "#edit-region"
+			editRegion: "#new-region" #uses same region as 'new'
 			workoutsRegion: "#workouts-region"
 			detailsRegion: "#details-region"
 

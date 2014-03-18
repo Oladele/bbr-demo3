@@ -2,23 +2,26 @@
 
 	class WorkoutsApp.Router extends Marionette.AppRouter
 		appRoutes:
+			# "workouts/:id/edit" : "editWorkout"
+			"workouts/:id/edit" : "listWorkouts"
 			"workouts" : "listWorkouts"
 
 	API =
-		listWorkouts: ->
-			WorkoutsApp.List.Controller.listWorkouts()
+		listWorkouts: (id) ->
+			WorkoutsApp.List.Controller.listWorkouts(id)
 
 		newWorkout: ->
 			WorkoutsApp.New.Controller.newWorkout()
 
-		editWorkout: (workout) ->
-			WorkoutsApp.Edit.Controller.edit workout
+		editWorkout: (id, workout) ->
+			WorkoutsApp.Edit.Controller.edit id, workout
 
 	App.reqres.setHandler "new:workout:view", ->
 		API.newWorkout()
 
 	App.reqres.setHandler "edit:workout:view", (workout) ->
-		API.editWorkout workout
+		App.navigate Routes.edit_workout_path(workout.id)
+		API.editWorkout workout.id, workout
 
 	# App.vent.on "edit:workout:button:clicked", (workout) ->
 	# 	API.editWorkout workout

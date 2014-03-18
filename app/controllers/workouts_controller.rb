@@ -7,4 +7,9 @@ class WorkoutsController < ApplicationController
 		@exercises = Exercise.all
 		#@users = nil
 	end
+
+	def show
+		@workout = WodPrototype.find params[:id]
+		@exercises = Exercise.all
+	end
 end

@@ -5,3 +5,6 @@
 
 		triggers:
 			"click [data-form-button='cancel']" : "form:cancel:button:clicked"
+
+		modelEvents:
+			"sync" : "render"

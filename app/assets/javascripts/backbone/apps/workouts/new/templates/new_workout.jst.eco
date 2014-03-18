@@ -1,7 +1,8 @@
 <div class="wod-tab-new">
 	<form data-type="new">
 		<div id="new-workout-input">
-			<input type="text" name="name" placeholder="New workout name" class="wod-input"/>
+			<input type="text" name="name" placeholder="New workout name" class="wod-input"
+				value="<%= @name %>" />
 		</div>
 		<footer>
 			<button data-form-button="primary" class="btn btn-default btn-sm">Save</button>

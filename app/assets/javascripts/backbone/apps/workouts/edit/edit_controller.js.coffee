@@ -2,7 +2,9 @@
 
 	Edit.Controller =
 
-		edit: (workout) ->
+		edit: (id, workout) ->
+			workout or= App.request "workout:entity", id
+
 			editView = @getEditView workout
 
 			editView

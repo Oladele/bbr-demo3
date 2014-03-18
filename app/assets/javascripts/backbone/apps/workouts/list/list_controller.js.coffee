@@ -2,19 +2,21 @@
 
 	List.Controller =
 
-		listWorkouts: ->
-			App.request "workout:entities", (workouts) =>
+		listWorkouts: (id) ->
+			workouts = App.request "workout:entities"
+			workout = App.request("workout:entity", id)
 
-				@layout = @getLayoutView()
+			@layout = @getLayoutView()
 
-				@layout.on "show", =>
-					@showPanel workouts
-					# @newRegion() don't show on load
-					# @editRegion() don't show on load
-					@showWorkouts workouts
-					@showDetails workouts
+			@layout.on "show", =>
+				@showPanel workouts
+				# @newRegion() don't show on load
+				# @editRegion() don't show on load
+				@editRegion workout
+				@showWorkouts workouts
+				@showDetails workouts
 
-				App.mainRegion.show @layout
+			App.mainRegion.show @layout
 
 		showPanel: (workouts) ->
 			panelView = @getPanelView workouts

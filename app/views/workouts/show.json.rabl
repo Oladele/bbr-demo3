@@ -1,3 +1,3 @@
-collection @workouts
+object @workout
 
 extends "workouts/_base"
