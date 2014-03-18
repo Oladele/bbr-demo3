@@ -2,7 +2,7 @@ class WorkoutsController < ApplicationController
 	respond_to :json
 
 	def index
-		#sleep 3
+		sleep 5
 		@workouts = WodPrototype.all
 		@exercises = Exercise.all
 		#@users = nil
