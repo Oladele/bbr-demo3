@@ -6,7 +6,7 @@
 
 			workouts = App.request "workout:entities"
 			
-			App.execute "when:fetched", [workouts], =>
+			App.execute "when:fetched", workouts, =>
 				@layout = @getLayoutView()
 				@layout.on "show", =>
 					@showPanel workouts
@@ -20,7 +20,7 @@
 			workouts = App.request "workout:entities"
 			workout = App.request("workout:entity", id)
 
-			App.execute "when:fetched", [workout], =>
+			App.execute "when:fetched", workout, =>
 				@layout = @getLayoutView()
 				@layout.on "show", =>
 					@showPanel workouts
@@ -83,8 +83,15 @@
 		getLayoutView : ->
 			new List.Layout
 
-	App.commands.setHandler "when:fetched", (entities, callback) ->
-		xhrs = []
-		xhrs.push(entity._fetch) for entity in entities
-		$.when(xhrs...).done ->
-			callback()
+	# App.commands.setHandler "when:fetched", (entities, callback) ->
+	# 	# xhrs = []
+
+	# 	# if _.isArray(entities)
+	# 	# 	xhrs.push(entity._fetch) for entity in entities
+	# 	# else
+	# 	# 	xhrs.push(entities._fetch)
+
+	# 	xhrs = _.chain([entities]).flatten().pluck("_fetch").value()
+
+	# 	$.when(xhrs...).done ->
+	# 		callback()
