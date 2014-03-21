@@ -1,8 +1,25 @@
 <% console.info "form options", @ %>
-<div id="form-content-region"></div>
-<% if @footer: %>
-	<footer>
-		<button data-form-button="primary" class="btn btn-default btn-sm">Save</button>
-		<button data-form-button="cancel" class="btn btn-default btn-sm">Cancel</button>
-	</footer>
-<% end %>
+<div class="clearfix">
+	<div id="form-content-region"></div>
+	<div></div>
+	<% if @footer: %>
+		<footer>
+			<% if @buttons: %>
+				<div class="buttons-group">
+					<% for button in @buttons: %>
+						<button data-form-button="<%= button.type %>" 
+										class="<%= button.className %>">
+										<%= button.text %>
+						</button>
+					<% end %>
+					<!-- <button data-form-button="primary" class="btn btn-default btn-sm">
+						<%= @buttons.primary %>
+					</button>
+					<button data-form-button="cancel" class="btn btn-default btn-sm">
+						<%= @buttons.cancel %>
+					</button> -->
+				</div>
+			<% end %>
+		</footer>
+	<% end %>
+</div>

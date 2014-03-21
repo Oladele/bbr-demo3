@@ -10,7 +10,11 @@
 		template: "workouts/edit/edit_workout"
 
 		# form:
-		# 	footer: false
+			# footer: false
+			# focusFirstInput: false
+			# buttons: false
+				# cancel: false
+				# placement: "left"
 
 	# 	triggers:
 	# 		"click [data-form-button='cancel']" : "form:cancel:button:clicked"

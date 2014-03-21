@@ -8,15 +8,29 @@ $bgLight: #FDFDFD;
 $fontMedium: #E1E1E1;
 $fontLight: #F0F0F0;
 
+$form-frame-new: yellow;
+$form-frame-edit: white;
+
 
 html, body 			{ height: 100%; 
 									@include background-image(linear-gradient(left, $bgDark, $bgMedium, $bgDark));
 								}
+
+form									{
+	&[data-type='new']	{
+		/*.panel						{  @include panel(lighten($success-color, 50%));  }*/
+												border: 1px solid $form-frame-new; 
+												@include single-box-shadow($form-frame-new, 1px, 1px); padding: 15px;  }
+	&[data-type='edit']	{ border: 1px solid $form-frame-edit; 
+												@include single-box-shadow($form-frame-edit, 1px, 1px); padding: 15px; }
+}
 #wrap 					{ height: auto !important; margin: 0 auto -60px; min-height: 100%; }
 #main-region   	{ padding: 15px; color: $fontMedium;}
 .center 				{ text-align: center; }
 .btn-default		{ color: $fontMedium; background-color: $bgDark; border: none;}
 .btn-glyph			{ background: transparent; border: none;}
+
+
 
 .slick-scroll-y{
 	overflow-y: scroll;
