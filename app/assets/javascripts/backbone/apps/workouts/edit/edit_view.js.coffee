@@ -9,8 +9,8 @@
 	class Edit.Workout extends App.Views.ItemView
 		template: "workouts/edit/edit_workout"
 
-		# form:
-			# footer: false
+		form:
+			footer: false
 			# focusFirstInput: false
 			# buttons: false
 				# cancel: false
