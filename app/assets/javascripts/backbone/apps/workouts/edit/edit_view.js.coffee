@@ -9,6 +9,9 @@
 	class Edit.Workout extends App.Views.ItemView
 		template: "workouts/edit/edit_workout"
 
+		# form:
+		# 	footer: false
+
 	# 	triggers:
 	# 		"click [data-form-button='cancel']" : "form:cancel:button:clicked"
 

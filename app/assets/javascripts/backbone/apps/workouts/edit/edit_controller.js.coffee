@@ -19,7 +19,10 @@
 
 		formRegion: (workout) ->
 			editView = @getEditView workout
-			@layout.formRegion.show editView
+
+			formView = App.request "form:wrapper", editView
+
+			@layout.formRegion.show formView
 
 		getEditView: (workout) ->
 			new Edit.Workout

@@ -1,0 +1,8 @@
+<% console.info "form options", @ %>
+<div id="form-content-region"></div>
+<% if @footer: %>
+	<footer>
+		<button data-form-button="primary" class="btn btn-default btn-sm">Save</button>
+		<button data-form-button="cancel" class="btn btn-default btn-sm">Cancel</button>
+	</footer>
+<% end %>
