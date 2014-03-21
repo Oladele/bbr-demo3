@@ -12,4 +12,21 @@ class WorkoutsController < ApplicationController
 		@workout = WodPrototype.find params[:id]
 		@exercises = Exercise.all
 	end
+
+	def update
+		@workout = WodPrototype.find params[:id]
+		@exercises = Exercise.all
+		if @workout.update_attributes wod_params
+			render "workouts/show"
+		else
+			respond_with @workout
+		end
+		
+	end
+
+	private
+
+    def wod_params
+      params.require(:workout).permit(:name)
+    end
 end

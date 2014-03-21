@@ -13,6 +13,9 @@
 		ui:
 			buttonContainer: "div.buttons-group"
 
+		triggers:
+			"submit" : "form:submit"
+
 		initialize: ->
 			@setInstancePropertiesFor "config", "buttons"
 

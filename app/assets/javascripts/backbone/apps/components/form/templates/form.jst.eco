@@ -1,4 +1,3 @@
-<% console.info "form options", @ %>
 <div class="clearfix">
 	<div id="form-content-region"></div>
 	<div></div>
@@ -12,12 +11,6 @@
 										<%= button.text %>
 						</button>
 					<% end %>
-					<!-- <button data-form-button="primary" class="btn btn-default btn-sm">
-						<%= @buttons.primary %>
-					</button>
-					<button data-form-button="cancel" class="btn btn-default btn-sm">
-						<%= @buttons.cancel %>
-					</button> -->
 				</div>
 			<% end %>
 		</footer>

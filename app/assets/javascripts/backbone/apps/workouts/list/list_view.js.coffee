@@ -20,6 +20,14 @@
 		template: "workouts/list/_workout"
 		tagName: "li"
 
+		modelEvents:
+			"updated" : "modelUpdated"
+
+		modelUpdated: ->
+			#@render does not work without parens. why?
+			@render()
+			console.log "WORKOUT: modelupdated"
+
 		events:
 			"click #edit-workout" : -> @trigger "edit:workout:button:clicked", @model
 		# triggers:
