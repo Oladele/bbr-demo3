@@ -1,0 +1,4 @@
+<div id="new-workout-input">
+	<input type="text" name="name" placeholder="New workout name" class="wod-input"
+		value="<%= @name %>" />
+</div>

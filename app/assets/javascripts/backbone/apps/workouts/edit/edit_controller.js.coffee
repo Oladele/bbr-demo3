@@ -5,9 +5,21 @@
 		edit: (id, workout) ->
 			workout or= App.request "workout:entity", id
 
-			editView = @getEditView workout
+			@layout = @getLayoutView workout
+			# editView = @getEditView workout
 
-			editView
+			@layout.on "show", =>
+				@formRegion workout
+
+			@layout
+
+		getLayoutView: (workout) ->
+			new Edit.Layout
+				model:workout
+
+		formRegion: (workout) ->
+			editView = @getEditView workout
+			@layout.formRegion.show editView
 
 		getEditView: (workout) ->
 			new Edit.Workout
