@@ -13,17 +13,20 @@
 		ui:
 			buttonContainer: "div.buttons-group"
 
+		initialize: ->
+			@setInstancePropertiesFor "config", "buttons"
+
 		serializeData: ->
-			footer: @options.config.footer
-			buttons: @options.buttons?.toJSON() ? false
+			footer: @config.footer
+			buttons: @buttons?.toJSON() ? false
 
 		onShow: ->
 			_.defer =>
-				@focusFirstInput() if @options.config.focusFirstInput
-				@buttonPlacement() if @options.buttons
+				@focusFirstInput() if @config.focusFirstInput
+				@buttonPlacement() if @buttons
 
 		buttonPlacement: ->
-			@ui.buttonContainer.addClass ("pull-"+@options.buttons.placement)
+			@ui.buttonContainer.addClass ("pull-"+@buttons.placement)
 
 		focusFirstInput: =>
 			@$(":input:visible:enabled:first").focus()
