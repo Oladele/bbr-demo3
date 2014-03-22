@@ -13,7 +13,7 @@
 		# 	"updated" : "modelUpdated"
 
 		# modelUpdated: ->
-		# 	App.vent.trigger "workout:updated", @model
+		# 	App.vent.trigger "updated"
 		# 	console.log "EDIT modelupdated"
 
 		# onFormSubmit:(data) ->

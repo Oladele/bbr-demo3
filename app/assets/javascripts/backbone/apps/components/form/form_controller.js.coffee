@@ -43,13 +43,7 @@
 			_.defaults config,
 				footer: true
 				focusFirstInput: true
-		# 		buttons: @getDefaultButtons config.buttons
-
-		# getDefaultButtons: (buttons = {}) ->
-		# 	_.defaults buttons,
-		# 		primary: "Save"
-		# 		cancel: "Cancel"
-		# 		placement: "right"
+				errors: true
 
 		getButtons: (buttons = {}) ->
 			App.request("form:button:entities", buttons, @contentView.model) unless buttons is false

@@ -1,2 +1,2 @@
-<input type="text" name="name" placeholder="New workout name" class="wod-input"
-		value="<%= @name %>" />
+<input type="text" name="name" placeholder="New workout name" class="wod-input form-control" value="<%= @name %>" />
+<!-- <small class="input-error-msg">Error msg</small> -->

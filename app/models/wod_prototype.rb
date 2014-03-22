@@ -12,5 +12,6 @@
 class WodPrototype < ActiveRecord::Base
 	belongs_to :user
 	validates :user_id, presence: true
+	validates_presence_of :name
 	has_many :groups
 end

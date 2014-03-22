@@ -26,6 +26,7 @@
 		modelUpdated: ->
 			#@render does not work without parens. why?
 			@render()
+			console.log 'hello from wokout_view'
 
 		events:
 			"click #edit-workout" : -> @trigger "edit:workout:button:clicked", @model
