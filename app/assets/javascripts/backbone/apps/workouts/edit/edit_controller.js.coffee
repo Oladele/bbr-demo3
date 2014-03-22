@@ -8,10 +8,11 @@
 
 			workout.on "updated", ->
 				App.vent.trigger "workout:updated", workout
-			# 	console.log "EDIT_CONTROLLER modelupdated"
 
 			@layout = @getLayoutView workout
-			# editView = @getEditView workout
+
+			# @layout.on "form:cancel", ->
+			# 	console.log 'form:cancel from EDIT CONTROLLER layout'
 
 			@layout.on "show", =>
 				@formRegion workout
@@ -25,8 +26,8 @@
 		formRegion: (workout) ->
 			editView = @getEditView workout
 
-			editView.on "form:cancel", ->
-				App.vent.trigger "workout:cancelled", workout
+			editView.on "form:cancel", =>
+				@layout.triggerMethod "form:cancel"
 
 			formView = App.request "form:wrapper", editView,
 				footer: true
