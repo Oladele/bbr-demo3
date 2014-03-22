@@ -18,13 +18,13 @@
 		listWorkoutsAndEdit: (id) ->
 			
 			workouts = App.request "workout:entities"
-			workout = App.request("workout:entity", id)
 
-			workout.on "updated", ->
+			# workout.on "updated", ->
 				# App.vent.trigger "workout:updated", workout
-				console.log "LIST_CONTROLLER modelupdated"
+				# console.log "LIST_CONTROLLER modelupdated"
 
-			App.execute "when:fetched", workout, =>
+			App.execute "when:fetched", workouts, =>
+				workout = workouts.get(id:id)
 				@layout = @getLayoutView()
 				@layout.on "show", =>
 					@showPanel workouts

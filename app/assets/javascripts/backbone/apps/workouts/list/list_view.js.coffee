@@ -23,9 +23,9 @@
 		modelEvents:
 			"updated" : "modelUpdated"
 
-		modelUpdated: ->
-			# App.vent.trigger "updated"
-			console.log "List_VIEW modelupdated"
+		modelUpdated: =>
+			@render()
+		# 	console.log "List_VIEW modelupdated"
 
 		events:
 			"click #edit-workout" : -> @trigger "edit:workout:button:clicked", @model
