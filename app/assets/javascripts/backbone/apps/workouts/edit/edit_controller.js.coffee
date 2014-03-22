@@ -25,6 +25,9 @@
 		formRegion: (workout) ->
 			editView = @getEditView workout
 
+			editView.on "form:cancel", ->
+				App.vent.trigger "workout:cancelled", workout
+
 			formView = App.request "form:wrapper", editView,
 				footer: true
 

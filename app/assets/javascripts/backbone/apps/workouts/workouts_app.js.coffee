@@ -29,6 +29,10 @@
 	# App.vent.on "edit:workout:button:clicked", (workout) ->
 	# 	API.editWorkout workout
 
+	App.vent.on "workout:cancelled", (workout) ->
+		App.navigate Routes.workouts_path()
+		API.listWorkouts()
+
 	App.addInitializer ->
 		new WorkoutsApp.Router
 			controller: API

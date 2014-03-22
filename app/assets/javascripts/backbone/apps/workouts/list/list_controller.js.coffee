@@ -58,7 +58,7 @@
 			region = @layout.editRegion
 			editView = App.request "edit:workout:view", workout
 
-			editView.on "form:cancel:button:clicked", =>
+			editView.on "form:cancel", =>
 				region.close()
 
 			region.show editView

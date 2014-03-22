@@ -27,8 +27,8 @@
 				# cancel: false
 				# placement: "left"
 
-	# 	triggers:
-	# 		"click [data-form-button='cancel']" : "form:cancel:button:clicked"
+		# triggers:
+		# 	"click [data-form-button='cancel']" : "form:cancel"
 
 		# No longer needed because of when:fetched implementation in List.Controller
 		# modelEvents:
