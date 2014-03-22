@@ -9,12 +9,12 @@
 	class Edit.Workout extends App.Views.ItemView
 		template: "workouts/edit/edit_workout"
 
-		# modelEvents:
-		# 	"updated" : "modelUpdated"
+		modelEvents:
+			"updated" : "modelUpdated"
 
-		# modelUpdated: ->
-		# 	App.vent.trigger "updated"
-		# 	console.log "EDIT modelupdated"
+		modelUpdated: ->
+			# App.vent.trigger "updated"
+			console.log "EDIT_VIEW modelupdated"
 
 		# onFormSubmit:(data) ->
 		# 	console.log "Edit.Workouts onformSubmit", data

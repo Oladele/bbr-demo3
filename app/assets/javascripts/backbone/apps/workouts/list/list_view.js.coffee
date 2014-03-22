@@ -24,9 +24,8 @@
 			"updated" : "modelUpdated"
 
 		modelUpdated: ->
-			#@render does not work without parens. why?
-			@render()
-			console.log 'hello from wokout_view'
+			# App.vent.trigger "updated"
+			console.log "List_VIEW modelupdated"
 
 		events:
 			"click #edit-workout" : -> @trigger "edit:workout:button:clicked", @model

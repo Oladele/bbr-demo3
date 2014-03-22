@@ -20,6 +20,10 @@
 			workouts = App.request "workout:entities"
 			workout = App.request("workout:entity", id)
 
+			workout.on "updated", ->
+				# App.vent.trigger "workout:updated", workout
+				console.log "LIST_CONTROLLER modelupdated"
+
 			App.execute "when:fetched", workout, =>
 				@layout = @getLayoutView()
 				@layout.on "show", =>
