@@ -31,7 +31,7 @@
 
 	App.vent.on "workout:cancelled workout:updated workout:created", (workout) ->
 		App.navigate Routes.workouts_path()
-		API.listWorkouts()
+		# API.listWorkouts()
 
 	App.addInitializer ->
 		new WorkoutsApp.Router

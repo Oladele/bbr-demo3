@@ -58,8 +58,11 @@
 			region = @layout.editRegion
 			editView = App.request "edit:workout:view", workout
 
-			editView.on "form:cancel", =>
+			editView.on "form:cancel workout:updated", =>
 				region.close()
+
+			# editView.on "workout:updated", (workout) =>
+			# 	console.log 'edit region updated'
 
 			region.show editView
 
