@@ -29,7 +29,7 @@
 	# App.vent.on "edit:workout:button:clicked", (workout) ->
 	# 	API.editWorkout workout
 
-	App.vent.on "workout:cancelled", (workout) ->
+	App.vent.on "workout:cancelled workout:updated workout:created", (workout) ->
 		App.navigate Routes.workouts_path()
 		API.listWorkouts()
 

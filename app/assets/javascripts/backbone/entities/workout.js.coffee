@@ -22,8 +22,14 @@
 				reset:true
 			workout
 
+		newWorkoutEntity: ->
+			new Entities.Workout
+
 	App.reqres.setHandler "workout:entities", ->
 		API.getWorkoutEntities()
 
 	App.reqres.setHandler "workout:entity", (id) ->
 		API.getWorkoutEntity id
+
+	App.reqres.setHandler "new:workout:entity", ->
+		API.newWorkoutEntity()

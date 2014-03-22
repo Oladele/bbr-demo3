@@ -3,9 +3,15 @@
 	New.Controller =
 
 		newWorkout: ->
-			newView = @getNewView()
+			workout = App.request "new:workout:entity"
 
-			newView
+			workout.on "created", ->
+				App.vent.trigger "workout:created", workout
+				
+			newView = @getNewView workout
 
-		getNewView: ->
+			App.request "form:wrapper", newView
+
+		getNewView: (workout) ->
 			new New.Workout
+				model: workout

@@ -21,8 +21,20 @@ class WorkoutsController < ApplicationController
 			render "workouts/show"
 		else
 			respond_with @workout
+		end		
+	end
+
+	def create
+		# sleep 2
+		@workout = WodPrototype.new
+		@exercises = Exercise.all
+
+		###HACK HACK HACK HACK ### forces user_id to be FIRST USER
+		if @workout.update_attributes wod_params.merge({user_id:1})
+			render "workouts/show"
+		else
+			respond_with @workout
 		end
-		
 	end
 
 	private
