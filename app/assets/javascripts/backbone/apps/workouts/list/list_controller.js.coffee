@@ -61,9 +61,6 @@
 			editView.on "form:cancel workout:updated", =>
 				region.close()
 
-			# editView.on "workout:updated", (workout) =>
-			# 	console.log 'edit region updated'
-
 			region.show editView
 
 		showWorkouts: (workouts) ->

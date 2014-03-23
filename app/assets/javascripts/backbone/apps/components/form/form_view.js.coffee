@@ -18,7 +18,9 @@
 			"click [data-form-button='cancel']" : "form:cancel"
 
 		modelEvents:
-			"change:_errors" : "changeErrors"
+			"change:_errors" 	: "changeErrors"
+			"sync:start"			: "syncStart"
+			"sync:stop"				: "syncStop"
 
 		initialize: ->
 			@setInstancePropertiesFor "config", "buttons"
@@ -60,3 +62,13 @@
 			sm = $("<small>").text(error)
 			sm.addClass("input-error-msg")
 			el.after(sm).closest(".form-group").addClass("has-error")
+
+		syncStart: (model) ->
+			@$el.addClass("opacity") if @config.syncing
+			# @addOpacityWrapper() if @config.syncing
+			# JQUERY NOT WORKING WITH CHROME AND OPACITY NOT CLEARING AFTER SYNC
+
+		syncStop: (model) ->
+			@$el.removeClass("opacity") if @config.syncing
+			# @addOpacityWrapper(false) if @config.syncing
+			# JQUERY NOT WORKING WITH CHROME AND OPACITY NOT CLEARING AFTER SYNC

@@ -4,7 +4,7 @@
 
 		edit: (id, workout) ->
 			workout or= App.request "workout:entity", id
-			# workout.on "all", (e) -> console.log e
+			workout.on "all", (e) -> console.log e
 
 			workout.on "updated", =>
 				App.vent.trigger "workout:updated", workout
