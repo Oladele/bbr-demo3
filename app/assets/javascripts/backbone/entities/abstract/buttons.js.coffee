@@ -1,6 +1,8 @@
 @Demo.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
 	class Entities.Button extends Entities.Model
+		defaults:
+			buttonType: "button"
 
 	class Entities.ButtonsCollection extends Entities.Collection
 		model: Entities.Button
@@ -11,7 +13,7 @@
 
 			array = []
 			array.push { type: "cancel", className: "btn btn-default btn-sm", text: buttons.cancel } unless buttons.cancel is false
-			array.push { type: "primary", className: "btn btn-default btn-sm", text: buttons.primary } unless buttons.primary is false
+			array.push { type: "primary", className: "btn btn-default btn-sm", text: buttons.primary, buttonType: "submit" } unless buttons.primary is false
 
 			array.reverse() if buttons.placement is "left"
 

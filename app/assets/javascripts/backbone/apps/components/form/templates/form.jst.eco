@@ -6,8 +6,9 @@
 			<% if @buttons: %>
 				<div class="buttons-group">
 					<% for button in @buttons: %>
-						<button data-form-button="<%= button.type %>" 
-										class="<%= button.className %>">
+						<button type=							"<%= button.buttonType %>" 
+										data-form-button=	"<%= button.type %>" 
+										class=						"<%= button.className %>">
 										<%= button.text %>
 						</button>
 					<% end %>
