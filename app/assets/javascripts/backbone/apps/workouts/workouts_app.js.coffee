@@ -7,15 +7,12 @@
 			"workouts" : "listWorkouts"
 
 	API =
-		listWorkouts: ->
+		listWorkouts: (options) ->
 			# WorkoutsApp.List.Controller.listWorkouts()
-			new WorkoutsApp.List.Controller
+			new WorkoutsApp.List.Controller options
 
 		listWorkoutsAndEdit: (id) ->
-			# WorkoutsApp.List.Controller.listWorkoutsAndEdit(id)
-			# INITIAL conversion to controller...not working...
-			c = new WorkoutsApp.List.Controller
-			c.listWorkoutsAndEdit(id)
+			@listWorkouts (edit_id:id)
 
 		newWorkout: (region) ->
 			# WorkoutsApp.New.Controller.newWorkout()
@@ -24,24 +21,32 @@
 			new WorkoutsApp.New.Controller
 				region: region
 
-		editWorkout: (id, workout) ->
-			WorkoutsApp.Edit.Controller.edit id, workout
+		editWorkout: (id, workout, region) ->
+			# WorkoutsApp.Edit.Controller.edit id, workout
+			new WorkoutsApp.Edit.Controller
+				id: id
+				workout: workout
+				region: region
 
 	# App.reqres.setHandler "new:workout:view", ->
 	# 	API.newWorkout()
 	# REPLACED with below
 
-	App.commands.setHandler "new:workout", (region) ->
-		API.newWorkout region
+	App.commands.setHandler "new:workout", (options) ->
+		API.newWorkout options.region
 
 	App.reqres.setHandler "edit:workout:view", (workout) ->
 		App.navigate Routes.edit_workout_path(workout.id)
 		API.editWorkout workout.id, workout
 
+	App.commands.setHandler "edit:workout", (options) ->
+		App.navigate Routes.edit_workout_path(options.workout.id)
+		API.editWorkout options.workout.id, options.workout, options.region
+
 	# App.vent.on "edit:workout:button:clicked", (workout) ->
 	# 	API.editWorkout workout
 
-	App.vent.on "workout:cancelled workout:updated workout:created", (workout) ->
+	App.vent.on "workout:cancelled workout:updated", (workout) ->
 		App.navigate Routes.workouts_path()
 		# API.listWorkouts()
 

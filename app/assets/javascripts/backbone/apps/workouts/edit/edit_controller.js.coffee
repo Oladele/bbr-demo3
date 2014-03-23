@@ -1,39 +1,36 @@
 @Demo.module "WorkoutsApp.Edit", (Edit, App, Backbone, Marionette, $, _) ->
 
-	Edit.Controller =
+	# Edit.Controller =
+	class Edit.Controller extends App.Controllers.Base
 
-		edit: (id, workout) ->
+		# edit: (id, workout) ->
+		initialize: (options) ->
+			# workout = options.workout
+			# id = options.id
+			#use Coffeescript 'destructuring assignment' below instead of above
+			{ workout, id } = options
+
 			workout or= App.request "workout:entity", id
-			workout.on "all", (e) -> console.log e
+			# workout.on "all", (e) -> console.log e
 
-			workout.on "updated", =>
+			# workout.on "updated", =>
+			@listenTo workout, "updated", =>
 				App.vent.trigger "workout:updated", workout
-				@layout.triggerMethod "workout:updated", workout
+				@region.close()
+				# @layout.triggerMethod "workout:updated", workout
 
-			@layout = @getLayoutView workout
-
-			# @layout.on "form:cancel", ->
-			# 	console.log 'form:cancel from EDIT CONTROLLER layout'
-
-			@layout.on "show", =>
-				@formRegion workout
-
-			@layout
-
-		getLayoutView: (workout) ->
-			new Edit.Layout
-				model:workout
-
-		formRegion: (workout) ->
+			# editView = @getLayoutView workout
 			editView = @getEditView workout
+			
+			formView = App.request "form:wrapper", editView
 
-			editView.on "form:cancel", =>
-				@layout.triggerMethod "form:cancel"
+			#NEW CODE for new_controller as REAL controller. Below functionality stripped from list_controller
+			@listenTo editView, "form:cancel", =>
+				# @layout.triggerMethod "form:cancel"
+				@region.close()
 
-			formView = App.request "form:wrapper", editView,
-				footer: true
-
-			@layout.formRegion.show formView
+			# @layout.formRegion.show formView
+			@show formView
 
 		getEditView: (workout) ->
 			new Edit.Workout

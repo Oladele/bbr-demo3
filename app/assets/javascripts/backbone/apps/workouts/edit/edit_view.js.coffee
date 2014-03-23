@@ -1,10 +1,10 @@
 @Demo.module "WorkoutsApp.Edit", (Edit, App, Backbone, Marionette, $, _) ->
 
-	class Edit.Layout extends App.Views.Layout
-		template: "workouts/edit/edit_layout"
+	# class Edit.Layout extends App.Views.Layout
+	# 	template: "workouts/edit/edit_layout"
 
-		regions:
-			formRegion: "#form-region"
+	# 	regions:
+	# 		formRegion: "#form-region"
 
 	class Edit.Workout extends App.Views.ItemView
 		template: "workouts/edit/edit_workout"

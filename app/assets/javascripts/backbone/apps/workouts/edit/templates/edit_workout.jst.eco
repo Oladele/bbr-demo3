@@ -1,2 +1,10 @@
-<input type="text" name="name" placeholder="New workout name" class="wod-input form-control" value="<%= @name %>" />
-<!-- <small class="input-error-msg">Error msg</small> -->
+<div class="wod-tab-new form-group">
+	<!-- <div id="form-region"></div> -->
+		<div id="edit-workout-input">
+			<input 	type="text" 
+							name="name" 
+							placeholder="New workout name" 
+							class="wod-input form-control" 
+							value="<%= @name %>" />
+		</div>
+</div>

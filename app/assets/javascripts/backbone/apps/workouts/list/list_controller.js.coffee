@@ -5,12 +5,15 @@
 	class List.Controller extends App.Controllers.Base	
 
 		# listWorkouts: ->
-		initialize: ->
+		initialize: (options) ->
 			window.c = @
+			# console.log init
+			console.log @options
 
 			workouts = App.request "workout:entities"
 			
 			App.execute "when:fetched", workouts, =>
+				workout = workouts.get(id:options.edit_id) if options.edit_id
 				
 				@layout = @getLayoutView()
 				# @listenTo @layout, "close", @close
@@ -21,6 +24,7 @@
 					@showPanel workouts
 					@showWorkouts workouts
 					@showDetails workouts
+					@editRegion workout if options.edit_id
 
 				# App.mainRegion.show @layout
 				# no longer needed since implemented in controller/_base. Instead...
@@ -29,26 +33,26 @@
 		onClose: ->
 			console.info "clossing controller!"
 
-		listWorkoutsAndEdit: (id) ->
+		# listWorkoutsAndEdit: (id) ->
 			
-			workouts = App.request "workout:entities"
+		# 	workouts = App.request "workout:entities"
 
-			# workout.on "updated", ->
-				# App.vent.trigger "workout:updated", workout
-				# console.log "LIST_CONTROLLER modelupdated"
+		# 	# workout.on "updated", ->
+		# 		# App.vent.trigger "workout:updated", workout
+		# 		# console.log "LIST_CONTROLLER modelupdated"
 
-			App.execute "when:fetched", workouts, =>
-				workout = workouts.get(id:id)
-				@layout = @getLayoutView()
+		# 	App.execute "when:fetched", workouts, =>
+		# 		workout = workouts.get(id:id)
+		# 		@layout = @getLayoutView()
 				
-				# @layout.on "show", =>
-				@listenTo @layout, "show", =>
-					@showPanel workouts
-					@showWorkouts workouts
-					@showDetails workouts
-					@editRegion workout
+		# 		# @layout.on "show", =>
+		# 		@listenTo @layout, "show", =>
+		# 			@showPanel workouts
+		# 			@showWorkouts workouts
+		# 			@showDetails workouts
+		# 			@editRegion workout
 
-				App.mainRegion.show @layout
+		# 		App.mainRegion.show @layout
 
 		showPanel: (workouts) ->
 			panelView = @getPanelView workouts
@@ -75,17 +79,26 @@
 			# region.show newView
 			# REDESIGN to use App.execute instead
 
-			App.execute "new:workout", @layout.newRegion
+			options = {}
+			options.region = @layout.newRegion
+
+			# App.execute "new:workout", @layout.newRegion
+			App.execute "new:workout", options
 
 		editRegion: (workout) ->
-			region = @layout.editRegion
-			editView = App.request "edit:workout:view", workout
+			# region = @layout.editRegion
+			# editView = App.request "edit:workout:view", workout
 
-			# editView.on "form:cancel workout:updated", =>
-			@listenTo editView, "form:cancel workout:updated", =>
-				region.close()
+			# # editView.on "form:cancel workout:updated", =>
+			# @listenTo editView, "form:cancel workout:updated", =>
+			# 	region.close()
 
-			region.show editView
+			# region.show editView
+
+			options = {}
+			options.region = @layout.editRegion
+			options.workout = workout
+			App.execute "edit:workout", options
 
 		showWorkouts: (workouts) ->
 			workoutsView = @getWorkoutsView workouts
