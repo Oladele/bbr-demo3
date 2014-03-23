@@ -66,9 +66,14 @@
 		showWorkouts: (workouts) ->
 			workoutsView = @getWorkoutsView workouts
 			
-			workoutsView.on "childview:edit:workout:button:clicked", (child, workout)  =>
-				@editRegion workout
-				# App.vent.trigger "edit:workout:button:clicked", workout
+			workoutsView.on "childview:edit:workout:button:clicked", (child, args)  =>
+				@editRegion args.model #see comments below
+				# App.vent.trigger "edit:workout:button:clicked", workout 
+				#now args.model instead of workout since using "triggers:" instead of "events:" syntax in view
+
+			workoutsView.on "childview:workout:delete", (child, args) ->
+				model = args.model
+				if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
 
 			@layout.workoutsRegion.show workoutsView
 

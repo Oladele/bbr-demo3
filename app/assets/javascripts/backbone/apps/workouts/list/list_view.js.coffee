@@ -20,16 +20,21 @@
 		template: "workouts/list/_workout"
 		tagName: "li"
 
+		triggers:
+			"click .delete-workout" : "workout:delete"
+			"click .edit-workout" 	: "edit:workout:button:clicked"
+
+		# OLD OR UNWIELDY IDIOM
+		# events:
+		# 	"click .edit-workout" : -> @trigger "edit:workout:button:clicked", @model
+		# # triggers:
+		# 	"click #edit-workout" : "new:workout:button:clicked"
+
 		modelEvents:
 			"updated" : "modelUpdated"
 
 		modelUpdated: =>
 			@render()
-
-		events:
-			"click #edit-workout" : -> @trigger "edit:workout:button:clicked", @model
-		# triggers:
-		# 	"click #edit-workout" : "new:workout:button:clicked"
 
 	class List.Workouts extends App.Views.CompositeView
 		template: "workouts/list/_workouts"

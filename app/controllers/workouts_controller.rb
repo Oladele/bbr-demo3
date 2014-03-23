@@ -37,6 +37,13 @@ class WorkoutsController < ApplicationController
 		end
 	end
 
+	def destroy
+		sleep 2
+		workout = WodPrototype.find params[:id]
+		workout.destroy()
+		render json: {}
+	end
+
 	private
 
     def wod_params

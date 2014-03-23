@@ -1,7 +1,10 @@
 <% if @name == "Angie": %>
 	<div class="wod-tab-selected"><%= @name %>
 		<!-- <a href="" class="btn-glyph"> -->
-			<button type="button"  id="edit-workout" class="pull-right btn-glyph">
+			<button type="button" class="delete-workout pull-right btn-glyph">
+				<span class="glyphicon glyphicon-remove"></span>
+			</button>
+			<button type="button" class="edit-workout pull-right btn-glyph">
 				<span class="glyphicon glyphicon-edit"></span>
 			</button>
 		<!-- </a> -->
@@ -9,7 +12,10 @@
 <% else: %>
 	<div class="wod-tab"><%= @name %>
 		<!-- <a href="" class="btn-glyph"> -->
-			<button type="button"  id="edit-workout" class="pull-right btn-glyph">
+			<button type="button" class="delete-workout pull-right btn-glyph">
+				<span class="glyphicon glyphicon-remove"></span>
+			</button>
+			<button type="button" class="edit-workout pull-right btn-glyph">
 				<span class="glyphicon glyphicon-edit"></span>
 			</button>
 		<!-- </a> -->
