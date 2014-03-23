@@ -27,9 +27,13 @@
 
 		# OLD OR UNWIELDY IDIOM
 		# events:
+			# "click"									: "doMe"
 		# 	"click .edit-workout" : -> @trigger "edit:workout:button:clicked", @model
 		# # triggers:
 		# 	"click #edit-workout" : "new:workout:button:clicked"
+
+		doMe: (args) ->
+			console.log "do me", args
 
 		modelEvents:
 			"updated" : "modelUpdated"

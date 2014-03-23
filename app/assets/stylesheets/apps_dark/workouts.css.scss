@@ -8,10 +8,9 @@
 
 .wod-tab 					{ margin: 5px; border-radius: 10px; border: 1px solid $bgDark;
 										padding: 5px 5px; 
-										/*@include background-image(linear-gradient(top, $bgMedium, $bgDark));*/}
-.wod-tab-selected { margin: 5px; border-radius: 10px; 
-										padding: 5px 5px;
-										background-color: $bgNight; }
+										/*@include background-image(linear-gradient(top, $bgMedium, $bgDark));*/
+	&.selected 			{ background-color: $bgNight; }
+									}
 
 .wod-tab-new			{ margin: 5px; border-radius: 10px; border: 1px solid $bgDark;
 										padding: 15px 15px; }

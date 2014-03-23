@@ -60,8 +60,9 @@
 				if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
 
 			@listenTo workoutsView, "childview:workout:details", (child, args)  ->
-				console.log 'hello from clicking workouts'
 				@showDetails (args.model)
+				workoutsView.$(".wod-tab").removeClass("selected")
+				child.$(".wod-tab").addClass("selected")
 
 			@layout.workoutsRegion.show workoutsView
 

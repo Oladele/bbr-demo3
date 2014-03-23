@@ -11,7 +11,9 @@
 	</div>
 
 	<div class="col-sm-6 col-md-6 col-lg-6 wod-sub-panel slick-scroll-y">
-		<div id="details-region"></div>
+		<div id="wod-details" class="wod-content">
+			<div id="details-region"></div>
+		</div>
 	</div>
 
 </div>

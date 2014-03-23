@@ -55,7 +55,7 @@
 
 	App.commands.setHandler "workout:details", (options) ->
 		# App.navigate Routes.workout_path(1)
-		# App.navigate Routes.workout_path(options.workout.id)
+		App.navigate Routes.workout_path(options.workout.id)
 		API.showWorkout options.workout.id, options.workout, options.region
 
 	# App.vent.on "edit:workout:button:clicked", (workout) ->
