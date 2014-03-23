@@ -2,7 +2,7 @@
 
 	class List.Controller extends App.Controllers.Base	
 
-	initialize: (options) ->
+		initialize: (options) ->
 
 			workouts = App.request "workout:entities"
 			
@@ -52,7 +52,7 @@
 			
 			@listenTo workoutsView, "childview:edit:workout:button:clicked", (child, args)  =>
 				@editRegion args.model
-				
+
 			@listenTo workoutsView, "childview:workout:delete", (child, args) ->
 				model = args.model
 				if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
