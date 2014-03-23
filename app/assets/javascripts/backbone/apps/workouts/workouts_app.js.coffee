@@ -8,19 +8,31 @@
 
 	API =
 		listWorkouts: ->
-			WorkoutsApp.List.Controller.listWorkouts()
+			# WorkoutsApp.List.Controller.listWorkouts()
+			new WorkoutsApp.List.Controller
 
 		listWorkoutsAndEdit: (id) ->
-			WorkoutsApp.List.Controller.listWorkoutsAndEdit(id)
+			# WorkoutsApp.List.Controller.listWorkoutsAndEdit(id)
+			# INITIAL conversion to controller...not working...
+			c = new WorkoutsApp.List.Controller
+			c.listWorkoutsAndEdit(id)
 
-		newWorkout: ->
-			WorkoutsApp.New.Controller.newWorkout()
+		newWorkout: (region) ->
+			# WorkoutsApp.New.Controller.newWorkout()
+			# new WorkoutsApp.New.Controller
+			# new WorkoutsApp.New.Controller().formView #TAKE TWO
+			new WorkoutsApp.New.Controller
+				region: region
 
 		editWorkout: (id, workout) ->
 			WorkoutsApp.Edit.Controller.edit id, workout
 
-	App.reqres.setHandler "new:workout:view", ->
-		API.newWorkout()
+	# App.reqres.setHandler "new:workout:view", ->
+	# 	API.newWorkout()
+	# REPLACED with below
+
+	App.commands.setHandler "new:workout", (region) ->
+		API.newWorkout region
 
 	App.reqres.setHandler "edit:workout:view", (workout) ->
 		App.navigate Routes.edit_workout_path(workout.id)

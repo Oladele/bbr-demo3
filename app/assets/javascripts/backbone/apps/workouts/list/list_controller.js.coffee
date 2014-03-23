@@ -1,19 +1,33 @@
 @Demo.module "WorkoutsApp.List", (List, App, Backbone, Marionette, $, _) ->
 
-	List.Controller =
+	# List.Controller =
+	# class List.Controller extends Marionette.Controller
+	class List.Controller extends App.Controllers.Base	
 
-		listWorkouts: ->
+		# listWorkouts: ->
+		initialize: ->
+			window.c = @
 
 			workouts = App.request "workout:entities"
 			
 			App.execute "when:fetched", workouts, =>
+				
 				@layout = @getLayoutView()
-				@layout.on "show", =>
+				# @listenTo @layout, "close", @close
+				# no longer needed since implemented in controller/_base
+				
+				# @layout.on "show", =>
+				@listenTo @layout, "show", =>
 					@showPanel workouts
 					@showWorkouts workouts
 					@showDetails workouts
 
-				App.mainRegion.show @layout
+				# App.mainRegion.show @layout
+				# no longer needed since implemented in controller/_base. Instead...
+				@show @layout
+
+		onClose: ->
+			console.info "clossing controller!"
 
 		listWorkoutsAndEdit: (id) ->
 			
@@ -26,7 +40,9 @@
 			App.execute "when:fetched", workouts, =>
 				workout = workouts.get(id:id)
 				@layout = @getLayoutView()
-				@layout.on "show", =>
+				
+				# @layout.on "show", =>
+				@listenTo @layout, "show", =>
 					@showPanel workouts
 					@showWorkouts workouts
 					@showDetails workouts
@@ -37,7 +53,8 @@
 		showPanel: (workouts) ->
 			panelView = @getPanelView workouts
 
-			panelView.on "new:workout:button:clicked", =>
+			# panelView.on "new:workout:button:clicked", =>
+			@listenTo panelView, "new:workout:button:clicked", =>
 				@newRegion()
 			@layout.panelRegion.show panelView
 
@@ -46,19 +63,26 @@
 				collection: workouts
 
 		newRegion: ->
-			region = @layout.newRegion
-			newView = App.request "new:workout:view"
+			# REDESIGN to use App.execute instead
+			# region = @layout.newRegion
+			# newView = App.request "new:workout:view"
 
-			newView.on "form:cancel workout:created", =>
-				region.close()
+			# # INIITIAL replacing on '.on' idiom with listTo
+			# # newView.on "form:cancel workout:created", =>
+			# @listenTo newView, "form:cancel workout:created", =>
+			# 	region.close()
 
-			region.show newView
+			# region.show newView
+			# REDESIGN to use App.execute instead
+
+			App.execute "new:workout", @layout.newRegion
 
 		editRegion: (workout) ->
 			region = @layout.editRegion
 			editView = App.request "edit:workout:view", workout
 
-			editView.on "form:cancel workout:updated", =>
+			# editView.on "form:cancel workout:updated", =>
+			@listenTo editView, "form:cancel workout:updated", =>
 				region.close()
 
 			region.show editView
@@ -66,12 +90,14 @@
 		showWorkouts: (workouts) ->
 			workoutsView = @getWorkoutsView workouts
 			
-			workoutsView.on "childview:edit:workout:button:clicked", (child, args)  =>
+			# workoutsView.on "childview:edit:workout:button:clicked", (child, args)  =>
+			@listenTo workoutsView, "childview:edit:workout:button:clicked", (child, args)  =>
 				@editRegion args.model #see comments below
 				# App.vent.trigger "edit:workout:button:clicked", workout 
 				#now args.model instead of workout since using "triggers:" instead of "events:" syntax in view
 
-			workoutsView.on "childview:workout:delete", (child, args) ->
+			# workoutsView.on "childview:workout:delete", (child, args) ->
+			@listenTo workoutsView, "childview:workout:delete", (child, args) ->
 				model = args.model
 				if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
 
