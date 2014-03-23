@@ -14,7 +14,7 @@ class WorkoutsController < ApplicationController
 	end
 
 	def update
-		sleep 5
+		# sleep 5
 		@workout = WodPrototype.find params[:id]
 		@exercises = Exercise.all
 		if @workout.update_attributes wod_params
