@@ -33,6 +33,10 @@
 		App.navigate Routes.workouts_path()
 		# API.listWorkouts()
 
+	App.vent.on "workout:created", (workout) ->
+		App.navigate Routes.workouts_path()
+		API.listWorkouts()
+
 	App.addInitializer ->
 		new WorkoutsApp.Router
 			controller: API
