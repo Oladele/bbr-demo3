@@ -1,0 +1,24 @@
+<div id="wod-details" class="wod-content">
+	<div>
+		<%= @name %>	
+	</div>
+
+	<% _.each @groups, (group) -> : %>
+	
+	<div>
+		<%=	group.name %>	
+	</div>
+		
+		<% _.each group.setts, (sett) -> : %>
+		
+		<div>
+			Set# <%=	sett.position %>, <%=	sett.reps.length %>	reps
+		</div>
+		<% _.each sett.reps, (rep) -> : %>
+		<span>
+			<%=	rep.exercise_name %> <%= rep.resistance %>	lbs;
+		</span>
+		<% end %>
+	
+	<% end %>
+</div>

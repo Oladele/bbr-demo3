@@ -3,18 +3,20 @@
 	class List.Controller extends App.Controllers.Base	
 
 		initialize: (options) ->
+			console.log options
 
 			workouts = App.request "workout:entities"
 			
 			App.execute "when:fetched", workouts, =>
 				workout = workouts.get(id:options.edit_id) if options.edit_id
+				workout = workouts.get(id:options.show_id) if options.show_id
 				
 				@layout = @getLayoutView()
 
 				@listenTo @layout, "show", =>
 					@showPanel workouts
 					@showWorkouts workouts
-					@showDetails workouts
+					@showDetails workout if options.show_id
 					@editRegion workout if options.edit_id
 
 				@show @layout
@@ -57,19 +59,31 @@
 				model = args.model
 				if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
 
+			@listenTo workoutsView, "childview:workout:details", (child, args)  ->
+				console.log 'hello from clicking workouts'
+				@showDetails (args.model)
+
 			@layout.workoutsRegion.show workoutsView
 
 		getWorkoutsView: (workouts) ->
 			new List.Workouts
 				collection: workouts
 
-		showDetails: (workouts) ->
-			detailsView = @getDetailsView workouts
-			@layout.detailsRegion.show detailsView
+		showDetails: (workout) ->
+			# detailsView = @getDetailsView workouts
+			# @layout.detailsRegion.show detailsView
+			options = {}
+			options.region = @layout.detailsRegion
+			options.workout = workout
+			App.execute "workout:details", options
 
-		getDetailsView: (workouts) ->
-			new List.Details
-				collection: workouts
+		# showDetails: (workouts) ->
+		# 	detailsView = @getDetailsView workouts
+		# 	@layout.detailsRegion.show detailsView
+
+		# getDetailsView: (workouts) ->
+		# 	new List.Details
+		# 		collection: workouts
 
 		getLayoutView : ->
 			new List.Layout

@@ -21,7 +21,7 @@
 		tagName: "li"
 
 		triggers:
-			# "click" 								: "workout:details"
+			"click" 								: "workout:details"
 			"click .delete-workout" : "workout:delete"
 			"click .edit-workout" 	: "edit:workout:button:clicked"
 
