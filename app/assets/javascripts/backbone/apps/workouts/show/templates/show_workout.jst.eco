@@ -1,22 +1,30 @@
+	<% #console.log @ %>
 	<div>
 		<%= @name %>	
 	</div>
 
 	<% _.each @groups, (group) -> : %>
 	
-	<div>
-		<%=	group.name %>	
-	</div>
+		<div class='workout-block'>
+			
+			<div class='workout-block-name'>
+				<%=	group.name %>	
+			</div>
+				
+			<% _.each group.setts, (sett) -> : %>
+				
+				<div>
+					Set# <%=	sett.position %>, <%=	sett.reps.length %>	reps
+				</div>
+				
+				<% _.each sett.reps, (rep) -> : %>
+					<span>
+						<%=	rep.exercise_name %> <%= rep.resistance %>	lbs;
+					</span>
+				<% end %>
 		
-		<% _.each group.setts, (sett) -> : %>
-		
-		<div>
-			Set# <%=	sett.position %>, <%=	sett.reps.length %>	reps
+			<% end %>
+
 		</div>
-		<% _.each sett.reps, (rep) -> : %>
-		<span>
-			<%=	rep.exercise_name %> <%= rep.resistance %>	lbs;
-		</span>
-		<% end %>
 	
 	<% end %>
