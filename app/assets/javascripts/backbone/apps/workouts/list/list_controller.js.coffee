@@ -3,7 +3,6 @@
 	class List.Controller extends App.Controllers.Base	
 
 		initialize: (options) ->
-			console.log options
 
 			workouts = App.request "workout:entities"
 			
@@ -22,7 +21,6 @@
 				@show @layout
 
 		onClose: ->
-			console.info "clossing controller!"
 
 		showPanel: (workouts) ->
 			panelView = @getPanelView workouts
