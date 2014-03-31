@@ -46,10 +46,10 @@
 		itemView: List.Workout
 		itemViewContainer: "ul"
 
-	class List.Detail extends App.Views.ItemView
-		template: "workouts/list/_detail"
+	# class List.Detail extends App.Views.ItemView
+	# 	template: "workouts/list/_detail"
 
-	class List.Details extends App.Views.CompositeView
-		template: "workouts/list/_details"
-		itemView: List.Detail
-		itemViewContainer: "#wod-details"
+	# class List.Details extends App.Views.CompositeView
+	# 	template: "workouts/list/_details"
+	# 	itemView: List.Detail
+	# 	itemViewContainer: "#wod-details"

@@ -6,5 +6,10 @@
 		regions:
 			blocksRegion: "#blocks-region"
 
-	class List.Blocks extends App.Views.ItemView
+	class List.Block extends App.Views.ItemView
+		template: "workout_blocks/list/_block"
+
+	class List.Blocks extends App.Views.CompositeView
 		template: "workout_blocks/list/_blocks"
+		itemView: List.Block
+		itemViewContainer: "#items"

@@ -2,7 +2,9 @@
 
 	class List.Controller extends App.Controllers.Base
 
-		initialize: (workout) ->
+		initialize: (options) ->
+
+			workout = options.workout
 
 			blocks = App.request "block:entities", workout
 
@@ -18,6 +20,7 @@
 
 		showBlocks: (blocks) ->
 			blocksView = @getBlocksView blocks
+			@layout.blocksRegion.show blocksView
 
 		getBlocksView: (blocks) ->
 			new List.Blocks

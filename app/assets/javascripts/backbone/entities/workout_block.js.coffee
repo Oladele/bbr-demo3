@@ -9,7 +9,7 @@
 		getBlocks: (workout) ->
 			if workout.attributes.groups.length isnt 0
 				blocks = workout.attributes.groups
-			new Backbone.Collection blocks
+			new Entities.BlocksCollection blocks
 
 	App.reqres.setHandler "block:entities", (workout) ->
 		API.getBlocks workout

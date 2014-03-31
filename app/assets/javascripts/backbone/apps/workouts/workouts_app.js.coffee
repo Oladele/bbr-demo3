@@ -32,11 +32,14 @@
 				workout: workout
 				region: region
 
-		showWorkout: (id, workout, region) ->
-			new WorkoutsApp.Show.Controller
-				id: id
-				workout: workout
-				region: region
+		# showWorkout: (id, workout, region) ->
+		# 	new WorkoutsApp.Show.Controller
+		# 		id: id
+		# 		workout: workout
+		# 		region: region
+
+		showWorkout: (options) ->
+			new App.WorkoutBlocksApp.List.Controller options
 
 	# App.reqres.setHandler "new:workout:view", ->
 	# 	API.newWorkout()
@@ -56,7 +59,8 @@
 	App.commands.setHandler "workout:details", (options) ->
 		# App.navigate Routes.workout_path(1)
 		App.navigate Routes.workout_path(options.workout.id)
-		API.showWorkout options.workout.id, options.workout, options.region
+		# API.showWorkout options.workout.id, options.workout, options.region
+		API.showWorkout options
 
 	# App.vent.on "edit:workout:button:clicked", (workout) ->
 	# 	API.editWorkout workout
