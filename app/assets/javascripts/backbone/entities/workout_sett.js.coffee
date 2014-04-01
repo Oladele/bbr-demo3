@@ -9,7 +9,7 @@
 		getSetts: (block) ->
 			if block.attributes.setts.length isnt 0
 				setts = block.attributes.setts
-			new Backbone.Collection setts
+			new Entities.SettsCollection setts
 
 	App.reqres.setHandler "sett:entities", (block) ->
 		API.getSetts block
