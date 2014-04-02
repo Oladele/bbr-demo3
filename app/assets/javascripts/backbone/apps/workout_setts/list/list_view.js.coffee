@@ -4,7 +4,7 @@
 		template: "workout_setts/list/list_layout"
 
 		regions:
-			settsRegion: "#setts-regions"
+			settsRegion: "#setts-region"
 
 	class List.Sett extends App.Views.ItemView
 		template: "workout_setts/list/_sett"

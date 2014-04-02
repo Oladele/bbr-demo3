@@ -32,14 +32,14 @@
 				workout: workout
 				region: region
 
-		# showWorkout: (id, workout, region) ->
-		# 	new WorkoutsApp.Show.Controller
-		# 		id: id
-		# 		workout: workout
-		# 		region: region
-
 		showWorkout: (options) ->
-			new App.WorkoutBlocksApp.List.Controller options
+			new WorkoutsApp.Show.Controller options
+				# id: id
+				# workout: workout
+				# region: region
+
+		# showWorkout: (options) ->
+		# 	new App.WorkoutBlocksApp.List.Controller options
 
 	# App.reqres.setHandler "new:workout:view", ->
 	# 	API.newWorkout()

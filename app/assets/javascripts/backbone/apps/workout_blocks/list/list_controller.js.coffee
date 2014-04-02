@@ -8,6 +8,12 @@
 
 			blocks = App.request "block:entities", workout
 
+			#************NEED ACCESS TO REGION ELEMENMT IN BLOCKS VIEW******************
+			# for block in blocks
+			# 	options.region = ????
+			# 	new App.WorkoutSetssApp.List sett_options
+
+
 			@layout = @getLayoutView()
 
 			@listenTo @layout, "show", =>

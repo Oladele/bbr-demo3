@@ -72,7 +72,7 @@
 			# detailsView = @getDetailsView workouts
 			# @layout.detailsRegion.show detailsView
 			options = {}
-			options.region = @layout.detailsRegion
+			options.region = @layout.detailsRegionHeading
 			options.workout = workout
 			App.execute "workout:details", options
 
