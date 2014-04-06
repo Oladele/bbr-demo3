@@ -34,16 +34,6 @@
 
 		showWorkout: (options) ->
 			new WorkoutsApp.Show.Controller options
-				# id: id
-				# workout: workout
-				# region: region
-
-		# showWorkout: (options) ->
-		# 	new App.WorkoutBlocksApp.List.Controller options
-
-	# App.reqres.setHandler "new:workout:view", ->
-	# 	API.newWorkout()
-	# REPLACED with below
 
 	App.commands.setHandler "new:workout", (options) ->
 		API.newWorkout options.region
@@ -57,13 +47,8 @@
 		API.editWorkout options.workout.id, options.workout, options.region
 
 	App.commands.setHandler "workout:details", (options) ->
-		# App.navigate Routes.workout_path(1)
 		App.navigate Routes.workout_path(options.workout.id)
-		# API.showWorkout options.workout.id, options.workout, options.region
 		API.showWorkout options
-
-	# App.vent.on "edit:workout:button:clicked", (workout) ->
-	# 	API.editWorkout workout
 
 	App.vent.on "workout:cancelled workout:updated", (workout) ->
 		App.navigate Routes.workouts_path()

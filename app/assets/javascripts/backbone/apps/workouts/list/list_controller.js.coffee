@@ -14,7 +14,7 @@
 
 				@listenTo @layout, "show", =>
 					@showPanel workouts
-					@showWorkouts workouts
+					@listWorkouts workouts
 					@showDetails workout if options.show_id
 					@editRegion workout if options.edit_id
 
@@ -47,7 +47,7 @@
 			options.workout = workout
 			App.execute "edit:workout", options
 
-		showWorkouts: (workouts) ->
+		listWorkouts: (workouts) ->
 			workoutsView = @getWorkoutsView workouts
 			
 			@listenTo workoutsView, "childview:edit:workout:button:clicked", (child, args)  =>
@@ -69,20 +69,10 @@
 				collection: workouts
 
 		showDetails: (workout) ->
-			# detailsView = @getDetailsView workouts
-			# @layout.detailsRegion.show detailsView
 			options = {}
 			options.region = @layout.detailsRegionHeading
 			options.workout = workout
 			App.execute "workout:details", options
-
-		# showDetails: (workouts) ->
-		# 	detailsView = @getDetailsView workouts
-		# 	@layout.detailsRegion.show detailsView
-
-		# getDetailsView: (workouts) ->
-		# 	new List.Details
-		# 		collection: workouts
 
 		getLayoutView : ->
 			new List.Layout
