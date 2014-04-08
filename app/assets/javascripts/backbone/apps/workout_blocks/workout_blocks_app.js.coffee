@@ -1,8 +1,14 @@
 @Demo.module "WorkoutBlocksApp", (WorkoutBlocksApp, App, Backbone, Marionette, $, _) ->
 
 	API =
-		listBlocks: (workout) ->
-			new WorkoutBlocksApp.List.Controller workout
+		listBlocks: (options) ->
+      new WorkoutBlocksApp.List.Controller options
 
-	App.commands.setHandler "list:blocks", (workout) ->
-		API.listBlocks workout
+    showBlock: (options) ->
+      new WorkoutBlocksApp.Show.Controller options
+
+	App.commands.setHandler "list:blocks", (options) ->
+    API.listBlocks options
+
+  App.commands.setHandler "show:block", (options) ->
+    API.showBlock options

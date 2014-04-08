@@ -8,26 +8,37 @@
 
 			blocks = App.request "block:entities", workout
 
-			#************NEED ACCESS TO REGION ELEMENMT IN BLOCKS VIEW******************
-			# for block in blocks
-			# 	options.region = ????
-			# 	new App.WorkoutSetssApp.List sett_options
-
-
 			@layout = @getLayoutView()
 
 			@listenTo @layout, "show", =>
-				@showBlocks blocks
+				@listBlocks blocks
 
 			@show @layout
 
 		getLayoutView : ->
 			new List.Layout
 
-		showBlocks: (blocks) ->
+		listBlocks: (blocks) ->
 			blocksView = @getBlocksView blocks
+
 			@layout.blocksRegion.show blocksView
+
+			blocksView.children.each @handleItemLayout
 
 		getBlocksView: (blocks) ->
 			new List.Blocks
 				collection: blocks
+
+		handleItemLayout: (itemLayout) =>
+			@handleItemListRegion itemLayout
+			@handleItemShowRegion itemLayout
+
+		handleItemListRegion: (itemLayout) ->
+			listItemView = new List.Block(model: itemLayout.model)
+			itemLayout.listItemRegion.show( listItemView )
+
+		handleItemShowRegion: (itemLayout) ->
+			options =
+				region: itemLayout.showItemRegion
+				block: itemLayout.model
+			App.execute "show:block", options

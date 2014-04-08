@@ -3,8 +3,12 @@
 	class Show.Controller extends App.Controllers.Base
 
 		initialize: (options) ->
-			block = options.block
+      { block, region } = options
+      @layout = @getLayoutView block
+      @show @layout
 
-			
+		getLayoutView: (block) ->
+      new Show.Block
+        model: block
 
 

@@ -14,7 +14,8 @@
 				workout: workout
 
 			@listenTo @layout, "show", =>
-				new App.WorkoutBlocksApp.List.Controller blocks_options
+				App.execute "list:blocks", blocks_options
+				# new App.WorkoutBlocksApp.List.Controller blocks_options
 				# @showDetailsView workout
 
 			@show @layout
