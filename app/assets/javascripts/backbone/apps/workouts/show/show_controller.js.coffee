@@ -10,13 +10,12 @@
 			@layout = @getLayoutView()
 			
 			blocks_options =
-				region: @layout.detailsRegionContents
+				region: @layout.showSubModelsRegion
 				workout: workout
 
 			@listenTo @layout, "show", =>
+				@showDetailsView workout
 				App.execute "list:blocks", blocks_options
-				# new App.WorkoutBlocksApp.List.Controller blocks_options
-				# @showDetailsView workout
 
 			@show @layout
 
@@ -36,13 +35,13 @@
 		getLayoutView: ->
 			new Show.Layout
 
-		# showDetailsView: (workout) ->
-		# 	detailsView = @getDetailsView workout
-		# 	@layout.detailsRegionContents.show detailsView
+		showDetailsView: (workout) =>
+			detailsView = @getDetailsView workout
+			@layout.showModelRegion.show detailsView
 
-		# getDetailsView: (workout) ->
-		# 	new Show.Workout
-		# 		model: workout
+		getDetailsView: (workout) ->
+			new Show.Workout
+				model: workout
 
 		# getParceledReps = (repsArray, result) ->
 		# 	if repsArray.length is 0

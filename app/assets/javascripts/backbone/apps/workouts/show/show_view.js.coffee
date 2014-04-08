@@ -1,10 +1,11 @@
 @Demo.module "WorkoutsApp.Show", (Show, App, Backbone, Marionette, $, _) ->
 
 	class Show.Layout extends App.Views.Layout
-		template: "workouts/show/show_layout"
+		template: "workouts/show/layout"
 
 		regions:
-			detailsRegionContents: "#details-region-contents"
+      showModelRegion: "#show-model-region-workout"
+      showSubModelsRegion: "#show-sub-models-region-workout"
 
 	class Show.Workout extends App.Views.ItemView
-		template: "workouts/show/show_workout"
+		template: "workouts/show/_workout"

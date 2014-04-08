@@ -1,3 +1,12 @@
-WORKOUT_BLOCKS/SHOW/LAYOUT
-<div>showBlockRegion:</div>
-<div id="show-block"></div>
+<div>WORKOUT_BLOCK/SHOW/LAYOUT</div>
+<div>$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$</div>
+
+
+<div>showModelRegion (Block):</div>
+<div id="show-model-region-block"></div>
+
+<div>R: showSubModelsRegion (Block): </div>
+<div id="show-sub-models-region-block"></div>
+
+<div>$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$</div>
+<div>WORKOUT_BLOCK/SHOW/LAYOUT</div>

@@ -4,23 +4,41 @@
 
 		initialize: (options) ->
 
-			block = options.setts
+			block = options.block
 
-			sett = App.request "sett:entities", block
+			setts = App.request "sett:entities", block
 
 			@layout = @getLayoutView()
 
 			@listenTo @layout, "show", =>
-				@showSetts setts
+				@listSetts setts
 
 			@show @layout
 
 		getLayoutView: ->
 			new List.Layout
 
-		showSetts: (setts) ->
+		listSetts: (setts) ->
 			settsView = @getSettsView setts
+
+			@layout.listModelsRegion.show settsView
+
+			settsView.children.each @handleLayout
 
 		getSettsView: (setts) ->
 			new List.Setts
 				collection: setts
+
+		handleLayout: (layout) =>
+			@listModelRegion layout
+			@listSubModelsRegion layout
+
+		listModelRegion: (layout) ->
+			listModelView = new List.Sett(model: layout.model)
+			layout.listModelRegion.show( listModelView )
+
+		listSubModelsRegion: (layout) ->
+			options =
+				region: layout.listSubModelsRegion
+				sett: layout.model
+			App.execute "show:sett", options

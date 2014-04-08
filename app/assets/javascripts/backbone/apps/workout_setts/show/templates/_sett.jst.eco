@@ -1,0 +1,2 @@
+SHOW/_SETT ITEMVIEW
+<div>Set Position: <%= @position %></div>

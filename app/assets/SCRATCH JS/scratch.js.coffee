@@ -31,3 +31,34 @@ console.log comparator({pos:0},{pos:1})
 console.log com({pos:0},{pos:1})
 #reps.sort(comparator)
 console.log _.pluck(reps.sort(comparator), "pos")
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+@Demo.module "WorkoutSettsApp.Show", (Show, App, Backbone, Marioette, $, _) ->
+
+class Show.Controller extends App.Controllers.Base
+
+  initialize: (options) ->
+    { sett, region } = options
+
+    @layout = @getLayoutView block
+
+    exercise_options =
+      region: @layout.showSubModelsRegion
+      sett: sett
+
+    @listenTo @layout, "show", =>
+      @showDetails sett
+      # App.execute "list:exercises"
+
+    @show @layout
+
+  getLayoutView: (sett) ->
+    new Show.Layout
+
+  getDetailsView: (sett) ->
+    new Show.Sett
+      model: sett
+
+  showDetails: (sett) ->
+    showDetailsView = @getDetailsView sett
+    @layout.showModelRegion.show showDetailsView

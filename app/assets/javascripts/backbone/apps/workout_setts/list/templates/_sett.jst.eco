@@ -1,1 +1,4 @@
-sett itemview
+<br>
+<div>LIST/_SETT ITEMVIEW</div>
+<div>Set Position: <%= @position %></div>
+<br>

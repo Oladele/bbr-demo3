@@ -26,13 +26,6 @@
 			"click .delete-workout" : "workout:delete"
 			"click .edit-workout" 	: "edit:workout:button:clicked"
 
-		# OLD OR UNWIELDY IDIOM
-		# events:
-			# "click"									: "doMe"
-		# 	"click .edit-workout" : -> @trigger "edit:workout:button:clicked", @model
-		# # triggers:
-		# 	"click #edit-workout" : "new:workout:button:clicked"
-
 		modelEvents:
 			"updated" : "modelUpdated"
 
@@ -43,11 +36,3 @@
 		template: "workouts/list/_workouts"
 		itemView: List.Workout
 		itemViewContainer: "ul"
-
-	# class List.Detail extends App.Views.ItemView
-	# 	template: "workouts/list/_detail"
-
-	# class List.Details extends App.Views.CompositeView
-	# 	template: "workouts/list/_details"
-	# 	itemView: List.Detail
-	# 	itemViewContainer: "#wod-details"

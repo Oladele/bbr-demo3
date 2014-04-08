@@ -6,20 +6,26 @@
       { block, region } = options
       
       @layout = @getLayoutView block
+
+      setts_options =
+        region: @layout.showSubModelsRegion
+        block: block
       
       @listenTo @layout, "show", =>
         @showDetails block
+        App.execute "list:setts", setts_options
       
       @show @layout
 
 		getLayoutView: (block) ->
       new Show.Layout
 
-    showDetails: (block) ->
-      showDetailsView = @getDetailsView block
-      @layout.showBlockRegion.show showDetailsView
-
     getDetailsView: (block) ->
       new Show.Block
         model: block
+
+    showDetails: (block) ->
+      showDetailsView = @getDetailsView block
+      @layout.showModelRegion.show showDetailsView
+
 

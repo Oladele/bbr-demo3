@@ -1,3 +1,4 @@
-<% console.log "ItemView@:", @ %>
-<%= @name %>
-<div id="setts-region"></div>
+<br>
+<div>LIST/_BLOCK ITEMVIEW</div>
+<div><%= @name %></div>
+<br>

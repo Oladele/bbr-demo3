@@ -1,2 +1,2 @@
-SHOW/_BLOCK ITEMVIEW
+SHOW/_WORKOUT ITEMVIEW
 <div><%= @name %></div>

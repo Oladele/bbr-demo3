@@ -21,24 +21,24 @@
 		listBlocks: (blocks) ->
 			blocksView = @getBlocksView blocks
 
-			@layout.blocksRegion.show blocksView
+			@layout.listModelsRegion.show blocksView
 
-			blocksView.children.each @handleItemLayout
+			blocksView.children.each @handleLayout
 
 		getBlocksView: (blocks) ->
 			new List.Blocks
 				collection: blocks
 
-		handleItemLayout: (itemLayout) =>
-			@handleItemListRegion itemLayout
-			@handleItemShowRegion itemLayout
+		handleLayout: (layout) =>
+			@listModelRegion layout
+			@listSubModelsRegion layout
 
-		handleItemListRegion: (itemLayout) ->
-			listItemView = new List.Block(model: itemLayout.model)
-			itemLayout.listItemRegion.show( listItemView )
+		listModelRegion: (layout) ->
+			listModelView = new List.Block(model: layout.model)
+			layout.listModelRegion.show( listModelView )
 
-		handleItemShowRegion: (itemLayout) ->
+		listSubModelsRegion: (layout) ->
 			options =
-				region: itemLayout.showItemRegion
-				block: itemLayout.model
+				region: layout.listSubModelsRegion
+				block: layout.model
 			App.execute "show:block", options
