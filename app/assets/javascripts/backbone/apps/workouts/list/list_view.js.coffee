@@ -8,8 +8,7 @@
 			newRegion: "#new-region"
 			editRegion: "#new-region" #uses same region as 'new'
 			workoutsRegion: "#workouts-region"
-			detailsRegionHeading: "#details-region-heading"
-			# detailsRegion: "#details-region"
+			detailsRegion: "#details-region"
 
 	class List.Panel extends App.Views.ItemView
 		template: "workouts/list/_panel"

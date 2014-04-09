@@ -1,3 +1,35 @@
 @import "base";
 
-#show-model-region-workout      { background-color: yellow; color: red; }
+@mixin nesty
+{ border-radius: 5px; padding: 5px; color: black; }
+
+#details-region              
+{ @include nesty; background-color: lighten($grayCool,25%); }
+
+#show-model-region-workout   
+{ @include nesty; background-color: $orangeMango; }
+
+#show-sub-models-region-workout   
+{ @include nesty; background-color: $orangeMango; }
+
+/*WORKOUT BLOCKS - LIST*/
+
+#list-models-region-blocks
+{ @include nesty; background-color: darken($grayCool,25%); }
+
+#list-composite-view-blocks
+{ @include nesty; background-color: lighten($grayCool,0%); }
+
+#list-model-region-block
+{ @include nesty; background-color: lighten($grayCool,25%); }
+
+#list-sub-models-region-block
+{ @include nesty; background-color: lighten($grayCool,25%); }
+
+/*WORKOUT BLOCKS - SHOW*/
+
+#show-model-region-block   
+{ @include nesty; background-color: $orangeMango; }
+
+#show-sub-models-region-block   
+{ @include nesty; background-color: $orangeMango; }

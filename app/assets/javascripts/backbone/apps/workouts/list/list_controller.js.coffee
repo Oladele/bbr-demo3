@@ -69,9 +69,9 @@
 				collection: workouts
 
 		showDetails: (workout) ->
-			options = {}
-			options.region = @layout.detailsRegionHeading
-			options.workout = workout
+			options =
+				region: @layout.detailsRegion
+				workout: workout
 			App.execute "workout:details", options
 
 		getLayoutView : ->
