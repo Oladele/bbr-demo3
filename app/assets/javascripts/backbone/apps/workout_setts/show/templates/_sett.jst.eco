@@ -1,2 +1,4 @@
-SHOW/_SETT ITEMVIEW
-<div>Set Position: <%= @position %></div>
+
+<div class="nesty-debug collapse">
+  <div class='tiny pull-right'>SHOW/_SETT ITEMVIEW</div>
+</div>

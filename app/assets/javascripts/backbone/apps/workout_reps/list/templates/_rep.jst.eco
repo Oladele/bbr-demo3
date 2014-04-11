@@ -1,16 +1,13 @@
-<div class="nesty-debug">
-  <div class='tiny pull-right'>
-    LIST/_BLOCK ITEMVIEW
-  </div>
+<div class="nesty-debug collapse">
+  <div class='tiny pull-right'>LIST/_REP ITEMVIEW</div>
 </div>
 
-
-<div class = 'btn-group btn-group-justified btn-fence'>
+<div class = 'btn-group btn-group-justified'>
   <button type="button" class="btn-glyph">
     <span class="glyphicon glyphicon-share"></span>
   </button>
 
-  <span class = 'block-font'><%= @name %></span>
+  <span><%= @exercise_name %> : <%= @resistance %>, </span>
 
   <button type="button" class="btn-glyph pull-right">
     <span class="glyphicon glyphicon-remove"></span>

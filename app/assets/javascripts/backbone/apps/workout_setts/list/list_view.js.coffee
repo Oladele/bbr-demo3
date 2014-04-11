@@ -4,7 +4,7 @@
 		template: "workout_setts/list/layout"
 
 		regions:
-      settsRegion: "#setts-region"
+      # settsRegion: "#setts-region"
       listModelsRegion: "#list-models-region-setts"
 
   class List.LayoutEachModel extends App.Views.Layout

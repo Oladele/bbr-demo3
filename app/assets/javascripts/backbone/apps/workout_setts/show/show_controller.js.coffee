@@ -7,13 +7,13 @@
 
       @layout = @getLayoutView sett
 
-      exercise_options =
+      reps_options =
         region: @layout.showSubModelsRegion
         sett: sett
 
       @listenTo @layout, "show", =>
         @showDetails sett
-        # App.execute "list:exercises"
+        App.execute "list:reps", reps_options
 
       @show @layout
 

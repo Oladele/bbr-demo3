@@ -8,6 +8,7 @@
 
 	class List.LayoutEachModel extends App.Views.Layout
 		template: "workout_blocks/list/_layout_each_block"
+		className: "layout-each-block"
 
 		regions:
 			listModelRegion: "#list-model-region-block"

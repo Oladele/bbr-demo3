@@ -1,11 +1,10 @@
-<div>SETTS/LIST/LAYOUT_EACH_SETT</div>
-<div>L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*</div>
 
-<div>R:listModelRegion (Sett):</div>
+<div class="nesty-debug collapse">
+  <div class='tiny pull-right'>SETTS/LIST/LAYOUT_EACH_SETT</div>
+</div>
+
+<!-- <div class='tiny'>R:listModelRegion (Sett):</div> -->
 <div id="list-model-region-sett"></div>
 
-<div>R:listSubModelsRegion (Sett):</div>
+<!-- <div class='tiny'>R:listSubModelsRegion (Sett):</div> -->
 <div id="list-sub-models-region-sett"></div>
-
-<div>L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*</div>
-<div>SETTS/LIST/LAYOUT_EACH_SETT</div>

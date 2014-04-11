@@ -1,2 +1,7 @@
-SHOW/_WORKOUT ITEMVIEW
+<div class="nesty-debug">
+  <div class='tiny pull-right'> SHOW/_WORKOUT ITEMVIEW </div>
+</div>
+
 <div><%= @name %></div>
+<div>Comment/Desc: </div>
+<div>Workout Stats: </div>

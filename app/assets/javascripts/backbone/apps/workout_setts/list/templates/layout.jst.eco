@@ -1,14 +1,7 @@
-<br>
-<br>
-<br>
-<div>SETTS/LIST/LAYOUT</div>
-<div>LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL</div>
 
-<div>R:listModelsRegion (Setts):</div>
+<div class="nesty-debug collapse">
+  <div class='tiny pull-right'>SETTS/LIST/LAYOUT</div>
+</div>
+
+<!-- <div class='tiny'>R:listModelsRegion (Setts):</div> -->
 <div id="list-models-region-setts"></div>
-
-<div>LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL</div>
-<div>SETTS/LIST/LAYOUT</div>
-<br>
-<br>
-<br>

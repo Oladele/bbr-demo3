@@ -1,12 +1,9 @@
-<div>WORKOUT_SETT/SHOW/LAYOUT</div>
-<div>$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$</div>
 
-
-<div>showModelRegion (Sett):</div>
+<div class="nesty-debug collapse">
+  <div class='tiny pull-right'>WORKOUT_SETT/SHOW/LAYOUT</div>
+</div>
+<!-- <div class='tiny'>showModelRegion (Sett):</div> -->
 <div id="show-model-region-sett"></div>
 
-<div>R: showSubModelsRegion (Sett): </div>
+<!-- <div class='tiny'>R: showSubModelsRegion (Sett): </div> -->
 <div id="show-sub-models-region-sett"></div>
-
-<div>$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$</div>
-<div>WORKOUT_SETT/SHOW/LAYOUT</div>

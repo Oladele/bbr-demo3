@@ -1,11 +1,11 @@
-<div>BLOCKS/LIST/LAYOUT_EACH_BLOCK</div>
-<div>L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*</div>
+<div class="nesty-debug">
+  <div class='tiny pull-right'>BLOCKS/LIST/LAYOUT_EACH_BLOCK</div>
+</div>
 
-<div>R:listModelRegion (Block):</div>
+<div class="nest-name-block">BLOCK</div>
+
+<!-- <div class='tiny'>R:listModelRegion (Block):</div> -->
 <div id="list-model-region-block"></div>
 
-<div>R:listSubModelsRegion (Block):</div>
+<!-- <div class='tiny'>R:listSubModelsRegion (Block):</div> -->
 <div id="list-sub-models-region-block"></div>
-
-<div>L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*L*</div>
-<div>BLOCKS/LIST/LAYOUT_EACH_BLOCK</div>

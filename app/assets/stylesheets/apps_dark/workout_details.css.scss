@@ -3,33 +3,89 @@
 @mixin nesty
 { border-radius: 5px; padding: 5px; color: black; }
 
+.nesty-debug { overflow: hidden; }
+.nest-name-block { text-align: center; font-weight: bold;}
+.block-font { text-align: center; font-weight: bold;}
+.tiny { font-size: .5em; }
+
+.btn-fence
+{ border: inset 3px; border-color: $fontMedium; border-radius: 10px}
+
+/*
 #details-region              
 { @include nesty; background-color: lighten($grayCool,25%); }
+*/
 
 #show-model-region-workout   
 { @include nesty; background-color: $orangeMango; }
 
+/*
 #show-sub-models-region-workout   
 { @include nesty; background-color: $orangeMango; }
-
+*/
+/**********************************/
 /*WORKOUT BLOCKS - LIST*/
+/**********************************/
 
+/*
 #list-models-region-blocks
 { @include nesty; background-color: darken($grayCool,25%); }
+*/
 
+/*
 #list-composite-view-blocks
 { @include nesty; background-color: lighten($grayCool,0%); }
+*/
+
+.layout-each-block
+{ @include nesty; border: outset 3px; background-color: lighten($grayCool,25%); margin-bottom: 5px;}
 
 #list-model-region-block
 { @include nesty; background-color: lighten($grayCool,25%); }
 
+/*
 #list-sub-models-region-block
 { @include nesty; background-color: lighten($grayCool,25%); }
+*/
 
+/**********************************/
 /*WORKOUT BLOCKS - SHOW*/
-
+/**********************************/
+/*
 #show-model-region-block   
 { @include nesty; background-color: $orangeMango; }
-
+*/
+/*
 #show-sub-models-region-block   
 { @include nesty; background-color: $orangeMango; }
+*/
+/**********************************/
+/*WORKOUT SETTS - LIST*/
+/**********************************/
+/*
+#list-models-region-setts
+{ @include nesty; background-color: darken($grayCool,25%); }
+*/
+/*
+#list-composite-view-setts
+{ @include nesty; background-color: lighten($grayCool,0%); }
+*/
+
+#list-model-region-sett
+{ @include nesty; background-color: lighten($grayCool,25%); }
+
+/*
+#list-sub-models-region-sett
+{ @include nesty; background-color: lighten($grayCool,25%); }
+*/
+/**********************************/
+/*WORKOUT SETTS - SHOW*/
+/**********************************/
+/*
+#show-model-region-sett   
+{ @include nesty; background-color: $orangeMango; }
+*/
+/*
+#show-sub-models-region-sett   
+{ @include nesty; background-color: $orangeMango; }
+*/

@@ -1,2 +1,4 @@
-SHOW/_BLOCK ITEMVIEW
-<div><%= @name %></div>
+
+<div class="nesty-debug collapse">
+  <div class='tiny pull-right'>SHOW/_BLOCK ITEMVIEW</div>
+<div class="nesty-debug">

@@ -1,4 +1,19 @@
-<br>
-<div>LIST/_SETT ITEMVIEW</div>
-<div>Set Position: <%= @position %></div>
-<br>
+<div class="nesty-debug collapse">
+  <div class='tiny pull-right'>LIST/_SETT ITEMVIEW</div>
+</div>
+
+<div class = 'btn-group btn-group-justified'>
+  <button type="button" class="btn-glyph">
+    <span class="glyphicon glyphicon-share"></span>
+  </button>
+
+  <span>Set: <%= @position %></span>
+
+  <button type="button" class="btn-glyph pull-right">
+    <span class="glyphicon glyphicon-remove"></span>
+  </button>
+
+  <button type="button" class="btn-glyph pull-right">
+    <span class="glyphicon glyphicon-edit"></span>
+  </button>
+</div>
