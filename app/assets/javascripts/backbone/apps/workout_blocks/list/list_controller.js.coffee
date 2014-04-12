@@ -6,6 +6,11 @@
 
 			workout = options.workout
 
+			console.log 'C:workout', workout
+			console.log 'C:workout.attributes', workout.attributes
+			console.log 'C:workout.attributes.id', workout.attributes.id
+			console.log 'C:workout.attributes.groups', workout.attributes.groups
+
 			blocks = App.request "block:entities", workout
 
 			@layout = @getLayoutView()

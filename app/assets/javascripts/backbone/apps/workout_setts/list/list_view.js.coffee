@@ -9,6 +9,7 @@
 
   class List.LayoutEachModel extends App.Views.Layout
     template: "workout_setts/list/_layout_each_sett"
+    className: "layout-each-sett"
 
     regions:
       listModelRegion: "#list-model-region-sett"

@@ -3,34 +3,37 @@
 	class Show.Controller extends App.Controllers.Base
 
 		initialize: (options) ->
+			console.log options
 			{ workout, id } = options
 
 			workout or= App.request "workout:entity", id
 
 			@layout = @getLayoutView()
+
+			App.execute "when:fetched", workout, =>
 			
-			blocks_options =
-				region: @layout.showSubModelsRegion
-				workout: workout
+				blocks_options =
+					region: @layout.showSubModelsRegion
+					workout: workout
 
-			@listenTo @layout, "show", =>
-				@showDetailsView workout
-				App.execute "list:blocks", blocks_options
+				@listenTo @layout, "show", =>
+					@showDetailsView workout
+					App.execute "list:blocks", blocks_options
 
-			@show @layout
+				@show @layout
 
-			# if workout.attributes.groups.length isnt 0
-			# 	blocks = workout.attributes.groups
-			# 	if blocks[0].setts.length isnt 0
-			# 		reps = blocks[0].setts[0].reps
-			# 		compareFunc = getCompareFunc({ field:"pos" })
-			# 		sorted = reps.sort(compareFunc)
-			# 		parcelsOfReps = getParceledReps(reps)
-			# 		parcelSummary0 = getParcelSummary parcelsOfReps[0]
-			# 		console.log reps
-			# 		console.log sorted
-			# 		console.log parcelsOfReps
-			# 		console.log parcelSummary0
+				# if workout.attributes.groups.length isnt 0
+				# 	blocks = workout.attributes.groups
+				# 	if blocks[0].setts.length isnt 0
+				# 		reps = blocks[0].setts[0].reps
+				# 		compareFunc = getCompareFunc({ field:"pos" })
+				# 		sorted = reps.sort(compareFunc)
+				# 		parcelsOfReps = getParceledReps(reps)
+				# 		parcelSummary0 = getParcelSummary parcelsOfReps[0]
+				# 		console.log reps
+				# 		console.log sorted
+				# 		console.log parcelsOfReps
+				# 		console.log parcelSummary0
 
 		getLayoutView: ->
 			new Show.Layout

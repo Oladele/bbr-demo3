@@ -4,7 +4,7 @@
 </div>
 
 <!-- <div class='tiny'>R:listModelRegion (Rep):</div> -->
-<div id="list-model-region-rep"></div>
+<span id="list-model-region-rep"></span>
 
 <!-- <div class='tiny'>R:listSubModelsRegion (Rep):</div> -->
-<div id="list-sub-models-region-rep"></div>
+<!-- <div id="list-sub-models-region-rep"></div> -->

@@ -72,7 +72,9 @@
 			options =
 				region: @layout.detailsRegion
 				workout: workout
-			App.execute "workout:details", options
+			console.log 'showDetails', options
+			new App.WorkoutsApp.Show.Controller options
+			# App.execute "workout:details", options
 
 		getLayoutView : ->
 			new List.Layout

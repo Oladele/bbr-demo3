@@ -2,18 +2,18 @@
   <div class='tiny pull-right'>LIST/_REP ITEMVIEW</div>
 </div>
 
-<div class = 'btn-group btn-group-justified'>
-  <button type="button" class="btn-glyph">
+<span >
+  <!-- <button type="button" class="btn-glyph rep-btn-copy">
     <span class="glyphicon glyphicon-share"></span>
-  </button>
+  </button> -->
 
-  <span><%= @exercise_name %> : <%= @resistance %>, </span>
+  <span class= 'rep-text'><%= @exercise_name %> : <%= @resistance %></span>
 
-  <button type="button" class="btn-glyph pull-right">
+  <!-- <button type="button" class="btn-glyph pull-right">
     <span class="glyphicon glyphicon-remove"></span>
   </button>
 
   <button type="button" class="btn-glyph pull-right">
     <span class="glyphicon glyphicon-edit"></span>
-  </button>
-</div>
+  </button> -->
+</span>

@@ -1,8 +1,8 @@
-<div class="nesty-debug">
+<div class="nesty-debug block">
   <div class='tiny pull-right'>BLOCKS/LIST/LAYOUT_EACH_BLOCK</div>
 </div>
 
-<div class="nest-name-block">BLOCK</div>
+<!-- <div class="nest-name-block">BLOCK</div> -->
 
 <!-- <div class='tiny'>R:listModelRegion (Block):</div> -->
 <div id="list-model-region-block"></div>

@@ -13,15 +13,15 @@
 
 /*
 #details-region              
-{ @include nesty; background-color: lighten($grayCool,25%); }
+{ @include nesty; background-color: lighten($bgMedium,25%); }
 */
 
 #show-model-region-workout   
-{ @include nesty; background-color: $orangeMango; }
+{ @include nesty; background-color: $bgLight; margin-bottom: 5px; }
 
 /*
 #show-sub-models-region-workout   
-{ @include nesty; background-color: $orangeMango; }
+{ @include nesty; background-color: $bgLight; }
 */
 /**********************************/
 /*WORKOUT BLOCKS - LIST*/
@@ -29,23 +29,23 @@
 
 /*
 #list-models-region-blocks
-{ @include nesty; background-color: darken($grayCool,25%); }
+{ @include nesty; background-color: darken($bgMedium,25%); }
 */
 
 /*
 #list-composite-view-blocks
-{ @include nesty; background-color: lighten($grayCool,0%); }
+{ @include nesty; background-color: lighten($bgMedium,0%); }
 */
 
 .layout-each-block
-{ @include nesty; border: outset 3px; background-color: lighten($grayCool,25%); margin-bottom: 5px;}
+{ @include nesty; border: outset 3px; background-color: lighten($bgMedium,25%); margin-bottom: 5px;}
 
 #list-model-region-block
-{ @include nesty; background-color: lighten($grayCool,25%); }
+{ @include nesty; background-color: lighten($bgMedium,25%); }
 
 /*
 #list-sub-models-region-block
-{ @include nesty; background-color: lighten($grayCool,25%); }
+{ @include nesty; background-color: lighten($bgMedium,25%); }
 */
 
 /**********************************/
@@ -53,39 +53,70 @@
 /**********************************/
 /*
 #show-model-region-block   
-{ @include nesty; background-color: $orangeMango; }
+{ @include nesty; background-color: $bgLight; }
 */
 /*
 #show-sub-models-region-block   
-{ @include nesty; background-color: $orangeMango; }
+{ @include nesty; background-color: $bgLight; }
 */
 /**********************************/
 /*WORKOUT SETTS - LIST*/
 /**********************************/
 /*
 #list-models-region-setts
-{ @include nesty; background-color: darken($grayCool,25%); }
+{ @include nesty; background-color: darken($bgMedium,25%); }
 */
 /*
 #list-composite-view-setts
-{ @include nesty; background-color: lighten($grayCool,0%); }
+{ @include nesty; background-color: lighten($bgMedium,0%); }
 */
 
+.layout-each-sett
+{ @include nesty; border: outset 3px; background-color: lighten($bgMedium,25%); margin-bottom: 5px;}
+
 #list-model-region-sett
-{ @include nesty; background-color: lighten($grayCool,25%); }
+{ @include nesty; background-color: lighten($bgMedium,25%); }
 
 /*
 #list-sub-models-region-sett
-{ @include nesty; background-color: lighten($grayCool,25%); }
+{ @include nesty; background-color: lighten($bgMedium,25%); }
 */
 /**********************************/
 /*WORKOUT SETTS - SHOW*/
 /**********************************/
 /*
 #show-model-region-sett   
-{ @include nesty; background-color: $orangeMango; }
+{ @include nesty; background-color: $bgLight; }
 */
 /*
 #show-sub-models-region-sett   
-{ @include nesty; background-color: $orangeMango; }
+{ @include nesty; background-color: $bgLight; }
 */
+
+/**********************************/
+/*WORKOUT REPS - LIST*/
+/**********************************/
+/*
+#list-models-region-reps
+{ @include nesty; background-color: darken($bgMedium,25%); }
+*/
+/*
+#list-composite-view-reps
+{ @include nesty; background-color: lighten($bgMedium,0%); }
+*/
+
+.layout-each-rep
+{ @include nesty; border: outset 3px; background-color: lighten($bgMedium,25%); margin-bottom: 5px; display: inline-block; width: 25%;}
+
+#list-model-region-rep
+{ @include nesty; background-color: lighten($bgMedium,25%); }
+
+/*
+#list-sub-models-region-rep
+{ @include nesty; background-color: lighten($bgMedium,25%); }
+*/
+
+.rep-btn-copy
+{ position: relative; top: 0px; left: 0px;}
+.rep-text
+{ overflow: hidden; display: inline-block; width: 80px }

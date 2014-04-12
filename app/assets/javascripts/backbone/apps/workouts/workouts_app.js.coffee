@@ -3,7 +3,8 @@
 	class WorkoutsApp.Router extends Marionette.AppRouter
 		appRoutes:
 			# "workouts/:id/edit" : "editWorkout"
-			"workouts/:id" : "listWorkoutsAndDetails"
+			# "workouts/:id" : "listWorkoutsAndDetails"
+			"workouts/:id" : "showWorkout"
 			"workouts/:id/edit" : "listWorkoutsAndEdit"
 			"workouts" : "listWorkouts"
 
@@ -32,7 +33,10 @@
 				workout: workout
 				region: region
 
-		showWorkout: (options) ->
+		showWorkout: (id, workout) ->
+			options = 
+				id:id
+				workout:workout
 			new WorkoutsApp.Show.Controller options
 
 	App.commands.setHandler "new:workout", (options) ->
@@ -48,7 +52,8 @@
 
 	App.commands.setHandler "workout:details", (options) ->
 		App.navigate Routes.workout_path(options.workout.id)
-		API.showWorkout options
+		# API.showWorkout options.workout.id, options.workout
+		API.listWorkoutsAndDetails options.workout.id
 
 	App.vent.on "workout:cancelled workout:updated", (workout) ->
 		App.navigate Routes.workouts_path()

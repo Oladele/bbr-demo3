@@ -1,5 +1,6 @@
 @import "compass";
-@import "color-me-sass";
+/*@import "color-me-sass";*/
+
 /* mixins, variables, etc. */
 $bgNight: #3D3D3D;
 $bgDark: #4D4D4D;
@@ -26,7 +27,7 @@ form									{
 												@include single-box-shadow($form-frame-edit, 1px, 1px); padding: 15px; }
 }
 #wrap 					{ height: auto !important; margin: 0 auto -60px; min-height: 100%; }
-#main-region   	{ padding: 15px; color: $fontMedium;}
+#main-region   	{ padding: 15px; color: $fontMedium; margin: auto;}
 .center 				{ text-align: center; }
 .btn-default		{ color: $fontMedium; background-color: $bgDark; border: none;}
 .btn-glyph			{ background: transparent; border: none;}

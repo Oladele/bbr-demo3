@@ -1,7 +1,7 @@
 @Demo.module "WorkoutsApp.List", (List, App, Backbone, Marionette, $, _) ->
 
 	class List.Layout extends App.Views.Layout
-		template: "workouts/list/list_layout"
+		template: "workouts/list/layout"
 
 		regions:
 			panelRegion: "#panel-region"
