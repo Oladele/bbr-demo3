@@ -40,10 +40,13 @@
 
 			App.execute "new:workout", options
 
-		editRegion: (workout) ->
+		editRegion: (workout, region) ->
+
+			console.log workout
 
 			options = {}
-			options.region = @layout.editRegion
+			# options.region = @layout.editRegion
+			options.region = region
 			options.workout = workout
 			App.execute "edit:workout", options
 
@@ -51,7 +54,8 @@
 			workoutsView = @getWorkoutsView workouts
 			
 			@listenTo workoutsView, "childview:edit:workout:button:clicked", (child, args)  =>
-				@editRegion args.model
+				console.log args
+				@editRegion args.model, args.view.editRegion
 
 			@listenTo workoutsView, "childview:workout:delete", (child, args) ->
 				model = args.model

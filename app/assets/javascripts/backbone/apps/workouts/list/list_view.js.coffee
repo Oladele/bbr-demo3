@@ -16,9 +16,17 @@
 		triggers:
 			"click #new-workout" : "new:workout:button:clicked"
 
-	class List.Workout extends App.Views.ItemView
+	# TEMPORARY TO EXPLORE MOVING EDIT VIEW TO LIST ITEM
+	class List._layout_workout extends App.Views.ItemView
 		template: "workouts/list/_workout"
 		tagName: "li"
+
+	class List.Workout extends App.Views.Layout
+		template: "workouts/list/_workout"
+		tagName: "li"
+
+		regions:
+			editRegion: "#edit-region"
 
 		triggers:
 			"click" 								: "workout:glance"
@@ -31,13 +39,13 @@
 		modelUpdated: =>
 			@render()
 
+	class List.Workouts extends App.Views.CompositeView
+		template: "workouts/list/_workouts"
+		itemView: List.Workout
+		itemViewContainer: "ul"
+
 	class List.Glance extends App.Views.ItemView
 		template: "workouts/list/_glance"
 
 		triggers:
 			"click #show-workout" : "show:workout:button:clicked"
-
-	class List.Workouts extends App.Views.CompositeView
-		template: "workouts/list/_workouts"
-		itemView: List.Workout
-		itemViewContainer: "ul"
