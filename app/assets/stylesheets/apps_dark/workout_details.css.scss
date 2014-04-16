@@ -38,7 +38,7 @@
 */
 
 .layout-each-block
-{ @include nesty; border: outset 3px; /*background-color: lighten($bgMedium,25%); */margin-bottom: 5px;}
+{ @include nesty; border: 1px outset lighten($bgNight,25%) ; background-color: lighten($bgNight,10%); margin-bottom: 15px;}
 
 #list-model-region-block
 { @include nesty; /*background-color: lighten($bgMedium,25%);*/ }
@@ -48,6 +48,8 @@
 { @include nesty; background-color: lighten($bgMedium,25%); }
 */
 
+.block-label-text
+{color: lighten($bgNight, 20%); font-weight: bold}
 /**********************************/
 /*WORKOUT BLOCKS - SHOW*/
 /**********************************/
@@ -106,7 +108,7 @@
 */
 
 .layout-each-rep
-{ /*@include nesty; border: outset 3px; */ border-radius: 5px; background-color: lighten($bgNight,10%); display: inline-block; width: 20%; margin-bottom: 2px; margin-right: 2px}
+{ /*@include nesty; border: outset 3px; */ border-radius: 5px; background-color: lighten($bgNight,20%); display: inline-block; width: 10%; margin: 2px; }
 
 #list-model-region-rep
 {/* @include nesty; background-color: lighten($bgMedium,25%);*/ }

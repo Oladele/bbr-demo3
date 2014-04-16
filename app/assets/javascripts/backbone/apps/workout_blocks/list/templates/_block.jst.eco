@@ -4,7 +4,7 @@
   </div>
 </div>
 
-
+<!-- <div class="block-label-text center">BLOCK</div> -->
 <div class = 'btn-group btn-group-justified btn-fence'>
   <button type="button" class="btn-glyph">
     <span class="glyphicon glyphicon-share"></span>
