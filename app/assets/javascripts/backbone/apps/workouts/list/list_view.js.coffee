@@ -8,7 +8,7 @@
 			newRegion: "#new-region"
 			editRegion: "#new-region" #uses same region as 'new'
 			workoutsRegion: "#workouts-region"
-			detailsRegion: "#details-region"
+			glanceDetailsRegion: "#glance-details-region"
 
 	class List.Panel extends App.Views.ItemView
 		template: "workouts/list/_panel"
@@ -21,7 +21,7 @@
 		tagName: "li"
 
 		triggers:
-			"click" 								: "workout:details"
+			"click" 								: "workout:glance"
 			"click .delete-workout" : "workout:delete"
 			"click .edit-workout" 	: "edit:workout:button:clicked"
 
@@ -30,6 +30,12 @@
 
 		modelUpdated: =>
 			@render()
+
+	class List.Glance extends App.Views.ItemView
+		template: "workouts/list/_glance"
+
+		triggers:
+			"click #show-workout" : "show:workout:button:clicked"
 
 	class List.Workouts extends App.Views.CompositeView
 		template: "workouts/list/_workouts"

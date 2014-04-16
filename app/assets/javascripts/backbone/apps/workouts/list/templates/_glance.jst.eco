@@ -1,0 +1,9 @@
+<div>
+  <%= @name %>
+</div>
+<div>
+  Glance workout details here  
+</div>
+<button type="button" id="show-workout" class="btn btn-default btn-sm">
+  More Details... 
+</button>

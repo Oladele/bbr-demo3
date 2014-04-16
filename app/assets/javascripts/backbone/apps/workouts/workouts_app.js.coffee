@@ -50,10 +50,10 @@
 		App.navigate Routes.edit_workout_path(options.workout.id)
 		API.editWorkout options.workout.id, options.workout, options.region
 
-	App.commands.setHandler "workout:details", (options) ->
+	App.commands.setHandler "show:workout", (options) ->
 		App.navigate Routes.workout_path(options.workout.id)
-		# API.showWorkout options.workout.id, options.workout
-		API.listWorkoutsAndDetails options.workout.id
+		API.showWorkout options.workout.id, options.workout
+		# API.listWorkoutsAndDetails options.workout.id
 
 	App.vent.on "workout:cancelled workout:updated", (workout) ->
 		App.navigate Routes.workouts_path()

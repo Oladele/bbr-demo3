@@ -57,8 +57,9 @@
 				model = args.model
 				if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
 
-			@listenTo workoutsView, "childview:workout:details", (child, args)  ->
-				@showDetails (args.model)
+			@listenTo workoutsView, "childview:workout:glance", (child, args)  ->
+				# @showDetails (args.model)
+				@glanceDetails (args.model)
 				workoutsView.$(".wod-tab").removeClass("selected")
 				child.$(".wod-tab").addClass("selected")
 
@@ -68,12 +69,30 @@
 			new List.Workouts
 				collection: workouts
 
+		glanceDetails: (workout) ->
+			glanceView = @GetGlanceView workout
+
+			@listenTo glanceView, "show:workout:button:clicked", (args)  ->
+				console.log 'show button clicked, args:', args
+				@showDetails args.model
+
+			@layout.glanceDetailsRegion.show glanceView
+			# options =
+			# 	region: @layout.detailsRegion
+			# 	workout: workout
+			# new App.WorkoutsApp.Show.Controller options
+			# App.execute "workout:details", options
+
 		showDetails: (workout) ->
 			options =
 				region: @layout.detailsRegion
 				workout: workout
-			new App.WorkoutsApp.Show.Controller options
-			# App.execute "workout:details", options
+			# new App.WorkoutsApp.Show.Controller options
+			App.execute "show:workout", options
 
 		getLayoutView : ->
 			new List.Layout
+
+		GetGlanceView: (workout) ->
+			new List.Glance
+				model: workout
