@@ -9,7 +9,7 @@ node do |wod_prototype|
 end
 
 child :groups do
-	attributes :id, :name, :position
+	attributes :id, :name, :position, :wod_prototype_id, :wod_id
 	child :setts do
 		attributes :id, :position
 		child :reps do

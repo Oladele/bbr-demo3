@@ -3,7 +3,6 @@
 	class Show.Controller extends App.Controllers.Base
 
 		initialize: (options) ->
-			console.log options
 			{ workout, id } = options
 
 			workout or= App.request "workout:entity", id

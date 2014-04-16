@@ -1,21 +1,33 @@
 @Demo.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
 	class Entities.Block extends Entities.Model
+		urlRoot: ->Routes.groups_path()
 
 	class Entities.BlocksCollection extends Entities.Collection
 		model: Entities.Block
+		url: -> Routes.groups_path()
 
 	API =
 		getBlocks: (workout) ->
-			console.log 'workout', workout
-			console.log 'workout.attributes', workout.attributes
-			console.log 'workout.attributes.id', workout.attributes.id
-			console.log 'workout.attributes.groups', workout.attributes.groups
 			if workout.attributes.groups.length isnt 0
 			  blocks = workout.attributes.groups
-			console.log 'getBlocks', blocks
 			new Entities.BlocksCollection blocks
 
+		getBlockEntity: (id) ->
+			block = new Entities.Block
+				id: id
+			block.fetch
+				reset:true
+			block
+
+		newBlockEntity: ->
+			new Entities.Block
+
 	App.reqres.setHandler "block:entities", (workout) ->
-		console.log workout
 		API.getBlocks workout
+
+	App.reqres.setHandler "block:entity", (id) ->
+		API.getBlockEntity id
+
+	App.reqres.setHandler "new:block:entity", ->
+		API.newBlockEntity()

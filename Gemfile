@@ -30,6 +30,8 @@ gem 'js-routes'
 gem 'annotate'
 gem 'faker'
 
+gem 'acts_as_list'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

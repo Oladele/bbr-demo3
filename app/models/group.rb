@@ -14,9 +14,11 @@
 class Group < ActiveRecord::Base
 	belongs_to :wod
 	belongs_to :wod_prototype
+	acts_as_list scope: :wod_prototype
 	has_many :setts
 
-	extend Positionable
+	# extend Positionable
+	# Not used. Need to DELETE
 	
 	def self.create_from_group(group, to_wod)
 
