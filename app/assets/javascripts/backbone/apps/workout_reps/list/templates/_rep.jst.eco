@@ -3,17 +3,6 @@
 </div>
 
 <span >
-  <!-- <button type="button" class="btn-glyph rep-btn-copy">
-    <span class="glyphicon glyphicon-share"></span>
-  </button> -->
-
-  <span class= 'rep-text'><%= @exercise_name %> : <%= @resistance %></span>
-
-  <!-- <button type="button" class="btn-glyph pull-right">
-    <span class="glyphicon glyphicon-remove"></span>
-  </button>
-
-  <button type="button" class="btn-glyph pull-right">
-    <span class="glyphicon glyphicon-edit"></span>
-  </button> -->
+  <span><%= @exercise_name %></span>
+  <span><%= @resistance %></span>
 </span>

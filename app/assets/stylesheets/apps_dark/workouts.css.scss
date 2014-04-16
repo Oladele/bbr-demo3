@@ -1,24 +1,29 @@
 @import "base";
 
-.wod-panel 			  { margin: 10px; padding: 15px; border: 0px solid $bgMedium; }
-.wod-tabs-content { margin: 10px; padding: 15px; border: 0px solid black; }
-.wod-sub-panel    { padding: 0px; border: 0px solid yellow; height: 470px;
-										overflow-x: hidden; overflow-y: scroll; }
-.wod-tab-group 		{ list-style: none; padding: 0px 0px; }
+.wod-panel 			  
+{ margin: 10px; padding: 15px; border: 0px solid $bgMedium; }
 
-.wod-tab 					{ margin: 5px; border-radius: 10px; border: 1px solid $bgDark;
-										padding: 5px 5px; 
-										/*@include background-image(linear-gradient(top, $bgMedium, $bgDark));*/
-	&.selected 			{ background-color: $bgNight; }
-									}
+.wod-tabs-content 
+{ margin: 10px; padding: 15px; border: 0px solid black; }
 
-.wod-tab-new			{ margin: 5px; border-radius: 10px; border: 1px solid $bgDark;
-										padding: 15px 15px; }
+.wod-sub-panel    
+{ padding: 0px; border: 0px solid yellow; height: 470px; overflow-x: hidden; overflow-y: scroll; }
 
-.wod-content 			{ background-color: $bgNight; border-radius: 10px; 
-										padding: 15px 15px; }
+.wod-tab-group
+{ list-style: none; padding: 0px 0px; }
 
+.wod-tab 					
+{ margin: 5px; border-radius: 10px; border: 1px solid $bgDark;
+padding: 5px 5px; 
+  &.selected 
+  { background-color: $bgNight; }
+}
 
-.wod-input 				{ color: $fontMedium; background-color: $bgNight; 
-										border: 1px inset $bgNight; width: 100%; 
-										padding: 5px; margin-bottom: 10px;}
+.wod-tab-new
+{ margin: 5px; border-radius: 10px; border: 1px solid $bgDark;padding: 15px 15px; }
+
+.wod-content 
+{ background-color: $bgNight; border-radius: 10px; padding: 15px 15px; }
+
+.wod-input
+{ color: $fontMedium; background-color: $bgNight; border: 1px inset $bgNight; width: 100%; padding: 5px; margin-bottom: 10px; }

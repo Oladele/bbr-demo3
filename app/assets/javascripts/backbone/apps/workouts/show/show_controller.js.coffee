@@ -39,6 +39,13 @@
 
 		showDetailsView: (workout) =>
 			detailsView = @getDetailsView workout
+
+			@listenTo detailsView, "edit:workout:button:clicked", (args)  =>
+				options =
+					region: args.view.editRegion
+					workout: args.model
+				App.execute "edit:workout", options
+
 			@layout.showModelRegion.show detailsView
 
 		getDetailsView: (workout) ->

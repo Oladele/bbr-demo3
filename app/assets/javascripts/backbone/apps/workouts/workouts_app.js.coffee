@@ -56,7 +56,8 @@
 		# API.listWorkoutsAndDetails options.workout.id
 
 	App.vent.on "workout:cancelled workout:updated", (workout) ->
-		App.navigate Routes.workouts_path()
+		# App.navigate Routes.workouts_path()
+		App.navigate Routes.workout_path(workout.id)
 		# API.listWorkouts()
 
 	App.vent.on "workout:created", (workout) ->

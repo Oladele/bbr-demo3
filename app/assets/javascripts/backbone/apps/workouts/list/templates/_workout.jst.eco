@@ -8,13 +8,13 @@
 			</button>
 	</div> -->
 <%# else: %>
-	<div id="edit-region"></div>
 	<div class="wod-tab"><%= @name %>
 			<button type="button" class="delete-workout pull-right btn-glyph">
 				<span class="glyphicon glyphicon-remove"></span>
 			</button>
-			<button type="button" class="edit-workout pull-right btn-glyph">
+			<!-- <button type="button" class="edit-workout pull-right btn-glyph">
 				<span class="glyphicon glyphicon-edit"></span>
-			</button>
+			</button> -->
 	</div>
+	<!-- <div id="edit-region"></div> -->
 <%# end %>

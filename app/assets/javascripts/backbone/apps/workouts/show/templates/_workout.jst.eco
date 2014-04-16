@@ -2,4 +2,15 @@
   <div class='tiny pull-right'> SHOW/_WORKOUT ITEMVIEW </div>
 </div>
 
-<div><%= @name %></div>
+<!-- <div><%= @name %></div> -->
+
+<div class="wod-tab">
+  <%= @name %>
+  <button type="button" class="delete-workout pull-right btn-glyph">
+    <span class="glyphicon glyphicon-remove"></span>
+  </button>
+  <button type="button" class="edit-workout pull-right btn-glyph">
+    <span class="glyphicon glyphicon-edit"></span>
+  </button>
+</div>
+<div id="edit-region"></div>

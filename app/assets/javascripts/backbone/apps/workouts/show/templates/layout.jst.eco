@@ -1,9 +1,11 @@
-<div class="nesty-debug">
-  <div class='tiny pull-right'>WORKROUT/SHOW/LAYOUT</div>
+<div class="wod-content">
+  <div class="nesty-debug collapse">
+    <div class='tiny pull-right'>WORKROUT/SHOW/LAYOUT</div>
+  </div>
+
+  <!-- <div class='tiny'>R:showModelRegion (Workout):</div> -->
+  <div id="show-model-region-workout"></div>
+
+  <!-- <div class='tiny'>R: showSubModelsRegion (Workout): </div> -->
+  <div id="show-sub-models-region-workout"></div>
 </div>
-
-<!-- <div class='tiny'>R:showModelRegion (Workout):</div> -->
-<div id="show-model-region-workout"></div>
-
-<!-- <div class='tiny'>R: showSubModelsRegion (Workout): </div> -->
-<div id="show-sub-models-region-workout"></div>

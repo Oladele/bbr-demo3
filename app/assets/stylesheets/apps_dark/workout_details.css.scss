@@ -17,7 +17,7 @@
 */
 
 #show-model-region-workout   
-{ @include nesty; background-color: $bgLight; margin-bottom: 5px; }
+{ background-color:  $bgNight; font-size: 2em; margin-bottom: 5px; }
 
 /*
 #show-sub-models-region-workout   
@@ -38,10 +38,10 @@
 */
 
 .layout-each-block
-{ @include nesty; border: outset 3px; background-color: lighten($bgMedium,25%); margin-bottom: 5px;}
+{ @include nesty; border: outset 3px; /*background-color: lighten($bgMedium,25%); */margin-bottom: 5px;}
 
 #list-model-region-block
-{ @include nesty; background-color: lighten($bgMedium,25%); }
+{ @include nesty; /*background-color: lighten($bgMedium,25%);*/ }
 
 /*
 #list-sub-models-region-block
@@ -72,10 +72,10 @@
 */
 
 .layout-each-sett
-{ @include nesty; border: outset 3px; background-color: lighten($bgMedium,25%); margin-bottom: 5px;}
+{ @include nesty; /*border: outset 3px; background-color: lighten($bgMedium,25%);*/ margin-bottom: 5px;}
 
 #list-model-region-sett
-{ @include nesty; background-color: lighten($bgMedium,25%); }
+{ @include nesty; /*background-color: lighten($bgMedium,25%);*/ margin-bottom: 5px; }
 
 /*
 #list-sub-models-region-sett
@@ -106,17 +106,12 @@
 */
 
 .layout-each-rep
-{ @include nesty; border: outset 3px; background-color: lighten($bgMedium,25%); margin-bottom: 5px; display: inline-block; width: 25%;}
+{ /*@include nesty; border: outset 3px; */ border-radius: 5px; background-color: lighten($bgNight,10%); display: inline-block; width: 20%; margin-bottom: 2px; margin-right: 2px}
 
 #list-model-region-rep
-{ @include nesty; background-color: lighten($bgMedium,25%); }
+{/* @include nesty; background-color: lighten($bgMedium,25%);*/ }
 
 /*
 #list-sub-models-region-rep
 { @include nesty; background-color: lighten($bgMedium,25%); }
 */
-
-.rep-btn-copy
-{ position: relative; top: 0px; left: 0px;}
-.rep-text
-{ overflow: hidden; display: inline-block; width: 80px }
