@@ -10,6 +10,9 @@
 		regions:
 			formContentRegion: "#form-content-region"
 
+		events:
+			"keydown #form-content-region"	: "keydownHandler"
+
 		ui:
 			buttonContainer: "div.buttons-group"
 
@@ -28,6 +31,9 @@
 		serializeData: ->
 			footer: @config.footer
 			buttons: @buttons?.toJSON() ? false
+
+		keydownHandler: (e) ->
+			@trigger 'form:cancel' if e.keyCode is 27
 
 		onShow: ->
 			_.defer =>
@@ -49,9 +55,7 @@
 				if _.isEmpty(errors) then @removeErrors() else @addErrors errors
 
 		removeErrors: ->
-			console.log "hello from removeErrors"
 			$(".form-group").removeClass("has-error").find("small").remove()
-			console.log $(".form-group")
 
 		addErrors: (errors = {})->
 			for name, array of errors
