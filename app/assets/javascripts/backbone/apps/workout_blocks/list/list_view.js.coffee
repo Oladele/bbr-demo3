@@ -22,8 +22,8 @@
 
 		toggleExpand: (e) ->
 			console.log 'clicked me', e
-			$(e.target).toggleClass 'glyphicon glyphicon-expand'
-			$(e.target).toggleClass 'glyphicon glyphicon-collapse-down'
+			$(e.target).toggleClass 'glyphicon glyphicon-chevron-right'
+			$(e.target).toggleClass 'glyphicon glyphicon-chevron-down'
 			@triggerMethod 'expand:block:button:clicked'
 			# @$el.toggleClass 'glyphicon-collapse-down'
 
