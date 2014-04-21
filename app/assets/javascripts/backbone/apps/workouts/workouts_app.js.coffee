@@ -5,7 +5,7 @@
 			# "workouts/:id/edit" : "editWorkout"
 			# "workouts/:id" : "listWorkoutsAndDetails"
 			"workouts/:id" : "showWorkout"
-			"workouts/:id/edit" : "listWorkoutsAndEdit"
+			# "workouts/:id/edit" : "listWorkoutsAndEdit"
 			"workouts" : "listWorkouts"
 
 	API =
@@ -50,7 +50,7 @@
 		API.editWorkout workout.id, workout
 
 	App.commands.setHandler "edit:workout", (options) ->
-		App.navigate Routes.edit_workout_path(options.workout.id)
+		# App.navigate Routes.edit_workout_path(options.workout.id)
 		API.editWorkout options.workout.id, options.workout, options.region
 
 	App.commands.setHandler "show:workout", (options) ->
