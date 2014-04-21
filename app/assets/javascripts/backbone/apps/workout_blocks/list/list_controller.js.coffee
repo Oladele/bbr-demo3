@@ -4,26 +4,31 @@
 
 		initialize: (options) ->
 
-			workout = options.workout
+			@options = options
+
+			workout = @options.workout
 
 			blocks = App.request "block:entities", workout
 
-			@layout = @getLayoutView()
+			# @layout = @getLayoutView()
+			blocksView = @getBlocksView blocks
 
-			@listenTo @layout, "show", =>
-				@listBlocks blocks
+			# @listenTo @layout, "show", =>
+			# 	@listBlocks blocks
 
-			@show @layout
+			# @show @layout
+			@show blocksView
+			blocksView.children.each @handleLayout
 
 		getLayoutView : ->
 			new List.Layout
 
-		listBlocks: (blocks) ->
-			blocksView = @getBlocksView blocks
+		# listBlocks: (blocks) ->
+		# 	blocksView = @getBlocksView blocks
 
-			@layout.listModelsRegion.show blocksView
+		# 	@layout.listModelsRegion.show blocksView
 
-			blocksView.children.each @handleLayout
+		# 	blocksView.children.each @handleLayout
 
 		getBlocksView: (blocks) ->
 			new List.Blocks
@@ -31,7 +36,7 @@
 
 		handleLayout: (layout) =>
 			@listModelRegion layout
-			@listSubModelsRegion layout
+			@listSubModelsRegion layout if @options.showSubModels
 
 		listModelRegion: (layout) ->
 			listModelView = new List.Block(model: layout.model)

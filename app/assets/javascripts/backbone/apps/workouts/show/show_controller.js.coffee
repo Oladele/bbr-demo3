@@ -18,6 +18,7 @@
 				blocks_view_options =
 					region: @layout.showSubModelsRegion
 					workout: workout
+					showSubModels: false
 
 				@listenTo @layout, "show", =>
 					App.execute "show:workout:top_model", workout_view_options
