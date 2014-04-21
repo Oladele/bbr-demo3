@@ -4,7 +4,7 @@
 
 <div class = 'btn-group btn-group-justified'>
   <button type="button" class="btn-glyph">
-    <span class="glyphicon glyphicon-share"></span>
+    <span class="glyphicon glyphicon-chevron-down" id="toggler"></span>
   </button>
 
   <span>Set: <%= @position %></span>

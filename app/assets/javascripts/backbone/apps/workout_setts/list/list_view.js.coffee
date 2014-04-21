@@ -15,8 +15,16 @@
       listModelRegion: "#list-model-region-sett"
       listSubModelsRegion: "#list-sub-models-region-sett"
 
-	class List.Sett extends App.Views.ItemView
-		template: "workout_setts/list/_sett"
+  class List.Sett extends App.Views.ItemView
+    template: "workout_setts/list/_sett"
+    events:
+      "click #toggler" : "toggleExpand"
+
+    toggleExpand: (e) ->
+      console.log 'clicked me', e
+      $(e.target).toggleClass 'glyphicon glyphicon-chevron-right'
+      $(e.target).toggleClass 'glyphicon glyphicon-chevron-down'
+      @triggerMethod 'expand:sett:button:clicked'
 
   class List.Setts extends App.Views.CompositeView
     template: "workout_setts/list/_setts"

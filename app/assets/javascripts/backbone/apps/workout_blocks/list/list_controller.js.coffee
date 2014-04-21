@@ -50,9 +50,6 @@
 			childLayout.listModelRegion.show( listModelView )
 
 		listSubModelsRegion: (subModel_options) ->
-			# options =
-			# 	region: childLayout.listSubModelsRegion
-			# 	block: childLayout.model
 			App.execute "show:block", subModel_options
 
 		toggleSubModelsRegion: (subModel_options) ->
