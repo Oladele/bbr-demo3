@@ -5,10 +5,6 @@
 
 		# newWorkout: ->
 		initialize: (options) ->
-			
-
-
-
 
 			workout = App.request "new:workout:entity"
 			# workout.on "all", (e) -> console.log e

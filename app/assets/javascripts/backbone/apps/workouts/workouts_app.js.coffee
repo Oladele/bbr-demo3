@@ -39,6 +39,9 @@
 				workout:workout
 			new WorkoutsApp.Show.Controller options
 
+		showWorkoutTopModel: (options) ->
+			new WorkoutsApp.ShowTopModel.Controller options
+
 	App.commands.setHandler "new:workout", (options) ->
 		API.newWorkout options.region
 
@@ -55,9 +58,15 @@
 		API.showWorkout options.workout.id, options.workout
 		# API.listWorkoutsAndDetails options.workout.id
 
-	App.vent.on "workout:cancelled workout:updated", (workout) ->
+	App.commands.setHandler "show:workout:top_model", (options) ->
+		# App.navigate Routes.workout_path(options.workout.id)
+		API.showWorkoutTopModel options
+
+	App.vent.on "workout:cancelled workout:updated", (options) ->
 		# App.navigate Routes.workouts_path()
-		App.navigate Routes.workout_path(workout.id)
+		App.navigate Routes.workout_path(options.workout.id)
+		console.log 'workout:updated vented', options
+		API.showWorkoutTopModel options
 		# API.listWorkouts()
 
 	App.vent.on "workout:created", (workout) ->

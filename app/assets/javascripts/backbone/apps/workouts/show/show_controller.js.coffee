@@ -11,13 +11,18 @@
 
 			App.execute "when:fetched", workout, =>
 			
-				blocks_options =
+				workout_view_options =
+					region: @layout.showModelRegion
+					workout: workout
+
+				blocks_view_options =
 					region: @layout.showSubModelsRegion
 					workout: workout
 
 				@listenTo @layout, "show", =>
-					@showDetailsView workout
-					App.execute "list:blocks", blocks_options
+					# @showDetailsView workout
+					App.execute "show:workout:top_model", workout_view_options
+					App.execute "list:blocks", blocks_view_options
 
 				@show @layout
 
@@ -46,11 +51,22 @@
 					workout: args.model
 				App.execute "edit:workout", options
 
+			# initial inline edit implementation
+			options =
+				region: @layout.showModelEditRegion
+				workout: workout
+			@listenTo @layout, "show", @showEditView(options)
+
 			@layout.showModelRegion.show detailsView
 
 		getDetailsView: (workout) ->
 			new Show.Workout
 				model: workout
+
+		# initial inline edit implementation
+		showEditView: (options) ->
+			_.defer =>
+				App.execute "edit:workout", options
 
 		# getParceledReps = (repsArray, result) ->
 		# 	if repsArray.length is 0
