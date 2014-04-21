@@ -1,11 +1,11 @@
 @Demo.module "WorkoutSettsApp.List", (List, App, Backbone, Marioette, $, _) ->
 
 	class List.Layout extends App.Views.Layout
-		template: "workout_setts/list/layout"
+		# template: "workout_setts/list/layout"
 
-		regions:
+		# regions:
       # settsRegion: "#setts-region"
-      listModelsRegion: "#list-models-region-setts"
+      # listModelsRegion: "#list-models-region-setts"
 
   class List.LayoutEachModel extends App.Views.Layout
     template: "workout_setts/list/_layout_each_sett"

@@ -8,22 +8,25 @@
 
 			setts = App.request "sett:entities", block
 
-			@layout = @getLayoutView()
+			# @layout = @getLayoutView()
+			settsView = @getSettsView setts
 
-			@listenTo @layout, "show", =>
-				@listSetts setts
+			# @listenTo @layout, "show", =>
+			# 	@listSetts setts
 
-			@show @layout
+			# @show @layout
+			@show settsView
+			settsView.children.each @handleLayout
 
 		getLayoutView: ->
 			new List.Layout
 
-		listSetts: (setts) ->
-			settsView = @getSettsView setts
+		# listSetts: (setts) ->
+		# 	settsView = @getSettsView setts
 
-			@layout.listModelsRegion.show settsView
+		# 	@layout.listModelsRegion.show settsView
 
-			settsView.children.each @handleLayout
+		# 	settsView.children.each @handleLayout
 
 		getSettsView: (setts) ->
 			new List.Setts
