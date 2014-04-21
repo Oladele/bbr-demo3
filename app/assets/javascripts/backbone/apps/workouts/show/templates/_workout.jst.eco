@@ -2,8 +2,6 @@
   <div class='tiny pull-right'> SHOW/_WORKOUT ITEMVIEW </div>
 </div>
 
-<!-- <div><%= @name %></div> -->
-
 <div class="wod-tab">
   <%= @name %>
   <button type="button" class="delete-workout pull-right btn-glyph">
@@ -13,8 +11,3 @@
     <span class="glyphicon glyphicon-edit"></span>
   </button>
 </div>
-
-<!-- # initial inline edit implementation -->
-<div id="show-model-edit-region-workout"></div>
-
-<div id="edit-region"></div>

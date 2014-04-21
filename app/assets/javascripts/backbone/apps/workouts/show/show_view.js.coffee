@@ -5,8 +5,6 @@
 
 		regions:
       showModelRegion: "#show-model-region-workout"
-      # initial inline edit implementation:
-      showModelEditRegion: "#show-model-edit-region-workout"
       showSubModelsRegion: "#show-sub-models-region-workout"
 
   class Show.Workout extends App.Views.Layout
