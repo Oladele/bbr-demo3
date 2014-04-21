@@ -18,32 +18,32 @@
 
 			# @show @layout
 			@show blocksView
-			blocksView.children.each @handleLayout
+			blocksView.children.each @handleChildLayout
 
-		getLayoutView : ->
-			new List.Layout
+		# getLayoutView : ->
+		# 	new List.Layout
 
 		# listBlocks: (blocks) ->
 		# 	blocksView = @getBlocksView blocks
 
 		# 	@layout.listModelsRegion.show blocksView
 
-		# 	blocksView.children.each @handleLayout
+		# 	blocksView.children.each @handleChildLayout
 
 		getBlocksView: (blocks) ->
 			new List.Blocks
 				collection: blocks
 
-		handleLayout: (layout) =>
-			@listModelRegion layout
-			@listSubModelsRegion layout if @options.showSubModels
+		handleChildLayout: (childLayout) =>
+			@listModelRegion childLayout
+			@listSubModelsRegion childLayout if @options.showSubModels
 
-		listModelRegion: (layout) ->
-			listModelView = new List.Block(model: layout.model)
-			layout.listModelRegion.show( listModelView )
+		listModelRegion: (childLayout) ->
+			listModelView = new List.Block(model: childLayout.model)
+			childLayout.listModelRegion.show( listModelView )
 
-		listSubModelsRegion: (layout) ->
+		listSubModelsRegion: (childLayout) ->
 			options =
-				region: layout.listSubModelsRegion
-				block: layout.model
+				region: childLayout.listSubModelsRegion
+				block: childLayout.model
 			App.execute "show:block", options
