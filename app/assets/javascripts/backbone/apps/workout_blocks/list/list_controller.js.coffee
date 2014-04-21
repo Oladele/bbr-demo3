@@ -35,15 +35,28 @@
 				collection: blocks
 
 		handleChildLayout: (childLayout) =>
-			@listModelRegion childLayout
-			@listSubModelsRegion childLayout if @options.showSubModels
-
-		listModelRegion: (childLayout) ->
-			listModelView = new List.Block(model: childLayout.model)
-			childLayout.listModelRegion.show( listModelView )
-
-		listSubModelsRegion: (childLayout) ->
-			options =
+			subModel_options =
 				region: childLayout.listSubModelsRegion
 				block: childLayout.model
-			App.execute "show:block", options
+			@listModelRegion childLayout, subModel_options
+			@listSubModelsRegion subModel_options if @options.showSubModels
+
+		listModelRegion: (childLayout, subModel_options) ->
+			listModelView = new List.Block(model: subModel_options.block)
+			@listenTo listModelView, "expand:block:button:clicked", (e) ->
+				# @listSubModelsRegion subModel_options
+				@toggleSubModelsRegion subModel_options
+			
+			childLayout.listModelRegion.show( listModelView )
+
+		listSubModelsRegion: (subModel_options) ->
+			# options =
+			# 	region: childLayout.listSubModelsRegion
+			# 	block: childLayout.model
+			App.execute "show:block", subModel_options
+
+		toggleSubModelsRegion: (subModel_options) ->
+			if subModel_options.region.currentView
+				subModel_options.region.reset()
+			else
+				App.execute "show:block", subModel_options

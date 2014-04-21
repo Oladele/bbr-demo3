@@ -6,8 +6,8 @@
 
 <!-- <div class="block-label-text center">BLOCK</div> -->
 <div class = 'btn-group btn-group-justified btn-fence'>
-  <button type="button" class="btn-glyph">
-    <span class="glyphicon glyphicon-share"></span>
+  <button type="button" class="btn-glyph expand-block">
+    <span class="glyphicon glyphicon-expand" id="toggler"></span>
   </button>
 
   <span class = 'block-font'><%= @name %></span>

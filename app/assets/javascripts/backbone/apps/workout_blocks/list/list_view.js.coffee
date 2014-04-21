@@ -1,10 +1,10 @@
 @Demo.module "WorkoutBlocksApp.List", (List, App, Backbone, Marionette, $, _) ->
 
-	class List.Layout extends App.Views.Layout
-		template: "workout_blocks/list/layout"
+	# class List.Layout extends App.Views.Layout
+	# 	template: "workout_blocks/list/layout"
 
-		regions:
-			listModelsRegion: "#list-models-region-blocks"
+	# 	regions:
+	# 		listModelsRegion: "#list-models-region-blocks"
 
 	class List.LayoutEachModel extends App.Views.Layout
 		template: "workout_blocks/list/_layout_each_block"
@@ -16,6 +16,20 @@
 
 	class List.Block extends App.Views.ItemView
 		template: "workout_blocks/list/_block"
+
+		events:
+			"click #toggler"   : "toggleExpand"
+
+		toggleExpand: (e) ->
+			console.log 'clicked me', e
+			$(e.target).toggleClass 'glyphicon glyphicon-expand'
+			$(e.target).toggleClass 'glyphicon glyphicon-collapse-down'
+			@triggerMethod 'expand:block:button:clicked'
+			# @$el.toggleClass 'glyphicon-collapse-down'
+
+
+		# triggers:
+		# 	"click .expand-block"   : "expand:block:button:clicked"
 
 	class List.Blocks extends App.Views.CompositeView
 		template: "workout_blocks/list/_blocks"
