@@ -4,8 +4,8 @@
     template: "workouts/show_model/_workout"
 
     triggers:
-      "click .edit-workout"   : "edit:workout:button:clicked"
-      # "dblclick"              : "edit:workout:doubleclicked"
+      # "click .edit-workout"   : "edit:workout:button:clicked"
+      "dblclick"              : "edit:workout:button:clicked"
 
     modelEvents:
       "updated" : "modelUpdated"
