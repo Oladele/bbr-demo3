@@ -2,8 +2,6 @@
   <div class='tiny pull-right'> SHOWTOPMODEL/_WORKOUT ITEMVIEW </div>
 </div>
 
-<!-- <div><%= @name %></div> -->
-
 <div class="wod-tab">
   <%= @name %>
   <button type="button" class="delete-workout pull-right btn-glyph">

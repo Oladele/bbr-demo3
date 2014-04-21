@@ -16,9 +16,6 @@
         workoutView = @getWorkoutView workout
 
         @listenTo workoutView, "edit:workout:button:clicked", (args)  =>
-          # options =
-          #   # region: args.view.editRegion
-          #   workout: args.model
           console.warn "TOP MODEL @OPTIONS", @options
           App.execute "edit:workout", @options
 
