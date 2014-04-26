@@ -43,10 +43,13 @@
 
 		listModelRegion: (childLayout, subModel_options) ->
 			listModelView = new List.Block(model: subModel_options.block)
+			
 			@listenTo listModelView, "expand:block:button:clicked", (e) ->
-				# @listSubModelsRegion subModel_options
 				@toggleSubModelsRegion subModel_options
 			
+			@listenTo listModelView, "delete:block:button:clicked", (e) ->
+				@deleteBlock listModelView.model
+
 			childLayout.listModelRegion.show( listModelView )
 
 		listSubModelsRegion: (subModel_options) ->
@@ -57,3 +60,6 @@
 				subModel_options.region.reset()
 			else
 				App.execute "show:block", subModel_options
+
+		deleteBlock: (model) ->
+			if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false

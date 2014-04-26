@@ -13,7 +13,7 @@
   <span class = 'block-font'><%= @name %></span>
 
   <button type="button" class="btn-glyph pull-right">
-    <span class="glyphicon glyphicon-remove"></span>
+    <span class="glyphicon glyphicon-remove delete-block"></span>
   </button>
 
   <button type="button" class="btn-glyph pull-right">

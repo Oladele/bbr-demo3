@@ -28,8 +28,8 @@
 			# @$el.toggleClass 'glyphicon-collapse-down'
 
 
-		# triggers:
-		# 	"click .expand-block"   : "expand:block:button:clicked"
+		triggers:
+			"click .delete-block"   : "delete:block:button:clicked"
 
 	class List.Blocks extends App.Views.CompositeView
 		template: "workout_blocks/list/_blocks"
