@@ -5,6 +5,10 @@
 		destroy: (options = {}) ->
 			_.defaults options,
 				wait: true
+				destroyAssociatedModels: true
+
+			# if destroyAssociatedModels
+				# destroyAssociatedModels
 
 			@set _destroy: true
 			super options
