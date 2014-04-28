@@ -1,0 +1,1 @@
+attributes :id, :group_id, :position

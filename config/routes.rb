@@ -1,9 +1,15 @@
 BackbonerailsDemo3::Application.routes.draw do
   resources :users
   resources :workouts
+  
   resources :wod_prototypes do
     resources :groups
   end
+  
+  resources :groups do
+    resources :setts
+  end
+
   resources :setts
   resources :leads, :only => [:index]
 

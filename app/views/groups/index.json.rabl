@@ -1,3 +1,3 @@
-collection @collection
+collection @groups
 
 extends "groups/_base"

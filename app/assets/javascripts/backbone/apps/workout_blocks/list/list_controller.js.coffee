@@ -10,25 +10,27 @@
 
 			blocks = App.request "block:entities", workout
 
-			# @layout = @getLayoutView()
-			blocksView = @getBlocksView blocks
+			App.execute "when:fetched", blocks, =>
 
-			# @listenTo @layout, "show", =>
-			# 	@listBlocks blocks
+				# @layout = @getLayoutView()
+				blocksView = @getBlocksView blocks
 
-			# @show @layout
-			@show blocksView
-			blocksView.children.each @handleChildLayout
+				# @listenTo @layout, "show", =>
+				# 	@listBlocks blocks
 
-		# getLayoutView : ->
-		# 	new List.Layout
+				# @show @layout
+				@show blocksView
+				blocksView.children.each @handleChildLayout
 
-		# listBlocks: (blocks) ->
-		# 	blocksView = @getBlocksView blocks
+			# getLayoutView : ->
+			# 	new List.Layout
 
-		# 	@layout.listModelsRegion.show blocksView
+			# listBlocks: (blocks) ->
+			# 	blocksView = @getBlocksView blocks
 
-		# 	blocksView.children.each @handleChildLayout
+			# 	@layout.listModelsRegion.show blocksView
+
+			# 	blocksView.children.each @handleChildLayout
 
 		getBlocksView: (blocks) ->
 			new List.Blocks
