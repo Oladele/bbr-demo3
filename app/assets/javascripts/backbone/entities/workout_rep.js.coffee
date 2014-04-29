@@ -7,9 +7,10 @@
 
   API =
     getReps: (sett) ->
-      if sett.attributes.reps.length isnt 0
-        reps = sett.attributes.reps
-      new Entities.RepsCollection reps
+      # if sett.attributes.reps.length isnt 0
+        # reps = sett.attributes.reps
+      reps = sett.reps
+      # new Entities.RepsCollection reps
 
   App.reqres.setHandler "rep:entities", (sett) ->
     API.getReps sett
