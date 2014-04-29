@@ -5,6 +5,12 @@
 	class Entities.SettsCollection extends Entities.Collection
 		model: Entities.Sett
 
+		initialize: (modelsArray, options) ->
+			@block_id = options.block.get('id')
+
+		url: -> 
+			Routes.group_setts_path(@block_id)
+
 	API =
 		getSetts: (block) ->
 			# if block.attributes.setts.length isnt 0

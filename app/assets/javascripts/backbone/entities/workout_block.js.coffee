@@ -1,28 +1,25 @@
 @Demo.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
 	class Entities.Block extends Entities.Model
+
 		defaults:
 			setts: []
+
+		initialize: (modelParams, options) ->
+			@wod_prototype_id = modelParams.wod_prototype_id
+			@setts = new Entities.SettsCollection(modelParams.setts, {block: @ });
 
 		urlRoot: ->
 			Routes.wod_prototype_groups_path(@wod_prototype_id)
 
-		initialize: (modelParams, options) ->
-			# req'd for when intialize is called in 'getBlockEntity: (modelParams) -> ...'
-			console.log 'modelParams in Block init', modelParams
-			@wod_prototype_id = modelParams.wod_prototype_id
-			@setts = new Entities.SettsCollection(modelParams.setts);
-			@setts.url = =>
-				Routes.group_setts_path(@id)
-
 	class Entities.BlocksCollection extends Entities.Collection
 		model: Entities.Block
-		url: -> 
-			Routes.wod_prototype_groups_path(@wod_prototype_id)
 
 		initialize: (modelsArray, options) ->
-			# req'd for when intialize is called in 'getBlockEntity: (modelParams) -> ...'
-			@wod_prototype_id = options.workout.attributes.id
+			@wod_prototype_id = options.workout.get('id')
+
+		url: -> 
+			Routes.wod_prototype_groups_path(@wod_prototype_id)
 
 	API =
 		getBlocks: (workout) ->
