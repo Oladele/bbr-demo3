@@ -10,7 +10,10 @@ BackbonerailsDemo3::Application.routes.draw do
     resources :setts
   end
 
-  resources :setts
+  resources :setts do
+    resources :reps
+  end
+  
   resources :leads, :only => [:index]
 
   root to: "application#index"
