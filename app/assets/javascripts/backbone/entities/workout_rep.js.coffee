@@ -2,15 +2,24 @@
 
   class Entities.Rep extends Entities.Model
 
+    initialize: (modelParams, options) ->
+      @sett_id = modelParams.sett_id
+
+    urlRoot: ->
+      Routes.sett_reps_path(@sett_id)
+
   class Entities.RepsCollection extends Entities.Collection
     model: Entities.Rep
 
+    initialize: (modelsArray, options) ->
+      @sett_id = options.sett.get('id')
+
+    url: -> 
+      Routes.group_setts_path(@sett_id)
+
   API =
     getReps: (sett) ->
-      # if sett.attributes.reps.length isnt 0
-        # reps = sett.attributes.reps
       reps = sett.reps
-      # new Entities.RepsCollection reps
 
   App.reqres.setHandler "rep:entities", (sett) ->
     API.getReps sett
