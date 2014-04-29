@@ -13,6 +13,8 @@
 			@setts = new Entities.SettsCollection(@get('setts'));
 			@setts.url = =>
 				Routes.group_setts_path(@id)
+			@setts.fetch
+				reset: true
 
 	class Entities.BlocksCollection extends Entities.Collection
 		model: Entities.Block
@@ -25,8 +27,8 @@
 
 	API =
 		getBlocks: (workout) ->
-			if workout.attributes.groups.length isnt 0
-			  blocks = workout.attributes.groups
+			# if workout.attributes.groups.length isnt 0
+			blocks = workout.attributes.groups
 			blocksCollection = new Entities.BlocksCollection blocks,
 					workout: workout
 			console.log 'getBlocks bc:', blocksCollection
