@@ -7,13 +7,17 @@ BackbonerailsDemo3::Application.routes.draw do
   end
   
   resources :groups do
-    resources :setts
+    resources :setts do
+      member do
+        get :deepCopy
+      end
+    end
   end
 
   resources :setts do
     resources :reps
   end
-  
+
   resources :leads, :only => [:index]
 
   root to: "application#index"

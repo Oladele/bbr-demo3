@@ -9,11 +9,11 @@ node do |wod_prototype|
 end
 
 child :groups do
-	attributes :id, :name, :position, :wod_prototype_id, :wod_id
+	attributes :id, :wod_prototype_id, :wod_id, :name, :position
 	child :setts do
-		attributes :id, :position
+		attributes :id, :group_id, :position
 		child :reps do
-			attributes :id, :resistance, :position
+			attributes :id, :sett_id, :resistance, :position
 			node(:exercise_name)do |rep|
 				@exercises.find(rep.exercise_id).name
 			end
