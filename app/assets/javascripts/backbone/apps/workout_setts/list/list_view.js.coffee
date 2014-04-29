@@ -17,8 +17,16 @@
 
   class List.Sett extends App.Views.ItemView
     template: "workout_setts/list/_sett"
+
     events:
       "click #toggler" : "toggleExpand"
+    
+    triggers:
+      "click .delete-sett" : "sett:delete"
+      "click .copy-sett" : "sett:copy"
+
+    # modelEvents:
+    #   "updated" : "modelUpdated"
 
     toggleExpand: (e) ->
       console.log 'clicked me', e

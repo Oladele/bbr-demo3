@@ -15,7 +15,7 @@ class SettsController < ApplicationController
     @sett = Sett.find(params[:id])
   end
 
-  def deepCopy
+  def deep_copy
     groupSource = Group.find(params[:group_id])
     settSource = Sett.find(params[:id])
     @sett = Sett.create_from_sett(settSource, groupSource)

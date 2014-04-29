@@ -9,7 +9,7 @@ BackbonerailsDemo3::Application.routes.draw do
   resources :groups do
     resources :setts do
       member do
-        get :deepCopy
+        post :deep_copy
       end
     end
   end

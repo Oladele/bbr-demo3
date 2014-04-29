@@ -11,6 +11,14 @@
 
 		urlRoot: ->
 			Routes.group_setts_path(@group_id)
+	
+		deepCopy: ->
+			url = @url() + '/deep_copy'
+			options =
+				url: url
+				type: 'POST'
+
+			(@sync || Backbone.sync).call(@, null, @, options)
 
 	class Entities.SettsCollection extends Entities.Collection
 		model: Entities.Sett
