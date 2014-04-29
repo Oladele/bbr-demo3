@@ -27,15 +27,9 @@
 
 	API =
 		getBlocks: (workout) ->
-			# if workout.attributes.groups.length isnt 0
 			blocks = workout.attributes.groups
 			blocksCollection = new Entities.BlocksCollection blocks,
 					workout: workout
-			console.log 'getBlocks bc:', blocksCollection
-			# blocksCollection = new Entities.BlocksCollection [],
-			# 		workout: workout
-			# blocksCollection.fetch
-			# 	reset:true
 			blocksCollection
 
 		getBlockEntity: (params) ->
