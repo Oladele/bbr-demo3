@@ -9,12 +9,11 @@
 
 		initialize: (modelParams, options) ->
 			# req'd for when intialize is called in 'getBlockEntity: (modelParams) -> ...'
+			console.log 'modelParams in Block init', modelParams
 			@wod_prototype_id = modelParams.wod_prototype_id
-			@setts = new Entities.SettsCollection(@get('setts'));
+			@setts = new Entities.SettsCollection(modelParams.setts);
 			@setts.url = =>
 				Routes.group_setts_path(@id)
-			@setts.fetch
-				reset: true
 
 	class Entities.BlocksCollection extends Entities.Collection
 		model: Entities.Block
