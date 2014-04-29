@@ -12,6 +12,7 @@
 class Sett < ActiveRecord::Base
 	belongs_to :group
 	validates :group_id, presence: true
+	acts_as_list scope: :group
 	has_many :reps
 
 	def self.create_from_sett(sett, to_group)

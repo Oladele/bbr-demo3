@@ -15,7 +15,7 @@ class Group < ActiveRecord::Base
 	belongs_to :wod
 	belongs_to :wod_prototype
 	acts_as_list scope: :wod_prototype
-	has_many :setts
+	has_many :setts, -> { order ("position ASC") }
 
 	# extend Positionable
 	# Not used. Need to DELETE
