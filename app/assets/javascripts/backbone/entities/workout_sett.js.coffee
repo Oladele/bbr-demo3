@@ -2,6 +2,16 @@
 
 	class Entities.Sett extends Entities.Model
 
+		defaults:
+			reps: []
+
+		initialize: (modelParams, options) ->
+			@group_id = modelParams.group_id
+			@reps = new Entities.RepsCollection(modelParams.reps, {sett: @ });
+
+		urlRoot: ->
+			Routes.group_setts_path(@group_id)
+
 	class Entities.SettsCollection extends Entities.Collection
 		model: Entities.Sett
 
