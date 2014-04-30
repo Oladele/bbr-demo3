@@ -7,18 +7,18 @@
       showModelRegion: "#show-model-region-workout"
       showSubModelsRegion: "#show-sub-models-region-workout"
 
-  class Show.Workout extends App.Views.Layout
-    template: "workouts/show/_workout"
+  # class Show.Workout extends App.Views.Layout
+  #   template: "workouts/show/_workout"
 
-    regions:
-      editRegion: "#edit-region"
+  #   regions:
+  #     editRegion: "#edit-region"
 
-    triggers:
-      "click .edit-workout"   : "edit:workout:button:clicked"
-      # "dblclick"              : "edit:workout:doubleclicked"
+  #   triggers:
+  #     "click .edit-workout"   : "edit:workout:button:clicked"
+  #     # "dblclick"              : "edit:workout:doubleclicked"
 
-    modelEvents:
-      "updated" : "modelUpdated"
+  #   modelEvents:
+  #     "updated" : "modelUpdated"
 
-    modelUpdated: =>
-      @render()
+  #   modelUpdated: =>
+  #     @render()
