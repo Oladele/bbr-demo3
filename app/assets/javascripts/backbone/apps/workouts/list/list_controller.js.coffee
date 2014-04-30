@@ -40,17 +40,8 @@
 
 			App.execute "new:workout", options
 
-		# editRegion: (workout, region) ->
-		# 	options = {}
-		# 	options.region = region
-		# 	options.workout = workout
-		# 	App.execute "edit:workout", options
-
 		listWorkouts: (workouts) ->
-			workoutsView = @getWorkoutsView workouts
-			
-			# @listenTo workoutsView, "childview:edit:workout:button:clicked", (child, args)  =>
-			# 	@editRegion args.model, args.view.editRegion
+			workoutsView = @getWorkoutsView workouts		
 
 			@listenTo workoutsView, "childview:workout:delete", (child, args) ->
 				model = args.model
@@ -76,11 +67,6 @@
 				@showDetails args.model
 
 			@layout.glanceDetailsRegion.show glanceView
-			# options =
-			# 	region: @layout.detailsRegion
-			# 	workout: workout
-			# new App.WorkoutsApp.Show.Controller options
-			# App.execute "workout:details", options
 
 		showDetails: (workout) ->
 			options =

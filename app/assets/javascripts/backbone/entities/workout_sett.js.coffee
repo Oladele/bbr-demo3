@@ -11,7 +11,7 @@
 
 		urlRoot: ->
 			Routes.group_setts_path(@group_id)
-	
+
 		deepCopy: ->
 			url = @url() + '/deep_copy'
 			options =
@@ -31,9 +31,6 @@
 
 	API =
 		getSetts: (block) ->
-			# if block.attributes.setts.length isnt 0
-			# 	setts = block.attributes.setts
-			# new Entities.SettsCollection setts
 			setts = block.setts
 
 	App.reqres.setHandler "sett:entities", (block) ->

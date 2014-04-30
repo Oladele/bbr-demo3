@@ -6,7 +6,7 @@
 		regions:
 			panelRegion: "#panel-region"
 			newRegion: "#new-region"
-			editRegion: "#new-region" #uses same region as 'new'
+			# editRegion: "#new-region" #uses same region as 'new'
 			workoutsRegion: "#workouts-region"
 			glanceDetailsRegion: "#glance-details-region"
 
@@ -15,15 +15,6 @@
 
 		triggers:
 			"click #new-workout" : "new:workout:button:clicked"
-
-	# TEMPORARY TO EXPLORE MOVING EDIT VIEW TO LIST ITEM
-	# class List._layout_workout extends App.Views.Layout
-	# 	template: "workouts/list/_layout_workout"
-	# # 	tagName: "li"
-
-	# 	regions:
-	# 		eachShowRegion: "#each-show-region"
-	# 		eachEditRegion: "#each-edit-region"
 
 	class List.Workout extends App.Views.Layout
 		template: "workouts/list/_workout"
