@@ -15,7 +15,7 @@ class Group < ActiveRecord::Base
 	belongs_to :wod
 	belongs_to :wod_prototype
 	acts_as_list scope: :wod_prototype
-	has_many :setts, -> { order ("position ASC") }
+	has_many :setts, foreign_key: "block_id"
 
 	# extend Positionable
 	# Not used. Need to DELETE

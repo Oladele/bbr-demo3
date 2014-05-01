@@ -1,1 +1,1 @@
-attributes :id, :group_id, :position
+attributes :id, :block_id, :position

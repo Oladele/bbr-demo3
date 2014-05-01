@@ -6,7 +6,7 @@
 		# 	reps: []
 
 		initialize: (modelParams, options) ->
-			@group_id = modelParams.group_id
+			@block_id = modelParams.block_id
 			
 			if modelParams.reps
 				@reps = new Entities.RepsCollection(modelParams.reps, {sett: @ })
@@ -15,7 +15,7 @@
 				@reps.fetch()
 
 		urlRoot: ->
-			Routes.block_setts_path(@group_id)
+			Routes.block_setts_path(@block_id)
 
 		deepCopy: ->
 			url = @url() + '/deep_copy'

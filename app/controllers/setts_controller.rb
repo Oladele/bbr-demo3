@@ -11,7 +11,7 @@ class SettsController < ApplicationController
   def show
     # sleep 5
     # @setts = sett.all
-    # group = Group.find(params[:group_id])
+    # group = Group.find(params[:block_id])
     @sett = Sett.find(params[:id])
   end
 
@@ -31,7 +31,7 @@ class SettsController < ApplicationController
   private
 
     def sett_params
-      params.require(:sett).permit(:group_id, :position)
+      params.require(:sett).permit(:block_id, :position)
     end
 
 end
