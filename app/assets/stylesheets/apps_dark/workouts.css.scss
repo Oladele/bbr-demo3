@@ -13,10 +13,9 @@
 { list-style: none; padding: 0px 0px; }
 
 .wod-tab 					
-{ margin: 5px; border-radius: 10px; border: 1px solid $bgDark;
-padding: 5px 5px; 
+{ margin: 5px; border-radius: 10px; border: 1px solid $bgDark; padding: 5px 5px; 
   &.selected 
-  { background-color: $bgNight; }
+  { background-color: $bgNight; margin-bottom: 0px; border-radius: 10px 10px 0px 0px; }
 }
 
 .wod-tab-new
@@ -27,3 +26,13 @@ padding: 5px 5px;
 
 .wod-input
 { color: $fontMedium; background-color: $bgNight; border: 1px inset $bgNight; width: 100%; padding: 5px; margin-bottom: 10px; }
+
+.glance-region-content
+{
+  background-color: $bgDark; margin: 0px 5px 5px; border-radius: 0px 0px 10px 10px; border: 1px solid $bgDark; padding: 5px 5px;
+}
+
+#show-workout
+{
+  background-color: $bgNight;
+}

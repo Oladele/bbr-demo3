@@ -21,7 +21,8 @@
 		tagName: "li"
 
 		regions:
-			editRegion: "#edit-region"
+			glanceRegion: ".glance-region"
+			# editRegion: "#edit-region"
 
 		triggers:
 			"click" 								: "workout:glance"

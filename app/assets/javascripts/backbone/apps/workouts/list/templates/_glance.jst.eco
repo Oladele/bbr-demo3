@@ -1,9 +1,8 @@
-<div>
-  <%= @name %>
+<div class="glance-region-content">
+  <div>
+    Glance workout details here  
+  </div>
+  <button type="button" id="show-workout" class="btn btn-default btn-sm">
+    More Details... 
+  </button>
 </div>
-<div>
-  Glance workout details here  
-</div>
-<button type="button" id="show-workout" class="btn btn-default btn-sm">
-  More Details... 
-</button>

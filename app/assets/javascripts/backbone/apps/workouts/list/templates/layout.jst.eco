@@ -5,14 +5,14 @@
 </div>
 
 <div class="row wod-tabs-content">
-	<div class="col-sm-6 col-md-6 col-lg-6 wod-sub-panel slick-scroll-y center">
+	<div class="col-sm-12 col-md-12 col-lg-12 wod-sub-panel slick-scroll-y center">
 		<div id="new-region"></div>
 		<div id="workouts-region"></div>
 	</div>
 
-	<div class="col-sm-6 col-md-6 col-lg-6 wod-sub-panel slick-scroll-y">
+	<!-- <div class="col-sm-6 col-md-6 col-lg-6 wod-sub-panel slick-scroll-y">
 		<div id="wod-details" class="wod-content">
 			<div id="glance-details-region"></div>
 		</div>
-	</div>
+	</div> -->
 </div>
