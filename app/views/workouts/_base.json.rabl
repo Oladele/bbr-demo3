@@ -8,7 +8,7 @@ node do |wod_prototype|
 	}
 end
 
-child :groups do
+child :groups => :blocks do
 	attributes :id, :wod_prototype_id, :wod_id, :name, :position
 	child :setts do
 		attributes :id, :group_id, :position

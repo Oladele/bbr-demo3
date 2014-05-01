@@ -10,7 +10,7 @@
 			@setts = new Entities.SettsCollection(modelParams.setts, {block: @ });
 
 		urlRoot: ->
-			Routes.wod_prototype_groups_path(@wod_prototype_id)
+			Routes.wod_prototype_blocks_path(@wod_prototype_id)
 
 	class Entities.BlocksCollection extends Entities.Collection
 		model: Entities.Block
@@ -19,11 +19,11 @@
 			@wod_prototype_id = options.workout.get('id')
 
 		url: -> 
-			Routes.wod_prototype_groups_path(@wod_prototype_id)
+			Routes.wod_prototype_blocks_path(@wod_prototype_id)
 
 	API =
 		getBlocks: (workout) ->
-			blocks = workout.attributes.groups
+			blocks = workout.attributes.blocks
 			blocksCollection = new Entities.BlocksCollection blocks,
 					workout: workout
 			blocksCollection

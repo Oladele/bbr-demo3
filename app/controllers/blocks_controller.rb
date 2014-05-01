@@ -1,4 +1,4 @@
-class GroupsController < ApplicationController
+class BlocksController < ApplicationController
   respond_to :json
 
   def index

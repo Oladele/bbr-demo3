@@ -15,7 +15,7 @@
 				@reps.fetch()
 
 		urlRoot: ->
-			Routes.group_setts_path(@group_id)
+			Routes.block_setts_path(@group_id)
 
 		deepCopy: ->
 			url = @url() + '/deep_copy'
@@ -34,7 +34,7 @@
 			@block_id = options.block.get('id')
 
 		url: ->
-			Routes.group_setts_path(@block_id)
+			Routes.block_setts_path(@block_id)
 
 	API =
 		getSetts: (block) ->
