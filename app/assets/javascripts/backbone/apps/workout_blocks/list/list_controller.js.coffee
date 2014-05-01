@@ -46,10 +46,12 @@
 		listModelRegion: (childLayout, subModel_options) ->
 			listModelView = new List.Block(model: subModel_options.block)
 			
-			@listenTo listModelView, "expand:block:button:clicked", (e) ->
+			@listenTo listModelView, "expand:block:button:clicked", ->
+				console.log "listenTo expandBlock(subModel_options)", subModel_options
+				window.temp_subModel_options = subModel_options
 				@toggleSubModelsRegion subModel_options
 			
-			@listenTo listModelView, "delete:block:button:clicked", (e) ->
+			@listenTo listModelView, "delete:block:button:clicked", ->
 				@deleteBlock listModelView.model
 
 			childLayout.listModelRegion.show( listModelView )

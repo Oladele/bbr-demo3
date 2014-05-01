@@ -7,27 +7,17 @@
 			block = options.block
 
 			setts = App.request "sett:entities", block
+			setts.on "all", (e) -> console.log 'setts.on all:', e
+			window.temp_setts = setts
 
-			# @layout = @getLayoutView()
-			@settsView = @getSettsView setts
+			App.execute "when:fetched", setts, =>
 
-			# @listenTo @layout, "show", =>
-			# 	@listSetts setts
+				@settsView = @getSettsView setts
+				window.temp_settsView = @settsView
 
-			# @show @layout
-			@show @settsView
-			console.log 'settsView:', @settsView
-			@settsView.children.each @handleChildLayout
-
-		# getLayoutView: ->
-		# 	new List.Layout
-
-		# listSetts: (setts) ->
-		# 	settsView = @getSettsView setts
-
-		# 	@layout.listModelsRegion.show settsView
-
-		# 	settsView.children.each @handleChildLayout
+				@show @settsView
+				console.log 'settsView:', @settsView
+				@settsView.children.each @handleChildLayout
 
 		getSettsView: (setts) ->
 			new List.Setts
@@ -62,6 +52,7 @@
 			@listenTo listModelView, "sett:copy", (e) ->
 				console.log 'sett:copy clicked', e
 				e.model.deepCopy()
+				# @settsView.render()
 
 			layout.listModelRegion.show( listModelView )
 

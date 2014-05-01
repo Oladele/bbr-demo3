@@ -15,7 +15,7 @@
       @sett_id = options.sett.get('id')
 
     url: -> 
-      Routes.group_setts_path(@sett_id)
+      Routes.sett_reps_path(@sett_id)
 
   API =
     getReps: (sett) ->
