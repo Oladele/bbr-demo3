@@ -10,7 +10,7 @@
 #
 
 class Sett < ActiveRecord::Base
-	belongs_to :group
+	belongs_to :block
 	validates :block_id, presence: true
 	acts_as_list scope: :block
 	has_many :reps

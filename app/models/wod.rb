@@ -12,7 +12,7 @@
 class Wod < ActiveRecord::Base
 	belongs_to :user
 	validates :user_id, presence: true
-	has_many :groups
+	has_many :blocks
 	extend Positionable
 	#originaly used for 'create_from'. 
 	#No longer used by may be useful for future CRUD
@@ -25,8 +25,8 @@ class Wod < ActiveRecord::Base
 
 		new_wod = self.create!(user_id: user_id, wod_prototype_id: wod_prototype_id, name: name, time: time)
 
-		wod_proto.groups.each do |group|
-			new_group = Group.create_from_group(group, new_wod)
+		wod_proto.blocks.each do |block|
+			new_block = Group.create_from_block(block, new_wod)
 		end
 		return new_wod
 	end

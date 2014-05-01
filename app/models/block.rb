@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: groups
+# Table name: blocks
 #
 #  id               :integer          not null, primary key
 #  wod_prototype_id :integer
@@ -11,7 +11,7 @@
 #  updated_at       :datetime
 #
 
-class Group < ActiveRecord::Base
+class Block < ActiveRecord::Base
 	belongs_to :wod
 	belongs_to :wod_prototype
 	acts_as_list scope: :wod_prototype
@@ -20,18 +20,18 @@ class Group < ActiveRecord::Base
 	# extend Positionable
 	# Not used. Need to DELETE
 	
-	def self.create_from_group(group, to_wod)
+	def self.create_from_block(block, to_wod)
 
-		new_group = group.dup
-		new_group.wod_id = to_wod.id
-		new_group.wod_prototype_id = nil
-		new_group.save!
+		new_block = block.dup
+		new_block.wod_id = to_wod.id
+		new_block.wod_prototype_id = nil
+		new_block.save!
 
-		group.setts.each do |sett|
-			new_sett = Sett.create_from_sett(sett, new_group)
+		block.setts.each do |sett|
+			new_sett = Sett.create_from_sett(sett, new_block)
 		end
 
-		return new_group
+		return new_block
 
 	end
 end

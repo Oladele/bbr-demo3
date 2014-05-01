@@ -33,9 +33,9 @@ namespace :db do
     # ******************FRAN************************
 
     fran = user.wod_prototypes.create!(name: 'Fran')
-    round1 = fran.groups.create!(name: "First Round (21 Reps per exercise)", position: 1)
-    round2 = fran.groups.create!(name: "Second Round (15 Reps per exercise)", position: 2)
-    round3 = fran.groups.create!(name: "Third Round (9 Reps per exercise)", position: 3)
+    round1 = fran.blocks.create!(name: "First Round (21 Reps per exercise)", position: 1)
+    round2 = fran.blocks.create!(name: "Second Round (15 Reps per exercise)", position: 2)
+    round3 = fran.blocks.create!(name: "Third Round (9 Reps per exercise)", position: 3)
 
     round1set1 = round1.setts.create!(position: 1)
     round1set2 = round1.setts.create!(position: 2)
@@ -78,7 +78,7 @@ namespace :db do
     # ******************ANGIE************************
 
     angie = user.wod_prototypes.create!(name: 'Angie')
-    round1 = angie.groups.create!(name: "Only one round *FOR TIME*", position: 1)
+    round1 = angie.blocks.create!(name: "Only one round *FOR TIME*", position: 1)
     round1set1 = round1.setts.create!(position: 1)
     round1set2 = round1.setts.create!(position: 2)
     round1set3 = round1.setts.create!(position: 3)

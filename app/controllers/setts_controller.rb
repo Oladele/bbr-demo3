@@ -4,21 +4,21 @@ class SettsController < ApplicationController
   def index
     # sleep 5
     # @setts = sett.all
-    group = Group.find(params[:block_id])
-    @setts = group.setts
+    block = Block.find(params[:block_id])
+    @setts = block.setts
   end
 
   def show
     # sleep 5
     # @setts = sett.all
-    # group = Group.find(params[:block_id])
+    # block = Block.find(params[:block_id])
     @sett = Sett.find(params[:id])
   end
 
   def deep_copy
-    groupSource = Group.find(params[:block_id])
+    blockSource = Block.find(params[:block_id])
     settSource = Sett.find(params[:id])
-    @sett = Sett.create_from_sett(settSource, groupSource)
+    @sett = Sett.create_from_sett(settSource, blockSource)
   end
 
   def destroy
