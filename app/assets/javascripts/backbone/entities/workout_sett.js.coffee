@@ -7,16 +7,11 @@
 
 		initialize: (modelParams, options) ->
 			@group_id = modelParams.group_id
-			console.log 'sett init, @group_id:', @group_id
 			
 			if modelParams.reps
-				console.log '+init @reps RepsCollection, sett:', @
 				@reps = new Entities.RepsCollection(modelParams.reps, {sett: @ })
-				console.log '+init @reps RepsCollection, @reps.url:', @reps.url()
 			else
-				console.log '-init @reps RepsCollection, sett:', @
 				@reps = new Entities.RepsCollection([], {sett: @ })
-				console.log '-init @reps RepsCollection, @reps.url:', @reps.url()
 				@reps.fetch()
 
 		urlRoot: ->
@@ -37,10 +32,8 @@
 
 		initialize: (modelsArray, options) ->
 			@block_id = options.block.get('id')
-			console.log 'settsColl init, @block_id:', @block_id
 
 		url: ->
-			console.log 'settsColl url, @block_id:', @block_id
 			Routes.group_setts_path(@block_id)
 
 	API =
