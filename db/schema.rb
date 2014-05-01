@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308182956) do
+ActiveRecord::Schema.define(version: 20140501133525) do
 
   create_table "exercises", force: true do |t|
     t.string   "name"
@@ -45,13 +45,13 @@ ActiveRecord::Schema.define(version: 20140308182956) do
   add_index "reps", ["sett_id", "exercise_id", "position"], name: "index_reps_on_sett_id_and_exercise_id_and_position"
 
   create_table "setts", force: true do |t|
-    t.integer  "group_id"
+    t.integer  "block_id"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "setts", ["group_id", "position"], name: "index_setts_on_group_id_and_position"
+  add_index "setts", ["block_id", "position"], name: "index_setts_on_block_id_and_position"
 
   create_table "users", force: true do |t|
     t.string   "first_name"
