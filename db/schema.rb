@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501133525) do
+ActiveRecord::Schema.define(version: 20140501155533) do
+
+  create_table "blocks", force: true do |t|
+    t.integer  "wod_prototype_id"
+    t.integer  "wod_id"
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blocks", ["wod_prototype_id", "wod_id", "name", "position"], name: "group_index", unique: true
 
   create_table "exercises", force: true do |t|
     t.string   "name"
@@ -21,17 +32,6 @@ ActiveRecord::Schema.define(version: 20140501133525) do
   end
 
   add_index "exercises", ["user_id", "name"], name: "index_exercises_on_user_id_and_name"
-
-  create_table "groups", force: true do |t|
-    t.integer  "wod_prototype_id"
-    t.integer  "wod_id"
-    t.string   "name"
-    t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "groups", ["wod_prototype_id", "wod_id", "name", "position"], name: "group_index", unique: true
 
   create_table "reps", force: true do |t|
     t.integer  "sett_id"
