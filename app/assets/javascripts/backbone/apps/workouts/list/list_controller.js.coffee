@@ -52,10 +52,14 @@
 				console.log 'args from childview..glance', args
 				# @showDetails (args.model)
 				console.log 'workoutsView:', workoutsView
-				workoutsView.$(".wod-tab").removeClass("selected")
-				workoutsView.children.each (child)->
-					child.glanceRegion.reset()
-				child.$(".wod-tab").addClass("selected")
+				# workoutsView.$(".wod-tab").removeClass("selected")
+				# workoutsView.children.each (child)->
+				# 	child.glanceRegion.reset()
+				console.log 'child.$(wod-tab.selected):', child.$(".wod-tab.selected")
+				if child.$(".wod-tab.selected").length is 0
+					child.$(".wod-tab").addClass("selected")
+				else
+					child.$(".wod-tab").removeClass("selected")
 				@glanceDetails (args)
 
 			@layout.workoutsRegion.show workoutsView
@@ -73,8 +77,10 @@
 
 			# @layout.glanceDetailsRegion.show glanceView
 			if (args.view).glanceRegion.currentView
+				console.log 'inside glanceDetails +glanceRegion.currentView, args.view:', args.view
 				(args.view).glanceRegion.reset()
 			else
+				console.log 'inside glanceDetails -glanceRegion.currentView, args.view:', args.view
 				(args.view).glanceRegion.show glanceView
 
 		showDetails: (workout) ->
