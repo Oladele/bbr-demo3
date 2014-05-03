@@ -20,16 +20,16 @@
 		events:
 			"click #toggler"   : "toggleExpand"
 
+		triggers:
+			"click .delete-block"   : "delete:block:button:clicked"
+			"click .copy-block" 		: "block:copy"
+
 		toggleExpand: (e) ->
 			console.log 'clicked me', e
 			$(e.target).toggleClass 'glyphicon glyphicon-chevron-right'
 			$(e.target).toggleClass 'glyphicon glyphicon-chevron-down'
 			@triggerMethod 'expand:block:button:clicked'
 			# @$el.toggleClass 'glyphicon-collapse-down'
-
-
-		triggers:
-			"click .delete-block"   : "delete:block:button:clicked"
 
 	class List.Blocks extends App.Views.CompositeView
 		template: "workout_blocks/list/_blocks"

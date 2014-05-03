@@ -16,7 +16,7 @@
     <span class="glyphicon glyphicon-remove delete-block"></span>
   </button>
 
-  <button type="button" class="btn-glyph pull-right">
+  <button type="button" class="copy-block btn-glyph pull-right">
     <span class="glyphicon glyphicon-new-window"></span>
   </button>
 </div>

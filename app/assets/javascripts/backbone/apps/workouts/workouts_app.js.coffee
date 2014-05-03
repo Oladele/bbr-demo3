@@ -33,10 +33,10 @@
 				workout: workout
 				region: region
 
-		showWorkout: (id, workout) ->
+		showWorkout: (id) ->
 			options = 
 				id:id
-				workout:workout
+				# workout:workout
 			new WorkoutsApp.Show.Controller options
 
 		showWorkoutTopModel: (options) ->
@@ -54,8 +54,10 @@
 		API.editWorkout options.workout.id, options.workout, options.region
 
 	App.commands.setHandler "show:workout", (options) ->
-		App.navigate Routes.workout_path(options.workout.id)
-		API.showWorkout options.workout.id, options.workout
+		# App.navigate Routes.workout_path(options.workout.id)
+		# API.showWorkout options.workout.id, options.workout
+		App.navigate Routes.workout_path(options.wod_prototype.id)
+		API.showWorkout options.wod_prototype.id
 		# API.listWorkoutsAndDetails options.workout.id
 
 	App.commands.setHandler "show:workout:top_model", (options) ->

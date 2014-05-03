@@ -3,7 +3,14 @@ BackbonerailsDemo3::Application.routes.draw do
   resources :workouts
   
   resources :wod_prototypes do
-    resources :blocks
+    member do
+      post :deep_copy
+    end
+    resources :blocks do
+      member do
+        post :deep_copy
+      end
+    end
   end
   
   resources :blocks do

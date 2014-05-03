@@ -4,7 +4,7 @@
 
 		initialize: (options) ->
 
-			workouts = App.request "workout:entities"
+			workouts = App.request "wod_prototype:entities"
 			
 			App.execute "when:fetched", workouts, =>
 				workout = workouts.get(id:options.edit_id) if options.edit_id
@@ -62,6 +62,10 @@
 					child.$(".wod-tab").removeClass("selected")
 				@glanceDetails (args)
 
+			@listenTo workoutsView, "childview:workout:copy", (e) ->
+				console.log 'workout:copy clicked', e
+				e.model.deepCopy()
+
 			@layout.workoutsRegion.show workoutsView
 
 		getWorkoutsView: (workouts) ->
@@ -86,7 +90,8 @@
 		showDetails: (workout) ->
 			options =
 				region: @layout.detailsRegion
-				workout: workout
+				wod_prototype: workout
+				# workout_id: {id: workout.id}
 			# new App.WorkoutsApp.Show.Controller options
 			App.execute "show:workout", options
 

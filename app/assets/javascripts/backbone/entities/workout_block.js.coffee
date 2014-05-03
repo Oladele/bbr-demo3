@@ -12,6 +12,16 @@
 		urlRoot: ->
 			Routes.wod_prototype_blocks_path(@wod_prototype_id)
 
+		deepCopy: ->
+			url = @url() + '/deep_copy'
+			options =
+				url: url
+				type: 'POST'
+				success: (server_resp) => 
+					console.log 'success callback server_resp:', server_resp
+
+			(@sync || Backbone.sync).call(@, 'deep_copy', @, options)
+
 	class Entities.BlocksCollection extends Entities.Collection
 		model: Entities.Block
 

@@ -14,11 +14,13 @@
 class Rep < ActiveRecord::Base
 	belongs_to :sett
 	validates :sett_id, presence: true
+  acts_as_list scope: :sett
 
 	def self.create_from_rep(rep, to_sett)
 		new_rep = rep.dup
 		new_rep.sett_id = to_sett.id
 		new_rep.save!
+    new_rep.move_to_bottom
 		return new_rep
 	end
 end

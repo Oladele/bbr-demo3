@@ -27,7 +27,7 @@
 		triggers:
 			"click" 								: "workout:glance"
 			"click .delete-workout" : "workout:delete"
-			"click .edit-workout" 	: "edit:workout:button:clicked"
+			"click .copy-workout" 	: "workout:copy"
 
 		modelEvents:
 			"updated" : "modelUpdated"

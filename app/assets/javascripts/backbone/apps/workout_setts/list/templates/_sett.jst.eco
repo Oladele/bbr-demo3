@@ -14,6 +14,6 @@
   </button>
 
   <button type="button" class="copy-sett btn-glyph pull-right">
-    <span class="glyphicon glyphicon-edit"></span>
+    <span class="glyphicon glyphicon-new-window"></span>
   </button>
 </div>

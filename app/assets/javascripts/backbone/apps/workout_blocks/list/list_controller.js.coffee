@@ -12,25 +12,10 @@
 
 			App.execute "when:fetched", blocks, =>
 
-				# @layout = @getLayoutView()
 				blocksView = @getBlocksView blocks
 
-				# @listenTo @layout, "show", =>
-				# 	@listBlocks blocks
-
-				# @show @layout
 				@show blocksView
 				blocksView.children.each @handleChildLayout
-
-			# getLayoutView : ->
-			# 	new List.Layout
-
-			# listBlocks: (blocks) ->
-			# 	blocksView = @getBlocksView blocks
-
-			# 	@layout.listModelsRegion.show blocksView
-
-			# 	blocksView.children.each @handleChildLayout
 
 		getBlocksView: (blocks) ->
 			new List.Blocks
@@ -47,12 +32,14 @@
 			listModelView = new List.Block(model: subModel_options.block)
 			
 			@listenTo listModelView, "expand:block:button:clicked", ->
-				console.log "listenTo expandBlock(subModel_options)", subModel_options
-				window.temp_subModel_options = subModel_options
 				@toggleSubModelsRegion subModel_options
 			
 			@listenTo listModelView, "delete:block:button:clicked", ->
 				@deleteBlock listModelView.model
+
+			@listenTo listModelView, "block:copy", (e) ->
+				console.log 'block:copy clicked', e
+				e.model.deepCopy()
 
 			childLayout.listModelRegion.show( listModelView )
 

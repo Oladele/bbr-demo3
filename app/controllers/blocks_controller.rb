@@ -14,6 +14,12 @@ class BlocksController < ApplicationController
     @block = wp.blocks.find params[:id]
   end
 
+  def deep_copy
+    wodSource = WodPrototype.find(params[:wod_prototype_id])
+    blockSource = Block.find(params[:id])
+    @block = Block.create_from_block(blockSource, wodSource)
+  end
+
   def update
     # sleep 5
     # @block = Block.find params[:id]
