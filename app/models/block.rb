@@ -17,13 +17,9 @@ class Block < ActiveRecord::Base
 	acts_as_list scope: :wod_prototype
 	has_many :setts, -> { order("position ASC") }, dependent: :destroy
 
-	# extend Positionable
-	# Not used. Need to DELETE
-	
 	def self.create_from_block(block, to_wod)
 
 		new_block = block.dup
-		new_block.wod_prototype_id = to_wod.id
 		if to_wod.class == WodPrototype
 			new_block.wod_prototype_id = to_wod.id
 		elsif to_wod.class == Wod
