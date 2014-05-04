@@ -11,8 +11,8 @@
 
 class User < ActiveRecord::Base
 	has_many :wod_prototypes
-	has_many :wods
 	has_many :exercises
+  has_many :wods, -> { order ("created_at ASC") }, dependent: :destroy
 
 	def full_name
 		"#{first_name} #{last_name}"

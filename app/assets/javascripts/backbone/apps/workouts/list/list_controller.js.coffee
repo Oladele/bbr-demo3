@@ -2,21 +2,24 @@
 
 	class List.Controller extends App.Controllers.Base	
 
+		# initialize: (options) ->
 		initialize: (options) ->
 
-			workouts = App.request "wod_prototype:entities"
+			user_id = options.user_id
+
+			workouts = App.request "wod_prototype:entities", user_id
 			
 			App.execute "when:fetched", workouts, =>
-				workout = workouts.get(id:options.edit_id) if options.edit_id
-				workout = workouts.get(id:options.show_id) if options.show_id
+				# workout = workouts.get(id:options.edit_id) if options.edit_id
+				# workout = workouts.get(id:options.show_id) if options.show_id
 				
 				@layout = @getLayoutView()
 
 				@listenTo @layout, "show", =>
 					@showPanel workouts
 					@listWorkouts workouts
-					@showDetails workout if options.show_id
-					@editRegion workout if options.edit_id
+					# @showDetails workout if options.show_id
+					# @editRegion workout if options.edit_id
 
 				@show @layout
 

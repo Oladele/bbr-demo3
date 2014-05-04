@@ -3,24 +3,29 @@ class WodPrototypesController < ApplicationController
 
 	def index
 		#sleep 3
-		@wod_prototypes = WodPrototype.all
+    user = User.find(params[:user_id])
+		@wod_prototypes = user.wod_prototypes.order(created_at: :asc)
+
 		#@users = nil
 	end
 
   def show
-    @wod_prototype = WodPrototype.find params[:id]
+    user = User.find(params[:user_id])
+    @wod_prototype = user.wod_prototypes.find params[:id]
   end
 
   def deep_copy
-    # userSource = User.find(params[:id])
+    userSource = User.find(params[:user_id])
     wodSource = WodPrototype.find(params[:id])
-    # @wod = WodPrototype.create_from_wod_prototype(wodSource, userSource)
-    @wod = WodPrototype.create_from_wod_prototype(wodSource, wodSource.user)
+    @wod = WodPrototype.create_from_wod_prototype(wodSource, userSource)
+    # @wod = WodPrototype.create_from_wod_prototype(wodSource, wodSource.user)
   end
 
   def update
     # sleep 5
-    @wod_prototype = WodPrototype.find params[:id]
+    user = User.find(params[:user_id])
+    @wod_prototype = user.wod_prototypes.find params[:id]
+    # @wod_prototype = WodPrototype.find params[:id]
     if @wod_prototype.update_attributes wod_params
       render "wod_prototypes/show"
     else

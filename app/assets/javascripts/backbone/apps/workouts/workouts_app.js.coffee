@@ -6,10 +6,14 @@
 			# "workouts/:id" : "listWorkoutsAndDetails"
 			"workouts/:id" : "showWorkout"
 			# "workouts/:id/edit" : "listWorkoutsAndEdit"
-			"workouts" : "listWorkouts"
+			"users/:user_id/workouts" : "listWorkouts"
 
 	API =
-		listWorkouts: (options) ->
+		listWorkouts: (user_id) ->
+			console.log 'WorkoutsApp listWorkouts user_id:', user_id
+			options =
+				user_id: user_id
+			console.log 'WorkoutsApp listWorkouts options:', options
 			# WorkoutsApp.List.Controller.listWorkouts()
 			new WorkoutsApp.List.Controller options
 
@@ -72,8 +76,8 @@
 		# API.listWorkouts()
 
 	App.vent.on "workout:created", (workout) ->
-		App.navigate Routes.workouts_path()
-		API.listWorkouts()
+		App.navigate Routes.user_workouts_path(App.currentUser.id)
+		API.listWorkouts(App.currentUser.id)
 
 	App.addInitializer ->
 		new WorkoutsApp.Router

@@ -1,7 +1,12 @@
 @Demo.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
   class Entities.WodPrototype extends Entities.Model
-    urlRoot: ->Routes.wod_prototypes_path()
+
+    initialize: (modelParams, options) ->
+      console.log "WodPrototype init modelParams:", modelParams
+      @user_id = modelParams.user_id
+
+    urlRoot: ->Routes.user_wod_prototypes_path(@user_id)
 
     deepCopy: ->
       url = @url() + '/deep_copy'
@@ -15,12 +20,16 @@
 
   class Entities.WodPrototypesCollection extends Entities.Collection
     model: Entities.WodPrototype
-    url: -> Routes.wod_prototypes_path()
+
+    initialize: (modelsArray, options) ->
+      @user_id = options.user_id
+
+    url: -> Routes.user_wod_prototypes_path(@user_id)
 
   API =
 
-    getWodPrototypeEntities: ->
-      wod_prototypes = new Entities.WodPrototypesCollection
+    getWodPrototypeEntities: ([], options) ->
+      wod_prototypes = new Entities.WodPrototypesCollection([], options)
       wod_prototypes.fetch
         reset: true
       wod_prototypes
@@ -32,14 +41,20 @@
         reset:true
       wod_prototype
 
-    newWodPrototypeEntity: ->
-      new Entities.WodPrototype
+    newWodPrototypeEntity: (modelParams) ->
+      new Entities.WodPrototype modelParams
 
-  App.reqres.setHandler "wod_prototype:entities", ->
-    API.getWodPrototypeEntities()
+  App.reqres.setHandler "wod_prototype:entities", (user_id) ->
+    console.log 'wod_prototype:entities user_id:', user_id
+    options =
+      user_id: user_id
+    API.getWodPrototypeEntities([],options)
 
   App.reqres.setHandler "wod_prototype:entity", (id) ->
     API.getWodPrototypeEntity id
 
-  App.reqres.setHandler "new:wod_prototype:entity", ->
-    API.newWodPrototypeEntity()
+  App.reqres.setHandler "new:wod_prototype:entity", (user_id) ->
+    console.log 'new:prototype:entity user_id:', user_id
+    modelParams =
+      user_id: user_id
+    API.newWodPrototypeEntity(modelParams)
