@@ -9,7 +9,7 @@
 		getHeaders: ->
 			new Backbone.Collection [
 				{ name: "Users", url: Routes.users_path() }
-				{ name: "Workouts", url: Routes.workouts_path() }
+				{ name: "Workouts", url: Routes.user_workouts_path(App.currentUser.id) }
 				{ name: "Settings", url: Routes.leads_path() }
 				# { name: "Appointments", url: "appointments" } 
 				#used string for appointments since we don't have time to set up route paths

@@ -35,10 +35,10 @@ class WodPrototypesController < ApplicationController
 
   def create
     # sleep 2
-    @wod_prototype = WodPrototype.new
+    user = User.find(params[:user_id])
+    @wod_prototype = user.wod_prototypes.new
 
-    #TODO: HACK - forces user_id to be FIRST USER
-    if @wod_prototype.update_attributes wod_params.merge({user_id:1})
+    if @wod_prototype.update_attributes wod_params.merge({user_id: user.id})
       render "wod_prototypes/show"
     else
       respond_with @wod_prototype
