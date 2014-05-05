@@ -2,36 +2,21 @@
 
 	class WorkoutsApp.Router extends Marionette.AppRouter
 		appRoutes:
-			# "workouts/:id/edit" : "editWorkout"
-			# "workouts/:id" : "listWorkoutsAndDetails"
+			"workouts/:id/edit" : "showWorkout"
 			"workouts/:id" : "showWorkout"
-			# "workouts/:id/edit" : "listWorkoutsAndEdit"
 			"users/:user_id/workouts" : "listWorkouts"
 
 	API =
 		listWorkouts: (user_id) ->
-			console.log 'WorkoutsApp listWorkouts user_id:', user_id
 			options =
 				user_id: user_id
-			console.log 'WorkoutsApp listWorkouts options:', options
-			# WorkoutsApp.List.Controller.listWorkouts()
 			new WorkoutsApp.List.Controller options
 
-		listWorkoutsAndEdit: (id) ->
-			@listWorkouts (edit_id:id)
-
-		listWorkoutsAndDetails: (id) ->
-			@listWorkouts (show_id:id)
-
 		newWorkout: (region) ->
-			# WorkoutsApp.New.Controller.newWorkout()
-			# new WorkoutsApp.New.Controller
-			# new WorkoutsApp.New.Controller().formView #TAKE TWO
 			new WorkoutsApp.New.Controller
 				region: region
 
 		editWorkout: (id, workout, region) ->
-			# WorkoutsApp.Edit.Controller.edit id, workout
 			new WorkoutsApp.Edit.Controller
 				id: id
 				workout: workout
@@ -40,7 +25,6 @@
 		showWorkout: (id) ->
 			options = 
 				id:id
-				# workout:workout
 			new WorkoutsApp.Show.Controller options
 
 		showWorkoutTopModel: (options) ->
@@ -54,26 +38,18 @@
 		API.editWorkout workout.id, workout
 
 	App.commands.setHandler "edit:workout", (options) ->
-		# App.navigate Routes.edit_workout_path(options.workout.id)
 		API.editWorkout options.workout.id, options.workout, options.region
 
 	App.commands.setHandler "show:workout", (options) ->
-		# App.navigate Routes.workout_path(options.workout.id)
-		# API.showWorkout options.workout.id, options.workout
 		App.navigate Routes.workout_path(options.wod_prototype.id)
 		API.showWorkout options.wod_prototype.id
-		# API.listWorkoutsAndDetails options.workout.id
 
 	App.commands.setHandler "show:workout:top_model", (options) ->
-		# App.navigate Routes.workout_path(options.workout.id)
 		API.showWorkoutTopModel options
 
 	App.vent.on "workout:cancelled workout:updated", (options) ->
-		# App.navigate Routes.workouts_path()
 		App.navigate Routes.workout_path(options.workout.id)
-		console.log 'workout:updated vented', options
 		API.showWorkoutTopModel options
-		# API.listWorkouts()
 
 	App.vent.on "workout:created", (workout) ->
 		App.navigate Routes.user_workouts_path(App.currentUser.id)

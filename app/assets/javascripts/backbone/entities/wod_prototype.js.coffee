@@ -3,7 +3,6 @@
   class Entities.WodPrototype extends Entities.Model
 
     initialize: (modelParams, options) ->
-      console.log "WodPrototype init modelParams:", modelParams
       @user_id = modelParams.user_id
 
     urlRoot: ->Routes.user_wod_prototypes_path(@user_id)
@@ -45,7 +44,6 @@
       new Entities.WodPrototype modelParams
 
   App.reqres.setHandler "wod_prototype:entities", (user_id) ->
-    console.log 'wod_prototype:entities user_id:', user_id
     options =
       user_id: user_id
     API.getWodPrototypeEntities([],options)
@@ -54,7 +52,6 @@
     API.getWodPrototypeEntity id
 
   App.reqres.setHandler "new:wod_prototype:entity", (user_id) ->
-    console.log 'new:prototype:entity user_id:', user_id
     modelParams =
       user_id: user_id
     API.newWodPrototypeEntity(modelParams)
