@@ -6,7 +6,6 @@
 		# newWorkout: ->
 		initialize: (options) ->
 
-			# TODO: Temporary
 			user_id = App.currentUser.id
 
 			workout = App.request "new:wod_prototype:entity", user_id
@@ -14,9 +13,8 @@
 
 			# workout.on "created", ->
 			@listenTo workout, "created", ->
-				App.vent.trigger "workout:created", workout
-				
-			
+				App.vent.trigger "workout:created", workout	
+		
 			newView = @getNewView workout
 			# App.request "form:wrapper", newView
 			# @formView = App.request "form:wrapper", newView
