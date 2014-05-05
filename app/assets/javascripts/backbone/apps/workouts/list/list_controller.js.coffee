@@ -2,7 +2,6 @@
 
 	class List.Controller extends App.Controllers.Base	
 
-		# initialize: (options) ->
 		initialize: (options) ->
 
 			user_id = options.user_id
@@ -10,16 +9,12 @@
 			workouts = App.request "wod_prototype:entities", user_id
 			
 			App.execute "when:fetched", workouts, =>
-				# workout = workouts.get(id:options.edit_id) if options.edit_id
-				# workout = workouts.get(id:options.show_id) if options.show_id
 				
 				@layout = @getLayoutView()
 
 				@listenTo @layout, "show", =>
 					@showPanel workouts
 					@listWorkouts workouts
-					# @showDetails workout if options.show_id
-					# @editRegion workout if options.edit_id
 
 				@show @layout
 
@@ -51,14 +46,7 @@
 				if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
 
 			@listenTo workoutsView, "childview:workout:glance", (child, args)  ->
-				console.log 'child from childview..glance', child
-				console.log 'args from childview..glance', args
-				# @showDetails (args.model)
-				console.log 'workoutsView:', workoutsView
-				# workoutsView.$(".wod-tab").removeClass("selected")
-				# workoutsView.children.each (child)->
-				# 	child.glanceRegion.reset()
-				console.log 'child.$(wod-tab.selected):', child.$(".wod-tab.selected")
+			
 				if child.$(".wod-tab.selected").length is 0
 					child.$(".wod-tab").addClass("selected")
 				else
@@ -66,7 +54,6 @@
 				@glanceDetails (args)
 
 			@listenTo workoutsView, "childview:workout:copy", (e) ->
-				console.log 'workout:copy clicked', e
 				e.model.deepCopy()
 				App.vent.trigger "workout:created"
 
@@ -80,23 +67,17 @@
 			glanceView = @GetGlanceView args.model
 
 			@listenTo glanceView, "show:workout:button:clicked", (args)  ->
-				console.log 'show button clicked, args:', args
 				@showDetails args.model
 
-			# @layout.glanceDetailsRegion.show glanceView
 			if (args.view).glanceRegion.currentView
-				console.log 'inside glanceDetails +glanceRegion.currentView, args.view:', args.view
 				(args.view).glanceRegion.reset()
 			else
-				console.log 'inside glanceDetails -glanceRegion.currentView, args.view:', args.view
 				(args.view).glanceRegion.show glanceView
 
 		showDetails: (workout) ->
 			options =
 				region: @layout.detailsRegion
 				wod_prototype: workout
-				# workout_id: {id: workout.id}
-			# new App.WorkoutsApp.Show.Controller options
 			App.execute "show:workout", options
 
 		getLayoutView : ->
