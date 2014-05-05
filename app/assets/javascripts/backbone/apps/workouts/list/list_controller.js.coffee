@@ -68,6 +68,7 @@
 			@listenTo workoutsView, "childview:workout:copy", (e) ->
 				console.log 'workout:copy clicked', e
 				e.model.deepCopy()
+				App.vent.trigger "workout:created"
 
 			@layout.workoutsRegion.show workoutsView
 
