@@ -13,6 +13,7 @@
 
 class Rep < ActiveRecord::Base
 	belongs_to :sett
+	belongs_to :exercise
 	validates :sett_id, presence: true
   acts_as_list scope: :sett
 

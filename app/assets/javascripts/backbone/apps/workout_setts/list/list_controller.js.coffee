@@ -16,8 +16,10 @@
 				window.temp_settsView = @settsView
 
 				@show @settsView
-				console.log 'settsView:', @settsView
 				@settsView.children.each @handleChildLayout
+				@listenTo setts, "add", (e) ->
+					console.warn '**my change:add (e)**', e
+					@settsView.children.each @handleChildLayout
 
 		getSettsView: (setts) ->
 			new List.Setts
@@ -25,8 +27,6 @@
 
 		handleChildLayout: (layout) =>
 			layout.collection = @settsView.collection
-			console.log 'settsView.child:', layout
-			console.log '@settsView within child handler', @settsView
 			
 			subModel_options =
 				region: layout.listSubModelsRegion

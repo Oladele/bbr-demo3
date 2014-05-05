@@ -19,6 +19,7 @@ class SettsController < ApplicationController
     blockSource = Block.find(params[:block_id])
     settSource = Sett.find(params[:id])
     @sett = Sett.create_from_sett(settSource, blockSource)
+    @exercises = Exercise.all
   end
 
   def destroy

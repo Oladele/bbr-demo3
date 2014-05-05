@@ -55,7 +55,7 @@
 
 			@listenTo workoutsView, "childview:workout:copy", (e) ->
 				e.model.deepCopy()
-				App.vent.trigger "workout:created"
+				# App.vent.trigger "workout:created"
 
 			@layout.workoutsRegion.show workoutsView
 
