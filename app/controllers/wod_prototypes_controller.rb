@@ -17,7 +17,7 @@ class WodPrototypesController < ApplicationController
   def deep_copy
     userSource = User.find(params[:user_id])
     wodSource = WodPrototype.find(params[:id])
-    @wod = WodPrototype.create_from_wod_prototype(wodSource, userSource)
+    @wod_prototype = WodPrototype.create_from_wod_prototype(wodSource, userSource)
     # @wod = WodPrototype.create_from_wod_prototype(wodSource, wodSource.user)
   end
 
