@@ -13,7 +13,8 @@
         url: url
         type: 'POST'
         success: (server_resp) => 
-          console.log 'success callback server_resp:', server_resp
+          console.log 'success callback server_resp:,@', server_resp, @
+          @collection.add(server_resp)
 
       (@sync || Backbone.sync).call(@, 'deep_copy', @, options)
 
