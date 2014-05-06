@@ -12,10 +12,13 @@
 
 			App.execute "when:fetched", blocks, =>
 
-				blocksView = @getBlocksView blocks
+				@blocksView = @getBlocksView blocks
 
-				@show blocksView
-				blocksView.children.each @handleChildLayout
+				@show @blocksView
+				@blocksView.children.each @handleChildLayout
+				@listenTo blocks, "add", (e) ->
+					console.warn '**my change:add (e)**', e
+					@blocksView.children.each @handleChildLayout
 
 		getBlocksView: (blocks) ->
 			new List.Blocks

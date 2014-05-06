@@ -18,6 +18,7 @@ class BlocksController < ApplicationController
     wodSource = WodPrototype.find(params[:wod_prototype_id])
     blockSource = Block.find(params[:id])
     @block = Block.create_from_block(blockSource, wodSource)
+    @exercises = Exercise.all
   end
 
   def update
