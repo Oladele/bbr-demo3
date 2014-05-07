@@ -3,6 +3,10 @@ BackbonerailsDemo3::Application.routes.draw do
   resources :workouts
 
   resources :users do
+    resources :exercises
+  end
+
+  resources :users do
     resources :workouts
   end
   

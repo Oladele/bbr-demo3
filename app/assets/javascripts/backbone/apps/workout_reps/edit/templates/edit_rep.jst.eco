@@ -1,23 +1,32 @@
+<% console.log 'EDIT TEMPLATE @', @ %>
+
 <div class="wod-tab-new form-group">
   <!-- <div id="form-region"></div> -->
     <div id="edit-workout-input">
-      <input  type="text" 
+      <input  id = "ex_name"
+              type="hidden" 
               name="exercise_name" 
-              placeholder="New workout name" 
+              placeholder="Exercise name" 
               class="wod-input form-control" 
               label= "Exercise"
               value="<%= @exercise_name %>" />
+      
+      <select id="ex_id" 
+              name="exercise_id" 
+              class="wod-input form-control">
+      </select>
+      
       <input  type="text" 
               name="resistance" 
               placeholder="Resistance?" 
               class="wod-input form-control" 
               label= "Resistance"
               value="<%= @resistance %>" />
-      <input  type="text" 
+      <!-- <input  type="text" 
               name="exercise_id" 
               placeholder="Exercise Id" 
               class="wod-input form-control" 
               label= "Exercise id"
-              value="<%= @exercise_id %>" />
+              value="<%= @exercise_id %>" /> -->
     </div>
 </div>

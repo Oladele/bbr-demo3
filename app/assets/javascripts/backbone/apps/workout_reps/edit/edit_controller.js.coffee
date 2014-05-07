@@ -3,31 +3,53 @@
   class Edit.Controller extends App.Controllers.Base
 
     initialize: (options) ->
-      { rep,region } = options
 
       @options = options
+      { rep,region } = @options
 
-      # workout or= App.request "workout:entity", id
+      exercises = App.request "exercise:entities"
+      console.log 'exercises', exercises
 
-      # @options.workout = workout
+      App.execute "when:fetched", exercises, =>
 
-      @listenTo rep, "updated", =>
-        @region.close()
-        App.vent.trigger "rep:updated", @options
 
-      editView = @getEditView rep
+        @listenTo rep, "updated", =>
+          @region.close()
+          App.vent.trigger "rep:updated", @options
 
-      console.log 'edit rep editView:', editView
-      
-      formView = App.request "form:wrapper", editView
+        editView = @getEditView rep, exercises
+        # TODO: Remove:
+        window.temp_EditView = editView
 
-      @listenTo editView, "form:cancel", =>
-        @region.close()
-        App.vent.trigger "rep:cancelled", @options
+        @listenTo editView, "show", ->
+          ex_id = editView.$el.find('#ex_id')
+          ex_name = editView.$el.find('#ex_name')
+          exercises.each (exercise) ->
+            opt = $("<option/>",{html: exercise.get("name"), value: exercise.get("id")})
+            ex_id.append(opt)
+          ex_id.val rep.get("exercise_id")
+          ex_id.change (eventObject)->
+            exercise_id = ex_id.val()
+            paramString = "[value=" + exercise_id + "]"
+            selected_text = ex_id.find(paramString).text()
+            ex_name.val(selected_text)
+            console.log 'exercise_id:', exercise_id
+            console.log 'paramString:', paramString
+            console.log 'selected_text:', selected_text
+        
+        formView = App.request "form:wrapper", editView
 
-      @show formView
+        # @listenTo formView, "show", =>
+        #   console.log 'hello from edit controller', formView
 
-    getEditView: (rep) ->
+        @listenTo editView, "form:cancel", =>
+          @region.close()
+          App.vent.trigger "rep:cancelled", @options
+
+        @show formView
+
+    getEditView: (rep, exercises) ->
       new Edit.Rep
         model: rep
         collection: rep.collection
+        exercises: exercises
