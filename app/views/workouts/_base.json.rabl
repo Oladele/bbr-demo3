@@ -13,7 +13,7 @@ child :blocks do
 	child :setts do
 		attributes :id, :block_id, :position
 		child :reps do
-			attributes :id, :sett_id, :resistance, :position
+			attributes :id, :sett_id, :resistance, :position, :exercise_id
 			node(:exercise_name)do |rep|
 				@exercises.find(rep.exercise_id).name
 			end

@@ -7,6 +7,7 @@
       sett = options.sett
 
       reps = App.request "rep:entities", sett
+      window.temp_repsCollection = reps
 
       @layout = @getLayoutView()
 
@@ -20,6 +21,13 @@
 
     listReps: (reps) ->
       repsView = @getRepsView reps
+
+      @listenTo repsView, "childview:edit:rep:clicked", (e) ->
+        console.log 'clicked child rep (e):', e
+        edit_options =
+          rep: e.model
+          region: @layout.listModelsDialogRegion
+        App.execute "edit:rep", edit_options
 
       @layout.listModelsRegion.show repsView
 
@@ -36,6 +44,10 @@
 
     listModelRegion: (layout) ->
       listModelView = new List.Rep(model: layout.model)
+
+      # @listenTo listModelView, "edit:rep:clicked", (e) ->
+      #   console.log 'clicked rep (e):', e
+
       layout.listModelRegion.show( listModelView )
 
     # listSubModelsRegion: (layout) ->

@@ -31,7 +31,7 @@ gem 'annotate'
 gem 'faker'
 
 gem 'acts_as_list'
-
+gem 'jquery-ui-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
